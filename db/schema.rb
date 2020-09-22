@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_120315) do
+ActiveRecord::Schema.define(version: 2020_09_22_150226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audience_services", force: :cascade do |t|
+    t.bigint "audience_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["audience_id"], name: "index_audience_services_on_audience_id"
+    t.index ["service_id"], name: "index_audience_services_on_service_id"
+  end
+
+  create_table "audiences", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "audience_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "partner_services", force: :cascade do |t|
     t.bigint "service_id", null: false
@@ -69,6 +86,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_120315) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "audience_services", "audiences"
+  add_foreign_key "audience_services", "services"
   add_foreign_key "partner_services", "partners"
   add_foreign_key "partner_services", "services"
   add_foreign_key "target_audience_services", "services"
