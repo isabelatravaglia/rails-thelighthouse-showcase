@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TargetAudienceServiceTest < ActiveSupport::TestCase
+class AudienceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
