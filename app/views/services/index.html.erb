@@ -1,2 +1,11 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<h1>Nossos Serviços</h1>
+
+<% @services.each do |service| %>
+  <h2>Serviço: <%= service.name %></h2>
+  <h2><%= service.description %></h2>
+  <h2>Público alvo:</h2>
+  <% service.audiences.each do |audience| %>
+    <h2><%= audience.name %></h2>
+  <% end %>
+<br>
+<% end %>
