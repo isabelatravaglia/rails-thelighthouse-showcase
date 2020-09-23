@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
     has_many :partner_services, dependent: :destroy
-    has_many :audiences, dependent: :destroy
+    has_many :audience_services, dependent: :destroy
     has_many :partners, through: :partner_services
+    has_many :audiences, through: :audience_services
 end
