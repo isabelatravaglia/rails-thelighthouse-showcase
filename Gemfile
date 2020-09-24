@@ -62,7 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added this code to dockerize the app
-group :production do
-  gem 'pg'
-end
+#group :production do
+  #gem 'pg'
+#end
 
