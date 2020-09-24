@@ -18,10 +18,18 @@ ENV RAILS_ENV production
   #  curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
    # apt-get install -y nodejs
 
+#RUN gem install bundler
+#RUN bundle install --deployment --without development test
+#RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+     #&& apt-get install -y nodejs
+
 RUN gem install bundler \
-    && bundle config set deployment 'true' without 'development test' \
-    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-    && apt-get install -y nodejs
+&& bundle config set deployment 'true' \
+&& bundle config set without 'development test' \
+&& bundle install \
+&& curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+     && apt-get install -y nodejs
+
 
 #The last instruction
 ENTRYPOINT ./entrypoint.sh
