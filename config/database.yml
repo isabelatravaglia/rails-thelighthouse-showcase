@@ -84,7 +84,13 @@ production:
   #username: rails_thelighthouse
   #password: <%= ENV['RAILS_THELIGHTHOUSE_DATABASE_PASSWORD'] %>
   adapter: postgresql
-  host: <%= ENV.fetch('DATABASE_HOST') %>
-  port: <%= ENV.fetch('DATABASE_PORT') %>
-  username: <%= ENV.fetch('DATABASE_USERNAME') %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
+  # host: <%#= ENV.fetch('DATABASE_HOST') %>
+  # port: <%#= ENV.fetch('DATABASE_PORT') %>
+  # username: <%#= ENV.fetch('DATABASE_USERNAME') %>
+  # password: <%#= ENV.fetch('DATABASE_PASSWORD') %>
+  # secret_key_base: <%#= ENV.fetch('SECRET_KEY_BASE') %>
+
+  host: 172.17.0.1
+  port: 5432
+  username: postgres
+  password: postgres
