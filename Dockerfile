@@ -16,7 +16,7 @@ WORKDIR /application
 
 #To start the application in the production environment
 ENV RAILS_ENV production
-# ENV RAILS_SERVE_STATIC_FILES true 
+ENV RAILS_SERVE_STATIC_FILES true 
 
 #To avoid bundler error and install bundler to allow other dependencies
 # Installs dependencies
@@ -31,10 +31,6 @@ RUN apt-get update && apt-get install -y \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get update && apt-get install -y nodejs yarn
 
-# RUN bundle exec rake assets:precompile 
-
-RUN bundle exec rake assets:precompile --trace
-
-#The last instruction
+# The last instruction
 ENTRYPOINT ./entrypoint.sh
 
