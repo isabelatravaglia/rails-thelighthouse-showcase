@@ -15,12 +15,14 @@ COPY . /application
 WORKDIR /application
 
 #To start the application in the production environment
-ENV RAILS_ENV production
-ENV RAILS_SERVE_STATIC_FILES true 
+# ENV RAILS_ENV production
+# ENV RAILS_SERVE_STATIC_FILES true 
 
 #To avoid bundler error and install bundler to allow other dependencies
 # Installs dependencies
 # Installing Nodejs
+# Install yarn
+# Run yarn install to install JavaScript dependencies.
 
 RUN apt-get update && apt-get install -y \
   curl \
@@ -29,7 +31,8 @@ RUN apt-get update && apt-get install -y \
   curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-  apt-get update && apt-get install -y nodejs yarn
+  apt-get update && apt-get install -y nodejs yarn && \
+  yarn install --check-files
 
 # The last instruction
 ENTRYPOINT ./entrypoint.sh
