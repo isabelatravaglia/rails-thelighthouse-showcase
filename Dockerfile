@@ -45,6 +45,8 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
+ENV RAILS_SERVE_STATIC_FILES true
+
 RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 # Start the main process.
