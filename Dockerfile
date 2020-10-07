@@ -39,27 +39,13 @@ COPY . /application
 # To allow Heroku Exec (connect to the container), ensure the default shell is Bash by including the following line in your Dockerfile:
 # RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-# Copy the application folder from the Rails app to the docker image.
-# COPY . /application
-
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-# Start the main process.
-# CMD ["rails", "server", "-b", "0.0.0.0"]
-
-# Change to the application's directory
-# WORKDIR /application
-
 RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
-
-# The last instruction
-# CMD ["rails", "server", "-b", "0.0.0.0"]
-# ENTRYPOINT ./entrypoint.sh
-
