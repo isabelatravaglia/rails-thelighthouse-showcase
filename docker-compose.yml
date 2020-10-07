@@ -42,6 +42,7 @@ services:
   web:
     # The root directory from which we're building.
     build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
 
     # This makes it so any code changes inside the project
     # directory get synced with Docker. Without this line,
@@ -66,7 +67,7 @@ services:
     # used in this container.
     environment:
       RAILS_ENV: production
-    #   DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_NAME: ${DATABASE_NAME}
     #   DATABASE_USERNAME: ${DATABASE_USERNAME}
     #   DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     #   DATABASE_HOST: ${DATABASE_HOST}
