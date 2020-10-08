@@ -47,7 +47,7 @@ EXPOSE 3000
 
 ENV RAILS_SERVE_STATIC_FILES true
 
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+RUN bundle exec rake assets:precompile
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]

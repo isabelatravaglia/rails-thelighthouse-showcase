@@ -8,6 +8,8 @@ version: "3.8"
 services:
 
   database:
+    environment:
+      POSTGRES_PASSWORD: postgres
     # Use the latest postgres base image for this container.
     image: postgres
     # environment:
@@ -65,14 +67,15 @@ services:
 
     # Specify the values of the environment variables
     # used in this container.
-    environment:
-      RAILS_ENV: production
-      DATABASE_NAME: ${DATABASE_NAME}
+    # environment:
+      # RAILS_ENV: production
+      # POSTGRES_PASSWORD: postgres
+      # DATABASE_NAME: ${DATABASE_NAME}
     #   DATABASE_USERNAME: ${DATABASE_USERNAME}
     #   DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     #   DATABASE_HOST: ${DATABASE_HOST}
     #   DATABASE_PORT: ${DATABASE_PORT}
-      RAILS_SERVE_STATIC_FILES: 1
+      # RAILS_SERVE_STATIC_FILES: 1
 
 # Declare the volumes that our application uses.
 volumes:
