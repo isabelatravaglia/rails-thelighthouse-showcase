@@ -7,6 +7,20 @@ version: "3.8"
 # is another service ("database").
 services:
 
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       RUBY_VERSION: '2.6.6'
+  #       PG_MAJOR: '13'
+  #       NODE_MAJOR: '12'
+  #       YARN_VERSION: '1.22.4'
+  #       BUNDLER_VERSION: '2.1.4'
+  #   image: martians-library-dev:1.1.0
+  #   tmpfs:
+  #     - /tmp
+
   database:
     environment:
       POSTGRES_PASSWORD: postgres
@@ -43,7 +57,15 @@ services:
 
   web:
     # The root directory from which we're building.
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: '2.6.6'
+        PG_MAJOR: '13'
+        NODE_MAJOR: '12'
+        YARN_VERSION: '1.22.4'
+        BUNDLER_VERSION: '2.1.4'
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
 
     # This makes it so any code changes inside the project
@@ -64,6 +86,10 @@ services:
     # container which we've called "database".
     depends_on:
       - database
+
+    image: rails-thelighthouse:1.1.0
+    tmpfs:
+      - /tmp
 
     # Specify the values of the environment variables
     # used in this container.
