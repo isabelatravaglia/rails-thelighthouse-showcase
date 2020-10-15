@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   resources :partners, only: [:index]
   resources :partner_services, only: [:index]
   resources :audience_services, only: [:index]
+  get 'about', to: 'pages#about'
+  get 'leaders', to: 'pages#leaders'
+  get 'companies', to: 'pages#companies'
 end
