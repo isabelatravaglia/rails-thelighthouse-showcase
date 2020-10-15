@@ -1,6 +1,7 @@
 .navbar-tlh {
   justify-content: space-between;
-  background: #D2C5C0;
+  flex-direction: row !important;
+  background: $tlh-beige;
 }
 
 .navbar-tlh .navbar-collapse {
@@ -11,3 +12,5 @@
   width: 50px;
   border-radius: 50%;
 }
+
+
