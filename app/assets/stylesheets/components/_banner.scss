@@ -7,3 +7,25 @@
     // margin-top: 0;
     position: relative;
   }
+
+  .banner-text {
+    position: absolute;
+    left: 37%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+  }
+
+  h1 {
+    font-size: 42px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 30px;
+    color: white;
+    // font-weight: bold;
+    text-align: center;
+  }
