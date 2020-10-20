@@ -19,8 +19,13 @@
     text-align: center;
   }
 
+  .card-category p {
+    text-align: justify;
+  }
+
   .text {
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
+    justify-content: space-between;
+    padding: 70px;
   }
