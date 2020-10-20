@@ -1,0 +1,26 @@
+.card-category {
+    // overflow: hidden;
+    height: 300px;
+    // background: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-category img {
+    height: 100%;
+    // width: 150px;
+    // object-fit: cover;
+  }
+
+  .card-category h2 {
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+  }
