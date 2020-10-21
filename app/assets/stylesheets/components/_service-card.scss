@@ -1,21 +1,25 @@
 /*PEN STYLES*/
 
 .service-banner {
-    background: white;
+    background: $tlh-fading-purple;
     justify-content: center;
 }
 
 .s-cards-banner {
     display: flex;
+    justify-content: space-between;
 }
 
 .service-header {
     color: black;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .service-header h2 {
-    color: black
+    color: black;
+    font-weight: bold;
 }
 
 * {
@@ -30,7 +34,7 @@
   .service-card {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
+    margin: 1rem 1rem;
     box-shadow: 0 3px 7px -1px rgba(#000, .1);
     margin-bottom: 1.6%;
     background: $color_white;
