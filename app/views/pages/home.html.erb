@@ -4,12 +4,89 @@
     <h2>Conheça a The Lighthouse</h2>
   </div>
 </div>
-  <div class="comp-banner">
-    <div class="card-category">
-      <%= image_tag "company.jpg" %>
-    </div>
-    <div class="card-category text">
+<div class="comp-banner">
+  <div class="card-category">
+    <%= image_tag "company.jpg" %>
+  </div>
+  <div class="card-category text">
     <h2>Lorem Ipsum</h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum accusantium hic et enim! Ea, iure! Nisi facilis enim nulla, eaque error beatae ab delectus ad ea repudiandae neque debitis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, molestias! Possimus cumque neque ducimus, recusandae a odio labore eaque nihil odit doloribus iure mollitia exercitationem, impedit maiores delectus rerum earum?
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum accusantium hic et enim! Ea, iure! Nisi facilis enim nulla, eaque error beatae ab delectus ad ea repudiandae neque debitis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, molestias! Possimus cumque neque ducimus, recusandae a odio labore eaque nihil odit doloribus iure mollitia exercitationem, impedit maiores delectus rerum earum?
+    </p>
+  </div>
+</div>
+<div class="service-banner">
+  <div class="service-header">
+    <h2>Serviços</h2>
+  </div>
+  <div class="splide" data-splide='{"type":"loop","perPage":2, "perMove":1, "arrows":"splide"}'>
+    <div class="splide__slider"> <!-- relative -->
+      <div class="splide__track">
+        <div class="splide__list">
+          <div class="splide__slide">
+            <div class="service-card">
+              <div class="meta">
+                <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                <%# <ul class="details">
+                  <li class="author"><a href="#">John Doe</a></li>
+                  <li class="date">Aug. 24, 2015</li>
+                </ul> %>
+              </div>
+              <div class="description">
+                <h1>Learning to Code</h1>
+                <h2>Opening a door to the future</h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                <p class="read-more">
+                  <a href="#">Read More</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="splide__slide">
+            <div class="service-card">
+              <div class="meta">
+                <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
+                <%# <ul class="details">
+                  <li class="author"><a href="#">John Doe</a></li>
+                  <li class="date">Aug. 24, 2015</li>
+                </ul> %>
+              </div>
+              <div class="description">
+                <h1>Learning to Code</h1>
+                <h2>Opening a door to the future</h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                <p class="read-more">
+                  <a href="#">Read More</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="splide__slide">
+            <div class="service-card">
+              <div class="meta">
+                <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                <%# <ul class="details">
+                  <li class="author"><a href="#">John Doe</a></li>
+                  <li class="date">Aug. 24, 2015</li>
+                </ul> %>
+              </div>
+              <div class="description">
+                <h1>Learning to Code</h1>
+                <h2>Opening a door to the future</h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                <p class="read-more">
+                  <a href="#">Read More</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="service-km">
+    <%= link_to "services" do %>
+      Saiba Mais
+    <% end %>
+   </div>
+</div>
