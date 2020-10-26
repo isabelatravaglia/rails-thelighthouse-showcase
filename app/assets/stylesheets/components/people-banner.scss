@@ -1,0 +1,41 @@
+.people-banner {
+    background-color: white;
+    hr {
+        margin-left: 0;
+        margin-bottom: 30px;
+        border-color: $tlh-purple;
+        border-width: 3px;
+        width: 48px;
+        margin-top: 0;
+        border-radius: 3px;
+    }
+    h2 {
+        color: black;
+        text-align: start;
+    }
+    p {
+        font-size: 18px;
+        text-align: justify;
+    }
+}
+
+.people-banner-img {
+    background-image: image-url("people-banner.jpg");
+    background-size: auto;
+    min-height: 480px;
+    background-size: cover;
+}
+
+.btn-info.purple {
+    background: white;
+    border: 2px solid $tlh-purple;
+    border-radius: 40px;
+    color: $tlh-purple;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 130px;
+    margin-top: 15px;
+}
