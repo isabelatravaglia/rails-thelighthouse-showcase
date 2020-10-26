@@ -1,0 +1,26 @@
+.people-banner {
+    background-color: white;
+    hr {
+        margin-left: 0;
+        margin-bottom: 30px;
+        border-color: $tlh-purple;
+        border-width: 3px;
+        width: 48px;
+        margin-top: 0;
+    }
+    h2 {
+        color: black;
+        text-align: start;
+    }
+    p {
+        font-size: 18px;
+    }
+}
+
+.people-banner-img {
+    background-image: image-url("people-banner.jpg");
+    // background: url('../../img/homepage_tl_baixo.jpg') no-repeat center center;
+    background-size: auto;
+    min-height: 480px;
+    background-size: cover;
+}
