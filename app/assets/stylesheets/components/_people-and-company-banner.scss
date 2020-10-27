@@ -1,4 +1,8 @@
-.people-banner {
+.row {
+    margin-right: auto;
+}
+
+.people-and-company-banner {
     background-color: white;
     hr {
         margin-left: 0;
@@ -20,22 +24,16 @@
 }
 
 .people-banner-img {
-    background-image: image-url("people-banner.jpg");
+    background: image-url("people-banner.jpg") no-repeat center center;
     background-size: auto;
     min-height: 480px;
     background-size: cover;
 }
 
-.btn-info.purple {
-    background: white;
-    border: 2px solid $tlh-purple;
-    border-radius: 40px;
-    color: $tlh-purple;
-    font-size: 11px;
-    text-transform: uppercase;
-    font-weight: 800;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 130px;
-    margin-top: 15px;
+.company-services-banner-img {
+    background-image: image-url("company-services-banner.jpg");
+    background-size: auto;
+    min-height: 480px;
+    background-size: cover;
 }
+

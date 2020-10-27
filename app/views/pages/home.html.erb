@@ -21,7 +21,7 @@
   </div>
   <div class="splide" data-splide='{"type":"loop","perPage":2, "perMove":1, "arrows":"splide"}'>
     <div class="splide__slider"> <!-- relative -->
-      <div class="splide__track">
+      <div class="splide__track padding">
         <div class="splide__list">
           <div class="splide__slide">
             <div class="service-card">
@@ -85,12 +85,14 @@
     </div>
   </div>
   <div class="service-km">
-    <%= link_to "services" do %>
-      Saiba Mais
-    <% end %>
+    <p>
+      <%= link_to "services", class: "btn btn-info purple" do %>
+        Saiba Mais
+      <% end %>
+    </p>
    </div>
 </div>
-<div class="people-banner">
+<div class="people-and-company-banner">
   <div class="row">
     <div class="col-md-5" style="padding-left:40px;">
       <h2 style="margin-top:80px">Para Você</h2>
@@ -103,11 +105,29 @@
         <% end %>
       </p>
     </div>
-    <div class="col-md-7 hidden-sm hidden-xs" style="padding-right:0px">
+    <div class="col-md-7 d-none d-md-block" style="padding-right:0px">
 			<div class="people-banner-img"></div>
 		</div>
+  </div>
+</div>
+<div class="people-and-company-banner">
+  <div class="row">
+    <div class="col-md-7 d-none d-md-block" style="padding-left:0px">
+			<div class="company-services-banner-img"></div>
+		</div>
+    <div class="col-md-5" style="padding-left:40px;">
+      <h2 style="margin-top:80px">Para Empresas</h2>
+      <hr>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.</p>
+      <p>
+        <%= link_to "companies", class: "btn btn-info purple" do %>
+          Saiba Mais
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
+
 
 
