@@ -1,0 +1,27 @@
+.jumbotron.container-footer {
+    background-color: $tlh-light-purple;
+    margin-bottom: 0;
+    padding-top: 65px;
+
+    a {
+        color: #D2C5C0;
+    }
+
+    p {
+        color: #D2C5C0;
+    }
+
+    .list-inline>li {
+        display:inline-block;
+        padding-left:5px;
+        padding-right:5px
+    }
+}
+
+.jumbotron.container-footer.on-hover {
+    a:hover {
+      color: white;
+      text-decoration: none;
+    }
+}
+
