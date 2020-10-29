@@ -28,19 +28,18 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
           <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <li class="nav-item active">
-          <%= link_to "Serviços", "services", class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "Serviços", "services", class: current_class?(services_path) %>
         </li>
         <li class="nav-item">
-          <%= link_to "Para Você", "leaders", class: "nav-link" %>
+          <%= link_to "Para Você", "leaders", class: current_class?(leaders_path) %>
         </li>
         <li class="nav-item">
-          <%= link_to "Para Empresas", "companies", class: "nav-link" %>
+          <%= link_to "Para Empresas", "companies", class: current_class?(companies_path) %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sobre Nós", "about", class: "nav-link" %>
+          <%= link_to "Sobre Nós", "about", class: current_class?(about_path) %>
         </li>
         <li class="nav-item">
           <a href="mailto:contato@discoverthelighthouse.com" title="Nosso Email" target="_blank" class="btn btn-info purple inverted">
