@@ -6,12 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# services
-# partners
-# audiences
-# partner_services
-# audience_services
-
 puts "Destroying records"
 
 Service.destroy_all
@@ -21,14 +15,6 @@ PartnerService.destroy_all
 AudienceService.destroy_all
 
 puts "Creating Services"
-
-
-# require "open-uri"
-
-# image_file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-# article = Article.new(title: 'NES', body: "A great console")
-# article.photo.attach(io: image_file, filename: 'nes.png', content_type: 'image/png')
-
 
 
 coaching = Service.create(name: "Coaching", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.", tagline: "Maximize seus resultados")
