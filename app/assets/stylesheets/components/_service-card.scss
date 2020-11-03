@@ -229,3 +229,24 @@
       }
     }
   }
+
+  .service-card.full {
+    max-width: none;
+
+    p {
+      position: relative;
+      margin: 0 0 0;
+      &:first-of-type {
+        margin-top: 1.25rem;
+        &:before {
+          content: "";
+          position: absolute;
+          height: 3px;
+          background: $color_prime;
+          width: 35px;
+          top: -0.75rem;
+          border-radius: 3px;
+        }
+      }
+    }
+  }

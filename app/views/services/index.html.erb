@@ -4,13 +4,41 @@
         <h2>Escolha o melhor para você ou para sua empresa</h2>
     </div>
 </div>
-
-<% @services.each do |service| %>
-  <h2>Serviço: <%= service.name %></h2>
-  <h2><%= service.description %></h2>
-  <h2>Público alvo:</h2>
-  <% service.audiences.each do |audience| %>
-    <h2><%= audience.name %></h2>
-  <% end %>
+<div class="service-banner">
+  <% @services.order(:id).each do |service| %>
+    <% if service.id.odd?  %>
+      <div class="service-card full">
+    <% else %>
+      <div class="service-card alt full">
+    <% end %>
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+          <%# <ul class="details">
+            <li class="author"><a href="#">John Doe</a></li>
+            <li class="date">Aug. 24, 2015</li>
+          </ul> %>
+        </div>
+        <div class="description">
+          <h1><%= service.name %></h1>
+          <h2>Opening a door to the future</h2>
+          <p> <%= service.description %></p>
+          <br>
+            <h2>Público alvo:</h2>
+            <% service.audiences.each do |audience| %>
+              <p><%= audience.name %></p>
+            <% end %>
+          <%# <p class="read-more">
+            <a href="#">Saiba Mais</a>
+          </p> %>
+        </div>
+    </div>
 <br>
 <% end %>
+
+</div>
+
+
+
+
+
+
