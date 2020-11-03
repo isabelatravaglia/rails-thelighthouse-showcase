@@ -1,4 +1,6 @@
 .banner {
+    border-top: 1px solid white;
+    border-bottom: 3px solid $tlh-purple;
     background-image: image-url("landing-2.jpg");
     min-height: calc(100vh - 74px);
     background-size: cover;
@@ -24,4 +26,24 @@
       text-align: center;
     }
 
+  }
+
+  .banner.leader {
+    background: image-url("leader-banner.jpg") no-repeat top center;
+    background-size: cover;
+  }
+
+  .banner.services {
+    background: image-url("services-banner.jpg") no-repeat top center;
+    background-size: cover;
+  }
+
+  .banner.company {
+    background: image-url("company-banner.jpg") no-repeat top center;
+    background-size: cover;
+  }
+
+  .banner.about {
+    background: image-url("about-banner.jpg") no-repeat top center;
+    background-size: cover;
   }
