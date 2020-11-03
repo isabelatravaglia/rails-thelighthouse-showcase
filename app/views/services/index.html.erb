@@ -1,11 +1,41 @@
-<h1>Nossos Serviços</h1>
-
-<% @services.each do |service| %>
-  <h2>Serviço: <%= service.name %></h2>
-  <h2><%= service.description %></h2>
-  <h2>Público alvo:</h2>
-  <% service.audiences.each do |audience| %>
-    <h2><%= audience.name %></h2>
+<div class="banner services">
+    <div class="banner-text">
+        <h1>Nossos Serviços</h1>
+        <h2>Escolha o melhor para você ou para sua empresa</h2>
+    </div>
+</div>
+<div class="service-banner">
+  <% @services.order(:id).each do |service| %>
+    <% if service.id.odd?  %>
+      <div class="service-card full">
+    <% else %>
+      <div class="service-card alt full">
+    <% end %>
+        <div class="meta">
+          <div class="photo" style="background-image: url(<%= cl_image_path service.photo.key%>)"></div>
+          <%# <ul class="details">
+            <li class="author"><a href="#">John Doe</a></li>
+            <li class="date">Aug. 24, 2015</li>
+          </ul> %>
+        </div>
+        <div class="description">
+          <h1><%= service.name %></h1>
+          <h2><%= service.tagline %></h2>
+          <p> <%= service.description %></p>
+          <br>
+            <h2>Público alvo:</h2>
+            <% service.audiences.each do |audience| %>
+              <p><%= audience.name %></p>
+            <% end %>
+          <%# <p class="read-more">
+            <a href="#">Saiba Mais</a>
+          </p> %>
+        </div>
+    </div>
   <% end %>
-<br>
-<% end %>
+</div>
+
+
+
+
+
