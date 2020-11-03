@@ -22,9 +22,30 @@ AudienceService.destroy_all
 
 puts "Creating Services"
 
-coaching = Service.create(name: "Coaching", description: "O coaching é uma ferramenta que auxilia blablabla...")
-mentoring = Service.create(name: "Mentoring", description: "O mentoring é uma ferramenta que auxilia blablabla...")
-leadership = Service.create(name: "Treinamento de Liderança", description: "O treinamento de liderança auxilia blablabla...")
+
+# require "open-uri"
+
+# image_file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+# article = Article.new(title: 'NES', body: "A great console")
+# article.photo.attach(io: image_file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+coaching = Service.create(name: "Coaching", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.", tagline: "Maximize seus resultados")
+coaching_image_file = URI.open('https://images.unsplash.com/photo-1490111718993-d98654ce6cf7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
+coaching.photo.attach(io: coaching_image_file, filename: 'coaching.jpg', content_type: 'image/jpg')
+
+
+mentoring = Service.create(name: "Mentoring", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.", tagline: "Maximize seus resultados")
+mentoring_image_file = URI.open('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
+mentoring.photo.attach(io: mentoring_image_file, filename: 'mentoring.jpg', content_type: 'image/jpg')
+
+
+leadership = Service.create(name: "Treinamento de Liderança", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi." , tagline: "Maximize seus resultados")
+leadership_image_file = URI.open('https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1981&q=80
+')
+leadership.photo.attach(io: leadership_image_file, filename: 'leadership.jpg', content_type: 'image/jpg')
+
 
 puts "Creating Partners"
 

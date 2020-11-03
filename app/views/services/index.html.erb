@@ -12,7 +12,7 @@
       <div class="service-card alt full">
     <% end %>
         <div class="meta">
-          <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+          <div class="photo" style="background-image: url(<%= cl_image_path service.photo.key%>)"></div>
           <%# <ul class="details">
             <li class="author"><a href="#">John Doe</a></li>
             <li class="date">Aug. 24, 2015</li>
@@ -20,7 +20,7 @@
         </div>
         <div class="description">
           <h1><%= service.name %></h1>
-          <h2>Opening a door to the future</h2>
+          <h2><%= service.tagline %></h2>
           <p> <%= service.description %></p>
           <br>
             <h2>Público alvo:</h2>
@@ -32,11 +32,9 @@
           </p> %>
         </div>
     </div>
-<br>
 <% end %>
 
 </div>
-
 
 
 
