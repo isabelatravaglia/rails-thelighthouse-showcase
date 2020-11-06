@@ -4,3 +4,43 @@
         <h2>Escolha</h2>
     </div>
 </div>
+<div class="container people-and-company-banner">
+    <h1 style="padding-top:60px">Para sua Empresa</h1>
+    <hr>
+    <div class="container pl-0 pb-3">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, quam voluptas dolor doloremque minus tempore eveniet facilis repellat minima provident culpa quidem optio suscipit nobis modi perspiciatis sed quae corporis.
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quo nihil excepturi repellat perspiciatis enim! Excepturi harum nesciunt doloribus consectetur id, dolorum similique, iusto sed necessitatibus earum rem ex accusamus.
+        </p>
+    </div>
+</div>
+<div class="service-banner">
+  <% @services.order(:id).each do |service| %>
+    <% if service.id.odd?  %>
+      <div class="service-card full">
+    <% else %>
+      <div class="service-card alt full">
+    <% end %>
+        <div class="meta">
+          <div class="photo" style="background-image: url(<%= cl_image_path service.photo.key%>)"></div>
+          <%# <ul class="details">
+            <li class="author"><a href="#">John Doe</a></li>
+            <li class="date">Aug. 24, 2015</li>
+          </ul> %>
+        </div>
+        <div class="description">
+          <h1><%= service.name %></h1>
+          <h2><%= service.tagline %></h2>
+          <p> <%= service.description %></p>
+          <br>
+            <h2>Público alvo:</h2>
+            <% service.audiences.each do |audience| %>
+              <p><%= audience.name %></p>
+            <% end %>
+          <%# <p class="read-more">
+            <a href="#">Saiba Mais</a>
+          </p> %>
+        </div>
+    </div>
+  <% end %>
+</div>
