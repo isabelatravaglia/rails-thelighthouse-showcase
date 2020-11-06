@@ -9,8 +9,10 @@ class PagesController < ApplicationController
   end
 
   def companies
+    @services = Service.joins(:audiences).where(audiences: {audience_type: "empresa"})
   end
 
   def leaders
+    @services = Service.joins(:audiences).where(audiences: {audience_type: "pessoa"})
   end
 end
