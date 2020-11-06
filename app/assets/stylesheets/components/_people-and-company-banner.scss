@@ -21,7 +21,17 @@
         font-size: 18px;
         text-align: justify;
     }
+    .big{
+        width: 100%;
+        border-width: 2px;
+        margin-top: 70px;
+        // margin-bottom: 70px;
+        border-color: #573a69;
+        
+    }
 }
+
+
 
 .people-banner-img {
     background: image-url("people-banner.jpg") no-repeat center center;
@@ -38,6 +48,6 @@
 }
 
 .jumbotron.people-and-company-banner.about {
-    background-color: $tlh-fading-purple;
+    background-color: white;
     // color: white;
 }
