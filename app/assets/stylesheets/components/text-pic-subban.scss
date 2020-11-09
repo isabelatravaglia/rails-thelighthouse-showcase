@@ -4,7 +4,6 @@
 
 .text-pic-subban {
     background-color: white;
-
     &__text-box {
         @extend .col-md-5;
         padding-left: 40px;
@@ -46,16 +45,4 @@
         font-size: 18px;
         text-align: justify;
     }
-    .big{
-        width: 100%;
-        border-width: 2px;
-        margin-top: 70px;
-        // margin-bottom: 70px;
-        border-color: #573a69;
-    }
-}
-
-.jumbotron.text-and-picture-subbanner.about {
-    background-color: white;
-    // color: white;
 }
