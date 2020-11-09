@@ -19,10 +19,9 @@
     </div>
   </div>
 </div>
-<div class="service-banner">
-  <div class="service-header">
-    <h2>Serviços</h2>
-  </div>
+<div class="subbanner--fading-purple">
+  <h2 class="subbanner--fading-purple__title">Serviços</h2>
+  <hr class="subbanner--fading-purple__hr">
   
     <div class="splide" data-splide='{"type":"loop","perPage":2, "perMove":1, "breakpoints": {"900": {"perPage":1}},"arrows":"splide"}'>
       <div class="splide__slider"> <!-- relative -->
@@ -55,13 +54,12 @@
       </div>
     </div>
   
-  <div class="service-km">
-    <p>
-      <%= link_to "services", class: "btn btn-info purple" do %>
-        Saiba Mais
-      <% end %>
-    </p>
-   </div>
+  <p style="text-align: center">
+    <%= link_to "services", class: "btn btn-info purple" do %>
+      Saiba Mais
+    <% end %>
+  </p>
+
 </div>
 <div class="text-pic-subban">
   <div class="row">
