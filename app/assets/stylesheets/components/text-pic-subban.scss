@@ -1,0 +1,61 @@
+.row {
+    margin-right: auto;
+}
+
+.text-pic-subban {
+    background-color: white;
+
+    &__text-box {
+        @extend .col-md-5;
+        padding-left: 40px;
+    }
+    &__text-box-full {
+        @extend .container, .pl-0, .pb-3;
+    }
+    &__pic-box {
+        @extend .col-md-7, .d-none, .d-md-block;
+        padding-right: 0px;
+    }
+    &__pic-box-img {
+        min-height: 480px;
+    }
+    &__pic-box-img--people {
+        background: image-url("people-banner.jpg");
+        background-size: cover;
+    }
+    &__pic-box-img--company {
+        background: image-url("company-services-banner.jpg");
+        background-size: cover;
+    }
+
+    &__hr {
+        margin-left: 0;
+        margin-bottom: 30px;
+        border-color: $tlh-purple;
+        border-width: 3px;
+        width: 48px;
+        margin-top: 0;
+        border-radius: 3px;
+    }
+    &__title {
+        color: black;
+        text-align: start;
+        margin-top: 60px;
+    }
+    &__paragraph {
+        font-size: 18px;
+        text-align: justify;
+    }
+    .big{
+        width: 100%;
+        border-width: 2px;
+        margin-top: 70px;
+        // margin-bottom: 70px;
+        border-color: #573a69;
+    }
+}
+
+.jumbotron.text-and-picture-subbanner.about {
+    background-color: white;
+    // color: white;
+}
