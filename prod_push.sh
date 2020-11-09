@@ -10,13 +10,17 @@ echo $full_tag
 echo $tag_number
 
 #Builds image
+echo "Building Image"
 docker-compose build
 
 #Tag image
+echo "Tagging Image for Heroku Registry"
 docker tag rails-thelighthouse:"$tag_number" registry.heroku.com/discoverthelighthouse/web
 
 #Push tagged image to Heroku
+echo "Pushing Image to Heroku"
 docker push registry.heroku.com/discoverthelighthouse/web
 
 #Releases 
+echo "Releasing Image"
 heroku container:release web
