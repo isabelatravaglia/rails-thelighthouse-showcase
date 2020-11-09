@@ -12,14 +12,14 @@
     justify-content: center;
     align-items: center;
 
-    h1 {
+    &__title {
       font-size: 42px;
       color: white;
       font-weight: bold;
       text-align: center;
     }
   
-    h2 {
+    &__subtitle {
       font-size: 30px;
       color: white;
       // font-weight: bold;
@@ -28,22 +28,26 @@
 
   }
 
-  .banner.leader {
+  .banner--leader {
+    @extend .banner;
     background: image-url("leader-banner.jpg") no-repeat top center;
     background-size: cover;
   }
 
-  .banner.services {
+  .banner--services {
+    @extend .banner;
     background: image-url("services-banner.jpg") no-repeat top center;
     background-size: cover;
   }
 
-  .banner.company {
+  .banner--company {
+    @extend .banner;
     background: image-url("company-banner.jpg") no-repeat top center;
     background-size: cover;
   }
 
-  .banner.about {
+  .banner--about {
+    @extend .banner;
     background: image-url("about-banner.jpg") no-repeat top center;
     background-size: cover;
   }
