@@ -1,34 +1,5 @@
 /*PEN STYLES*/
 
-.service-banner {
-    background: $tlh-fading-purple;
-    justify-content: center;
-    padding: 10px;
-}
-
-.service-km {
-    text-align: center;
-    &:hover {
-        transform: scale(1.0);
-      }
-}
-.service-km a {
-    color: $tlh-purple;
-    text-align: center;
-    text-decoration: none;
-}
-
-.s-cards-banner {
-    display: flex;
-    justify-content: space-between;
-}
-
-.service-header h2 {
-    color: black;
-    // font-weight: bold;
-    text-align: center;
-}
-
 * {
     box-sizing: border-box;
   }
@@ -156,7 +127,8 @@
           position: relative;
           &:after {
             content: "\f061";
-            font-family: FontAwesome;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
             margin-left: -10px;
             opacity: 0;
             vertical-align: middle;

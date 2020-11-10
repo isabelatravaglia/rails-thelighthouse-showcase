@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Stop local containers to avoid deployment errors
+docker-compose stop
+
 # Gets full image tag in docker.compose.yml
 full_tag=$(grep -i "image: rails" ./docker-compose.yml)
 
