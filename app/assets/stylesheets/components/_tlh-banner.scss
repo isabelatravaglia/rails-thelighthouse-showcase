@@ -1,0 +1,33 @@
+.tlh-banner {
+    justify-content: space-between;
+    padding: 10px;
+    background: white;
+    display: flex;
+
+    &__title {
+      font-size: 30px;
+      color: black;
+      text-align: center;
+    }
+
+    &__paragraph {
+      text-align: justify;
+      padding-top: 20px;
+    }
+  }
+
+  .tlh-banner__picbox {
+    @extend .col-md-6, .col-xl-4; 
+    display: flex;
+    justify-content: center;
+  }
+
+  .tlh-banner__pic {
+    height: 300px;
+  }
+
+  .tlh-banner__textbox {
+    @extend .col-md-6, .col-xl-8;
+    display: flex;
+    align-items: center;
+  }
