@@ -21,8 +21,17 @@ ARG NODE_MAJOR
 ARG BUNDLER_VERSION
 # ARG YARN_VERSION
 
+ARG UID
+ENV UID $UID
+ARG GID
+ENV GID $GID
+ARG USER=ruby
+ENV USER $USER
+
 
 RUN gem install bundler -v $BUNDLER_VERSION
+
+
 
 # Common dependencies
 RUN apt-get update -qq \
@@ -32,10 +41,14 @@ RUN apt-get update -qq \
     curl \
     less \
     git \
+    sudo \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && truncate -s 0 /var/log/*log
+  # && addgroup --gid $APP_GROUP_GID --system $APP_GROUP \
+  # && adduser --system --shell /sbin/nologin -u $APP_USER_UID $APP_USER \
+  # && adduser $APP_USER $APP_GROUP 
 
 # Add PostgreSQL to sources list
 RUN curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
@@ -66,18 +79,42 @@ ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \
   BUNDLE_RETRY=3
 
-RUN mkdir /application
-WORKDIR /application
-COPY Gemfile /application/Gemfile
-COPY Gemfile.lock /application/Gemfile.lock
-RUN bundle install
-COPY . /application
+
+RUN groupadd -g $GID $USER && \
+useradd -u $UID -g $USER -m $USER && \
+usermod -p "*" $USER && \
+usermod -aG sudo $USER && \
+echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/50-$USER
+
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
+
+
+# RUN mkdir /application \
+# && chown $APP_USER:$APP_GROUP /application
+RUN mkdir -p /application && chown $USER:$USER /application
+WORKDIR /application
+# USER $APP_USER
+
+# COPY --chown=$APP_USER:$APP_GROUP Gemfile /application/Gemfile
+# COPY --chown=$APP_USER:$APP_GROUP Gemfile.lock /application/Gemfile.lock
+COPY --chown=$USER:$USER Gemfile /application/Gemfile
+COPY --chown=$USER:$USER Gemfile.lock /application/Gemfile.lock
+COPY --chown=$USER:$USER node_modules /application/node_modules
+COPY --chown=$USER:$USER public/packs /application/public/packs
+COPY --chown=$USER:$USER tmp/cache /application/tmp/cache
+
+USER $USER
+
+RUN bundle install
+# USER $APP_USER_UID
+COPY --chown=$USER:$USER . /application
+
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
+
 
 ENV RAILS_SERVE_STATIC_FILES true
 

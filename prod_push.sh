@@ -13,6 +13,15 @@ echo $full_tag
 echo $tag_number
 
 #Builds image
+echo "Getting current user and group IDs"
+UID=$(id -u) 
+export UID
+GID=$(id -g)
+export GID
+
+echo $UID
+echo $GID
+
 echo "Building Image"
 docker-compose build
 
