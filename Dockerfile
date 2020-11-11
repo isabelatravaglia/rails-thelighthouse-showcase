@@ -79,7 +79,7 @@ ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \
   BUNDLE_RETRY=3
 
-
+# Configure non-root user based on https://hint.io/blog/rails-development-with-docker
 RUN groupadd -g $GID $USER && \
 useradd -u $UID -g $USER -m $USER && \
 usermod -p "*" $USER && \

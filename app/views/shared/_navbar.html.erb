@@ -43,9 +43,7 @@
           <%= link_to "Sobre Nós", "about", class: current_class?(about_path) %>
         </li>
         <li class="nav-item">
-          <a href="#" title="Envie-nos uma mensagem" target="_blank" class="btn btn-info purple inverted" data-toggle="modal" data-target="#contactUsModal">
-            Contate-nos
-          </a>
+          <%= link_to "Contate-nos", new_message_path, class: 'btn btn-info purple inverted', data: { toggle: 'modal', target: '#contactUsModal'}%>
         </li>
         <li class="nav-item dropdown">
           <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

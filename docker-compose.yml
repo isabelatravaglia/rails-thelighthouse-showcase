@@ -57,6 +57,7 @@ services:
 
   web:
     # The root directory from which we're building.
+    # Notice the UID and GID variables. They need to be set as ENV variables on the prod host (e.g.: Heroku) and need to have the same values as the ones used to build the image.
     build:
       context: .
       dockerfile: Dockerfile
