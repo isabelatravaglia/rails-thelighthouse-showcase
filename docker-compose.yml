@@ -94,6 +94,8 @@ services:
     tmpfs:
       - /tmp
 
+    stdin_open: true
+    tty: true
     # Specify the values of the environment variables
     # used in this container.
     # environment:

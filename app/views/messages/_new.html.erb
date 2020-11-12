@@ -7,26 +7,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="name" class="col-form-label">Seu nome:</label>
-            <input type="text" class="form-control" id="name">
-          </div>
-          <div class="form-group">
-            <label for="email" class="col-form-label">Seu email:</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-          <div class="form-group">
-            <label for="body" class="col-form-label">Sua mensagem:</label>
-            <textarea class="form-control" id="body"></textarea>
-          </div>
-        </form>
+        <%= simple_form_for message do |f| %>
+            <%= f.input :name %>
+            <%= f.input :email %>
+            <%= f.input :body, as: :text %>
+            <%= f.submit %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-info purple" data-dismiss="modal">Fechar</button>
         <%= link_to "Enviar", messages_path, class: 'btn btn-info purple inverted', controller: 'messages', action: 'create', method: 'post'%>
-        <%# <button type="button" class="btn btn-info purple">Enviar</button> %>
       </div>
     </div>
   </div>
