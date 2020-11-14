@@ -1,8 +1,8 @@
 ActionMailer::Base.smtp_settings = {
-  domain: 'discoverthelighthouse.com',
-  address:        "smtp.sendgrid.net",
+  domain: 'mail.discoverthelighthouse.com',
+  address:        "smtp.eu.mailgun.org",
   port:            587,
   authentication: :plain,
-  user_name:      'apikey',
-  password:       ENV["SENDGRID_API_KEY"]
+  user_name:      'postmaster@mail.discoverthelighthouse.com',
+  password:       ENV["MAILGUN_API_KEY"]
 }

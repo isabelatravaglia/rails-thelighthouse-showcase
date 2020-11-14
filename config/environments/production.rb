@@ -1,16 +1,16 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://discoverthelighthouse.com" }
+  config.action_mailer.default_url_options = { host: "http://mail.discoverthelighthouse.com" }
   config.action_mailer.delivery_method = :smtp
 
-  ActionMailer::Base.smtp_settings = {
-  :user_name => 'apikey',
-  :password => ENV['SENDGRID_API_KEY'],
-  :domain => 'discoverthelighthouse.com',
-  :address => 'smtp.sendgrid.net',
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
-  }
+  # ActionMailer::Base.smtp_settings = {
+  # :user_name => 'postmaster@mail.discoverthelighthouse.com',
+  # :password => ENV['MAILGUN_API_KEY'],
+  # :domain => 'mail.discoverthelighthouse.com',
+  # :address => 'smtp.eu.mailgun.org',
+  # :port => 587,
+  # :authentication => :plain,
+  # :enable_starttls_auto => true
+  # }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
