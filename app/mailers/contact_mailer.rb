@@ -1,6 +1,4 @@
 class ContactMailer < ApplicationMailer
-  require 'sendgrid-ruby'
-  include SendGrid
   
   def contact(message)
     @message = message

@@ -6,12 +6,12 @@
 # RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 #   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
 #   apt-get update && apt-get install -y yarn
-# RUN mkdir /application
-# WORKDIR /application
-# COPY Gemfile /application/Gemfile
-# COPY Gemfile.lock /application/Gemfile.lock
+# RUN mkdir /app
+# WORKDIR /app
+# COPY Gemfile /app/Gemfile
+# COPY Gemfile.lock /app/Gemfile.lock
 # RUN bundle install
-# COPY . /application
+# COPY . /app
 
 ARG RUBY_VERSION
 FROM ruby:$RUBY_VERSION-slim-buster
@@ -42,6 +42,9 @@ RUN apt-get update -qq \
     less \
     git \
     sudo \
+    iproute2 \
+    openssh-server \
+    openssh-client \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -92,25 +95,36 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 
 
-# RUN mkdir /application \
-# && chown $APP_USER:$APP_GROUP /application
-RUN mkdir -p /application && chown $USER:$USER /application
-WORKDIR /application
+# RUN mkdir /app \
+# && chown $APP_USER:$APP_GROUP /app
+RUN mkdir -p /app && chown $USER:$USER /app
+WORKDIR /app
 # USER $APP_USER
 
-# COPY --chown=$APP_USER:$APP_GROUP Gemfile /application/Gemfile
-# COPY --chown=$APP_USER:$APP_GROUP Gemfile.lock /application/Gemfile.lock
-COPY --chown=$USER:$USER Gemfile /application/Gemfile
-COPY --chown=$USER:$USER Gemfile.lock /application/Gemfile.lock
-COPY --chown=$USER:$USER node_modules /application/node_modules
-COPY --chown=$USER:$USER public/packs /application/public/packs
-COPY --chown=$USER:$USER tmp/cache /application/tmp/cache
+# COPY --chown=$APP_USER:$APP_GROUP Gemfile /app/Gemfile
+# COPY --chown=$APP_USER:$APP_GROUP Gemfile.lock /app/Gemfile.lock
+COPY --chown=$USER:$USER Gemfile /app/Gemfile
+COPY --chown=$USER:$USER Gemfile.lock /app/Gemfile.lock
+COPY --chown=$USER:$USER node_modules /app/node_modules
+COPY --chown=$USER:$USER public/packs /app/public/packs
+COPY --chown=$USER:$USER tmp/cache /app/tmp/cache
+
+# RUN chmod +x ./.profile.d/heroku-exec.sh
+# COPY --chown=$USER:$USER ./.profile.d /app/.profile.d
+# COPY --chown=$USER:$USER ./.profile.d/heroku-exec.sh /etc/profile.d/heroku-exec.sh
+# RUN chmod +x /etc/profile.d/heroku-exec.sh \
+# && chmod +x /app/.profile.d
+
+#ensure the default shell is Bash so that you can connect to the container on Heroku using heroku run bash
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 USER $USER
 
 RUN bundle install
+
+
 # USER $APP_USER_UID
-COPY --chown=$USER:$USER . /application
+COPY --chown=$USER:$USER . /app
 
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000

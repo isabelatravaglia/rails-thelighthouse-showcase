@@ -76,7 +76,7 @@ services:
     # we'd have to restart the container every time we
     # changed a file.
     volumes:
-      - .:/application:cached
+      - .:/app:cached
 
     # The command to be run when we run "docker-compose up".
     # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -90,7 +90,7 @@ services:
     depends_on:
       - database
 
-    image: rails-thelighthouse:1.2.5
+    image: rails-thelighthouse:1.2.6
     tmpfs:
       - /tmp
 

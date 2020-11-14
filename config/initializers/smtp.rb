@@ -1,8 +1,9 @@
 ActionMailer::Base.smtp_settings = {
-  domain: 'mail.discoverthelighthouse.com',
-  address:        "smtp.eu.mailgun.org",
-  port:            587,
+  domain: ENV["MAIL_DOMAIN"],
+  address:        ENV["MAILGUN_ADDRESS"],
+  port:           ENV["MAILGUN_PORT"],
   authentication: :plain,
-  user_name:      'postmaster@mail.discoverthelighthouse.com',
+  user_name:      ENV["MAILGUN_USER"],
   password:       ENV["MAILGUN_API_KEY"]
+
 }
