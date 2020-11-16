@@ -1,24 +1,25 @@
 <div class="modal fade" id="contactUsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header contact-modal__modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Contate-nos!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <hr class="contact-modal__hr">
       </div>
       
-      <div class="modal-body">
+      <div class="modal-body contact-modal__body">
         <%= simple_form_for message do |f| %>
-            <%= f.input :name %>
-            <%= f.input :email %>
-            <%= f.input :body, as: :text %>
-            <%= f.submit %>
-        <% end %>
+          <%= f.input :nickname, as: :hidden %>
+          <%= f.input :name, label:"Nome", input_html: { class: "contact-modal__text-box" } %>
+          <%= f.input :email, input_html: { class: "contact-modal__text-box" } %>
+          <%= f.input :body, label:"Mensagem", as: :text, input_html: { class: "contact-modal__text-box" } %>
+          <%#= f.input :nickname, disabled: true %>
+          <%#= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
+          <%# <button type="button" class="btn btn-info purple inverted" data-dismiss="modal">Fechar</button> %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info purple" data-dismiss="modal">Fechar</button>
-        <%= link_to "Enviar", messages_path, class: 'btn btn-info purple inverted', controller: 'messages', action: 'create', method: 'post'%>
+      <div class="modal-footer contact-modal__footer">
+        <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
+        <button type="button" class="btn btn-info purple inverted" data-dismiss="modal">Fechar</button>
+        <% end %>
       </div>
     </div>
   </div>
