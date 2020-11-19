@@ -1,2 +1,5 @@
 # Ignore .env file containing credentials.
 .env*
+.git
+.dockerignore
+.env

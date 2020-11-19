@@ -11,12 +11,10 @@
           <%= f.input :nickname, as: :hidden %>
           <%= f.input :name, label:"Nome", input_html: { class: "contact-modal__text-box" } %>
           <%= f.input :email, input_html: { class: "contact-modal__text-box" } %>
-          <%= f.input :body, label:"Mensagem", as: :text, input_html: { class: "contact-modal__text-box" } %>
-          <%#= f.input :nickname, disabled: true %>
-          <%#= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
-          <%# <button type="button" class="btn btn-info purple inverted" data-dismiss="modal">Fechar</button> %>
+          <%= f.input :body, label:"Mensagem", as: :text, input_html: { class: "contact-modal__text-box" } %>          
       </div>
       <div class="modal-footer contact-modal__footer">
+        
         <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
         <button type="button" class="btn btn-info purple inverted" data-dismiss="modal">Fechar</button>
         <% end %>
