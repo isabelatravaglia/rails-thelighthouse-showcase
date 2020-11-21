@@ -12,23 +12,27 @@
 # COPY Gemfile.lock /app/Gemfile.lock
 # RUN bundle install
 # COPY . /app
-
-ARG RUBY_VERSION
+ARG RUBY_VERSION=2.6.6
 FROM ruby:$RUBY_VERSION-slim-buster
 
-ARG PG_MAJOR
-ARG NODE_MAJOR
 ARG BUNDLER_VERSION
-# ARG YARN_VERSION
+ENV BUNDLER_VERSION=${BUNDLER_VERSION:-2.1.4}
+
+ARG PG_MAJOR
+ENV PG_MAJOR=${PG_MAJOR:-13}
+
+ARG NODE_MAJOR
+ENV NODE_MAJOR=${NODE_MAJOR:-12}
+
+
 
 ARG UID
-ENV UID $UID
+ENV UID 1000
 ARG GID
-ENV GID $GID
+ENV GID 999
 ARG USER=ruby
 ENV USER $USER
 
-ENV PATH /app/bin:$PATH
 
 RUN gem install bundler -v $BUNDLER_VERSION
 
@@ -84,6 +88,7 @@ ENV LANG=C.UTF-8 \
   BUNDLE_RETRY=3
 
 # Configure non-root user based on https://hint.io/blog/rails-development-with-docker
+RUN echo "Group ID is $GID and User ID is $UID"
 RUN groupadd -g $GID $USER && \
 useradd -u $UID -g $USER -m $USER && \
 usermod -p "*" $USER && \
@@ -100,16 +105,14 @@ RUN chmod +x /usr/bin/entrypoint.sh
 # && chown $APP_USER:$APP_GROUP /app
 RUN mkdir -p /app && chown $USER:$USER /app
 WORKDIR /app
-
-RUN mkdir -p node_modules && chown $USER:$USER node_modules
-RUN mkdir -p public/packs && chown $USER:$USER public/packs
-RUN mkdir -p tmp/cache && chown $USER:$USER tmp/cache
-
 # USER $APP_USER
 
 # COPY --chown=$APP_USER:$APP_GROUP Gemfile /app/Gemfile
 # COPY --chown=$APP_USER:$APP_GROUP Gemfile.lock /app/Gemfile.lock
-
+COPY --chown=$USER:$USER Gemfile /app/Gemfile
+COPY --chown=$USER:$USER Gemfile.lock /app/Gemfile.lock
+COPY --chown=$USER:$USER package.json /app/package.json
+COPY --chown=$USER:$USER yarn.lock /app/yarn.lock
 
 
 # COPY --chown=$USER:$USER node_modules /app/node_modules
@@ -127,18 +130,27 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 USER $USER
 
-# RUN bundle install
+RUN bundle install
 
-
+# USER $APP_USER_UID
+# COPY --chown=$USER:$USER . /app
+COPY --chown=$USER:$USER app/ ./app
+COPY --chown=$USER:$USER bin/ ./bin
+COPY --chown=$USER:$USER config/ ./config
+COPY --chown=$USER:$USER lib/ ./lib
+COPY --chown=$USER:$USER db/ ./db
+COPY --chown=$USER:$USER public/ ./public
+COPY --chown=$USER:$USER config.ru Rakefile postcss.config.js babel.config.js ./
+RUN mkdir log
 
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 
-# RUN rails assets:precompile
+RUN rails assets:precompile
 
-# ENV RAILS_SERVE_STATIC_FILES true
-# ENV RAILS_LOG_TO_STDOUT=enabled
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT=enabled
 
 # RUN bundle exec rake assets:precompile
 
