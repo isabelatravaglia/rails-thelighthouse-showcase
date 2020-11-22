@@ -1,6 +1,6 @@
 class Message
   include ActiveModel::Model
-  attr_accessor :name, :email, :body, :nickname
+  attr_accessor :name, :email, :body, :nickname, :company, :phone
 
   validates :name, :body, :email, presence: { message: "É necessário preencher o nome" }
   validates :nickname, absence: { message: "Esse campo deve ficar vazio" }

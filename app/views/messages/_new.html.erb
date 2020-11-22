@@ -2,22 +2,27 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header contact-modal__modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Contate-nos!</h5>
-        <hr class="contact-modal__hr">
+        <div class="contact-modal__title-box">
+          <h5 class="modal-title" id="exampleModalLabel">Contate-nos!</h5>
+          <hr class="contact-modal__hr">
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       
       <div class="modal-body contact-modal__body">
         <%= simple_form_for message do |f| %>
+          <%= f.invisible_captcha :nickname %>
           <%= f.input :nickname, as: :hidden %>
-          <%= f.input :name, label:"Nome", input_html: { class: "contact-modal__text-box" } %>
-          <%= f.input :email, input_html: { class: "contact-modal__text-box" } %>
-          <%= f.input :body, label:"Mensagem", as: :text, input_html: { class: "contact-modal__text-box" } %>          
-      </div>
-      <div class="modal-footer contact-modal__footer">
-        
-        <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
-        <button type="button" class="btn btn-info purple inverted" data-dismiss="modal">Fechar</button>
-        <% end %>
+          <%= f.input :name, placeholder:"Nome", label: false, input_html: { class: "contact-modal__text-box" } %>
+          <%= f.input :email, placeholder:"Email", label: false, input_html: { class: "contact-modal__text-box" } %>
+          <%= f.input :company, placeholder:"Empresa (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
+          <%= f.input :phone, placeholder:"Telefone (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
+          <%= f.input :body, placeholder:"Mensagem", label: false,  as: :text, input_html: { class: "contact-modal__text-box" } %>
+          <br>
+          <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
+          <% end %>
       </div>
     </div>
   </div>
