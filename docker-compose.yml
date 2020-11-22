@@ -95,7 +95,7 @@ services:
     depends_on:
       - database
 
-    image: rails-thelighthouse:1.2.8
+    image: rails-thelighthouse:1.2.9
     tmpfs:
       - /tmp
 
