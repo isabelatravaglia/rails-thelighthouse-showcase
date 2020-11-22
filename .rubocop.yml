@@ -40,3 +40,7 @@ Style/EmptyMethod:
   Enabled: false
 Bundler/OrderedGems:
   Enabled: false
+Layout/IndentationStyle:
+  Enabled: false
+Layout/IndentationWidth:
+  Enabled: false

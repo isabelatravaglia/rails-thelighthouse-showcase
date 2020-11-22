@@ -106,6 +106,8 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    invisible_captcha (1.1.0)
+      rails (>= 4.2)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
     listen (3.2.1)
@@ -223,6 +225,9 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
+    turbolinks_render (0.9.20)
+      rails (>= 5.2.0)
+      turbolinks-source (~> 5.1)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -262,6 +267,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass
+  invisible_captcha
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -276,6 +282,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
+  turbolinks_render
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers

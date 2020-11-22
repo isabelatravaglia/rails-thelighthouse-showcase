@@ -1,5 +1,17 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.default_url_options = { host: "mail.discoverthelighthouse.com" }
+  config.action_mailer.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+  :user_name => ENV["MAILGUN_USER"],
+  :password => ENV['MAILGUN_API_KEY'],
+  :domain => ENV["MAIL_DOMAIN"],
+  :address => ENV["MAILGUN_ADDRESS"],
+  :port => ENV["MAILGUN_PORT"],
+  :authentication => :plain,
+  :enable_starttls_auto => true
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -65,7 +77,7 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
