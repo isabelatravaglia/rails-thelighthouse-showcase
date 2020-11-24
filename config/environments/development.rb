@@ -63,4 +63,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::FileUpdateChecker
 
   # config.assets.prefix = "/dev-assets"
+  config.assets.check_precompiled_asset = false
+
 end

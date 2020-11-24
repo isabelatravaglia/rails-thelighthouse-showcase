@@ -82,10 +82,16 @@ services:
       - node_modules:/app/node_modules
       - packs:/app/public/packs
       - rails_cache:/app/tmp/cache
+      - .psqlrc:/root/.psqlrc:ro
 
     # The command to be run when we run "docker-compose up".
     # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-
+    command:
+      - "bash"
+      - "-c"
+      - >
+        rm -f /app/tmp/pids/server.pid &&
+        bundle exec rails server -b 0.0.0.0
     # Expose port 3000.
     ports:
       - "3000:3000"
@@ -103,8 +109,8 @@ services:
     tty: true
     # Specify the values of the environment variables
     # used in this container.
-    # environment:
-      # RAILS_ENV: production
+    environment:
+      RAILS_ENV: development
       # POSTGRES_PASSWORD: postgres
       # DATABASE_NAME: ${DATABASE_NAME}
     #   DATABASE_USERNAME: ${DATABASE_USERNAME}

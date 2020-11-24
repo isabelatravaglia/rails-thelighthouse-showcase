@@ -28,9 +28,9 @@ ENV GID $GID
 ARG USER=ruby
 ENV USER $USER
 
-ENV PATH /app/bin:$PATH
+# ENV PATH /app/bin:$PATH
 
-RUN gem install bundler -v $BUNDLER_VERSION
+# RUN gem install bundler -v $BUNDLER_VERSION
 
 
 
@@ -79,9 +79,9 @@ RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrad
     truncate -s 0 /var/log/*log
 
 # Configure bundler
-ENV LANG=C.UTF-8 \
-  BUNDLE_JOBS=4 \
-  BUNDLE_RETRY=3
+# ENV LANG=C.UTF-8 \
+#   BUNDLE_JOBS=4 \
+#   BUNDLE_RETRY=3
 
 # Configure non-root user based on https://hint.io/blog/rails-development-with-docker
 RUN groupadd -g $GID $USER && \
@@ -89,12 +89,6 @@ useradd -u $UID -g $USER -m $USER && \
 usermod -p "*" $USER && \
 usermod -aG sudo $USER && \
 echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/50-$USER
-
-
-# Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-
 
 # RUN mkdir /app \
 # && chown $APP_USER:$APP_GROUP /app
@@ -123,24 +117,51 @@ RUN mkdir -p tmp/cache && chown $USER:$USER tmp/cache
 # && chmod +x /app/.profile.d
 
 #ensure the default shell is Bash so that you can connect to the container on Heroku using heroku run bash
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+# RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# Configure bundler
+ENV LANG=C.UTF-8 \
+  BUNDLE_JOBS=4 \
+  BUNDLE_RETRY=3
+
+# ENV PATH /app/bin:$PATH
+
+WORKDIR /app
+
+# Upgrade RubyGems and install required Bundler version
+RUN gem update --system && \
+  gem install bundler -v $BUNDLER_VERSION
+
+COPY --chown=$USER:$USER Gemfile /app/Gemfile
+COPY --chown=$USER:$USER Gemfile.lock /app/Gemfile.lock
 
 USER $USER
 
-# RUN bundle install
 
+RUN bundle install
+RUN yarn install
 
+# COPY --chown=$USER:$USER . /app
+
+# Add a script to be executed every time the container starts.
+COPY entrypoint.sh /usr/bin/
+RUN sudo chmod +x /usr/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
-EXPOSE 3000
+# EXPOSE 3000
 
 
 # RUN rails assets:precompile
 
-# ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_SERVE_STATIC_FILES true
 # ENV RAILS_LOG_TO_STDOUT=enabled
 
 # RUN bundle exec rake assets:precompile
+# RUN rails assets:precompile
+
+ENV PATH /app/bin:$PATH
+
+# RUN rails db:prepare
 
 # Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

@@ -1,18 +1,121 @@
-.member-card {
+.member-banner {
+  display: flex;
+  margin-top: 3.2rem;
+  transform: translateX(0px);
+  transition: transform 1s ease-out 0s;
+  width: 100%;
+  &__card {
     @extend .col-md-12;
-    display: flex;
-    flex-direction: column;
+    -moz-box-align: center;
     align-items: center;
-    &__text {
-            text-align: center;
-            padding: 20px 40px;
+    display: flex;
+    flex-shrink: 0;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    padding: 3.2rem;
+    position: relative;
+    width: 50%;
+    }
+    &__text-box {
+      background-color: rgb(229, 243, 245);
+      border-radius: 0.6rem;
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 70%;
         }
     &__avatar {
-        width: 200px;
-        border-radius: 50%;
+      border-radius: 0.6rem;
+      // height: 21.6rem;
+      // max-width: 100%;
+      width: 21.6rem;
+      z-index: 1;
         }
     &__paragraph {
         font-size: 18px;
         text-align: justify;
     }
+  
+}
+
+
+.our-team{
+    text-align: center;
+    position: relative;
+}
+.our-team .pic{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid $tlh-purple;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.our-team img{
+    width: 100%;
+    height: auto;
+}
+.our-team .social{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    transition: all 0.3s ease-out 0s;
+}
+.our-team .social li a{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: $tlh-green;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 5px;
+    transform: scale(0);
+    transition: all 0.2s ease 0s;
+}
+.our-team:hover .social li a{ transform: scale(1); }
+.our-team:hover .social li a:hover{ background: $tlh-purple; }
+.our-team .team-content{
+    padding: 15px 15px 20px;
+    background: $tlh-purple;
+    border-radius: 40px 10px;
+    margin-top: -20px;
+    color: #fff;
+}
+.our-team .title{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+.our-team .post{
+    display: block;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.our-team .description{
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #666;
+    line-height: 30px;
+    margin-bottom: 0;
+    text-align: justify;
+}
+@media only screen and (max-width: 990px){
+    .our-team{ margin-bottom: 30px; }
+}
+@media only screen and (max-width: 359px){
+    .our-team .pic{
+        width: 150px;
+        height: 150px;
+    }
+    .our-team .social{ top: 20px; }
 }
