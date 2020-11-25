@@ -152,6 +152,9 @@ RUN rails assets:precompile
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT=enabled
 
+# cleanup
+RUN rm -rf node_modules tmp/cache vendor/assets test
+
 # RUN bundle exec rake assets:precompile
 
 # Start the main process.

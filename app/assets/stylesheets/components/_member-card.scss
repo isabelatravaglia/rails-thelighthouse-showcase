@@ -44,12 +44,13 @@
 .our-team{
     text-align: center;
     position: relative;
+    padding-bottom: 40px;
 }
 .our-team .pic{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 3px solid $tlh-purple;
+    // border: 3px solid $tlh-purple;
     margin: 0 auto;
     overflow: hidden;
 }
