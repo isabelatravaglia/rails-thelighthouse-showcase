@@ -97,13 +97,15 @@
   .subbanner--curved-purple {
     // background-position: 50% 0,50% 121%;
     // padding-top: 146px;
-    background-image: image-url("services-background.svg");
+    background-image: image-url("test-background.svg");
     background-position: 50% 20%;
     // background-position: 50% 0,50% 100%;
     // background-size: contain,contain;
-    // background-repeat: no-repeat,no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat,no-repeat;
       &__title-box {
         padding-left: 20px;
+        padding-top: 60px;
       }
       &__title {
         color: black;

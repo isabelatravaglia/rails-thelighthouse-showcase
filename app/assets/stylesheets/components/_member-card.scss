@@ -53,6 +53,7 @@
     // border: 3px solid $tlh-purple;
     margin: 0 auto;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.08);
 }
 .our-team img{
     width: 100%;
@@ -84,10 +85,10 @@
 .our-team:hover .social li a:hover{ background: $tlh-purple; }
 .our-team .team-content{
     padding: 15px 15px 20px;
-    background: $tlh-purple;
+    // background: $tlh-purple;
     border-radius: 40px 10px;
     margin-top: -20px;
-    color: #fff;
+    color: $tlh-purple;
 }
 .our-team .title{
     font-size: 30px;
@@ -109,6 +110,7 @@
     line-height: 30px;
     margin-bottom: 0;
     text-align: justify;
+    box-shadow: 0 2px 4px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.08);
 }
 @media only screen and (max-width: 990px){
     .our-team{ margin-bottom: 30px; }
@@ -117,6 +119,7 @@
     .our-team .pic{
         width: 150px;
         height: 150px;
+        box-shadow: 0 2px 4px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.08);
     }
     .our-team .social{ top: 20px; }
 }
