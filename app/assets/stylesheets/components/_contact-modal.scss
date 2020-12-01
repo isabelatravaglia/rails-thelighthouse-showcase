@@ -11,6 +11,7 @@
   &__body {
     padding-left: 32px;
     padding-right: 32px;
+    padding-top: 0px;
   }
   &__hr {
     margin-left: 0;
@@ -26,5 +27,15 @@
   &__footer {
     border-top: none;
   }
+  &__callout-box {
+    @extend .container;
+    padding-right: 30px;
+    padding-left: 30px;
+    letter-spacing: 0.1rem;
+  }
 
+}
+
+.form-control {
+  background-color: #FAFAFA;
 }
