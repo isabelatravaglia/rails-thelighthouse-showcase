@@ -71,3 +71,54 @@
         border-radius: 3px;
     }
   }
+
+  .subbanner--rounded-beige {
+    // background-position: 50% 0,50% 121%;
+    // padding-top: 146px;
+    background-image: image-url("about-us-background.svg");;
+    // background-position: 50% 0,50% 100%;
+    // background-size: contain,contain;
+    // background-repeat: no-repeat,no-repeat;
+      &__title {
+        color: black;
+        text-align: start;
+        margin-top: 60px;
+      }
+      &__hr {
+        margin-left: 0;
+        margin-bottom: 30px;
+        border-color: $tlh-purple;
+        border-width: 3px;
+        width: 48px;
+        margin-top: 0;
+        border-radius: 3px;
+    }
+  }
+  .subbanner--curved-purple {
+    // background-position: 50% 0,50% 121%;
+    // padding-top: 146px;
+    background-image: image-url("test-background.svg");
+    background-position: 50% 20%;
+    // background-position: 50% 0,50% 100%;
+    // background-size: contain,contain;
+    background-size: cover;
+    background-repeat: no-repeat,no-repeat;
+      &__title-box {
+        padding-left: 20px;
+        padding-top: 60px;
+      }
+      &__title {
+        color: black;
+        text-align: start;
+        // margin-top: 60px;
+      }
+      &__hr {
+        margin-left: 0;
+        margin-bottom: 30px;
+        border-color: $tlh-purple;
+        border-width: 3px;
+        width: 48px;
+        margin-top: 0;
+        border-radius: 3px;
+    }
+  }
