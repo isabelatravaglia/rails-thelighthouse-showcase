@@ -31,16 +31,16 @@
           <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
         <li class="nav-item">
           <%= link_to "Serviços", "services", class: current_class?(services_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%= link_to "Para Você", "leaders", class: current_class?(leaders_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%= link_to "Para Empresas", "companies", class: current_class?(companies_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%= link_to "Sobre Nós", "about", class: current_class?(about_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%#= link_to '#contactUsModal', 'data-toggle' => "modal" do %>
             <%# Contate-nos

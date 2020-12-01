@@ -20,3 +20,30 @@
   color: $tlh-purple !important;
 }
 
+.nav-item {
+  hr {
+    border: 0;
+    border-top: 3px solid $tlh-purple;
+    width: 0;
+    margin: 0;
+    transition: width 0.5s ease-out;
+  }
+  &:hover hr {
+    width: 50%
+  }
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+  color: $tlh-purple;
+  font-weight: 5;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: $tlh-purple;
+  font-weight: normal;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $tlh-purple;
+  font-weight: lighter;
+}
