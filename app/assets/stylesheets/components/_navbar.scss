@@ -5,7 +5,7 @@
   font-family: ondoregular;
   text-transform: uppercase;
   letter-spacing: .10em;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .navbar-tlh .navbar-collapse {
@@ -13,8 +13,10 @@
 }
 
 .navbar-tlh .navbar-brand img {
-  width: 60px;
-  border-radius: 50%;
+  width: 240px;
+  padding: 10px;
+  padding-top: 5px;
+  // border-radius: 50%;
 }
 
 .logo-text {
