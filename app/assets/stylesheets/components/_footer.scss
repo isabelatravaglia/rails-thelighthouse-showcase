@@ -1,14 +1,14 @@
 .jumbotron.container-footer {
-    background-color: $tlh-purple;
+    background-color: $tlh-fading-purple;
     margin-bottom: 0;
     padding-top: 65px;
 
     a {
-        color: #D2C5C0;
+        color: $tlh-avatar-purple;
     }
 
     p {
-        color: #D2C5C0;
+        color: $tlh-avatar-purple;
     }
 
     .list-inline > li {

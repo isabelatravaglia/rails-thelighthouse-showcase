@@ -1,8 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-tlh">
   <%= link_to "/", class: "navbar-brand logo-text" do %>
-    <%= image_tag "logo.jpg" %>
+    <%= image_tag "avatar-logo.jpg" %>
 
-    &nbsp; THE LIGHTHOUSE
+    <%# THE LIGHTHOUSE %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,23 +31,23 @@
           <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
         <li class="nav-item">
           <%= link_to "Serviços", "services", class: current_class?(services_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%= link_to "Para Você", "leaders", class: current_class?(leaders_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%= link_to "Para Empresas", "companies", class: current_class?(companies_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%= link_to "Sobre Nós", "about", class: current_class?(about_path) %>
-        </li>
+        <hr></li>
         <li class="nav-item">
           <%#= link_to '#contactUsModal', 'data-toggle' => "modal" do %>
             <%# Contate-nos
           <% end %>
           <%#= link_to "Contate-nos", new_message_path, class: 'btn btn-info purple inverted'%>
-          <%= link_to "Contate-nos", new_message_path, class: 'btn btn-info purple inverted', data: { toggle: 'modal', target: '#contactUsModal'}%>
-        </li>
+          <%= link_to "Contato", new_message_path, class: current_class?(new_message_path), data: { toggle: 'modal', target: '#contactUsModal'}%>
+        <hr></li>
 
         <%= render "/messages/new", message: Message.new %>
         

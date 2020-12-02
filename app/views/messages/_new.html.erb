@@ -2,15 +2,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header contact-modal__modal-header">
-        <div class="contact-modal__title-box">
+        <%# <div class="contact-modal__title-box">
           <h5 class="modal-title" id="exampleModalLabel">Contate-nos!</h5>
           <hr class="contact-modal__hr">
-        </div>
+        </div> %>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+      <br>
+      <div class="contact-modal__callout-box">
+        <p>Junte-se à nós! Adorariamos tê-lo(a) à bordo. Para saber mais, por favor preencha as informações abaixo.</p>
+      </div>
       <div class="modal-body contact-modal__body">
         <%= simple_form_for message do |f| %>
           <%= f.invisible_captcha :nickname %>
