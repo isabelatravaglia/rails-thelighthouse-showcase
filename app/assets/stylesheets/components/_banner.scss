@@ -53,7 +53,7 @@
   }
 
   .subbanner--fading-purple {
-    background: $tlh-fading-purple;
+    background: $tlh-fader-purple;
     justify-content: center;
     padding: 10px;
       &__title {
@@ -70,6 +70,12 @@
         margin-top: 0;
         border-radius: 3px;
     }
+  }
+
+  .subbanner--fading-purple--extra-padding {
+    @extend .subbanner--fading-purple;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .subbanner--rounded-beige {
