@@ -5,8 +5,8 @@
     </div>
 </div>
 <div class="subbanner--fading-purple--extra-padding">
-  <% @services.order(:id).each do |service| %>
-    <% if service.id.odd?  %>
+  <% @services.order(:id).each_with_index do |service, i| %>
+    <% if i.odd?  %>
       <div class="service-card full">
     <% else %>
       <div class="service-card alt full">
