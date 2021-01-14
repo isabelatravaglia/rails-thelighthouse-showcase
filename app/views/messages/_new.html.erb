@@ -28,9 +28,9 @@
           <%= f.input :company, placeholder:"Empresa (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
           <%= f.input :phone, placeholder:"Telefone (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
           <%= f.input :body, placeholder:"Mensagem", label: false,  as: :text, input_html: { class: "contact-modal__text-box" } %>
-          <%=f.input :privacy_policy, as: :boolean, label: content_for(:the_links) %>
+          <%=f.input :privacy_policy, as: :boolean, label: content_for(:the_links), value: 0 %>
           <br>
-          <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
+          <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted", disabled: true, name: "mensagem contato" %>
           <% end %>
       </div>
     </div>
