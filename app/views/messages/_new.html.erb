@@ -14,6 +14,11 @@
       <div class="contact-modal__callout-box">
         <p>Junte-se à nós! Adorariamos tê-lo(a) à bordo. Para saber mais, por favor preencha as informações abaixo.</p>
       </div>
+
+      <%= content_for(:the_links) do %>
+        Eu concordo com a <%= link_to "Política de Privacidade", "https://www.iubenda.com/privacy-policy/62265523", target: :_blank %>.
+      <% end %>
+
       <div class="modal-body contact-modal__body">
         <%= simple_form_for message do |f| %>
           <%= f.invisible_captcha :nickname %>
@@ -23,6 +28,7 @@
           <%= f.input :company, placeholder:"Empresa (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
           <%= f.input :phone, placeholder:"Telefone (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
           <%= f.input :body, placeholder:"Mensagem", label: false,  as: :text, input_html: { class: "contact-modal__text-box" } %>
+          <%=f.input :privacy_policy, as: :boolean, label: content_for(:the_links) %>
           <br>
           <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted" %>
           <% end %>
