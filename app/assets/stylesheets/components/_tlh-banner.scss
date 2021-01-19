@@ -1,18 +1,28 @@
 .tlh-banner {
     justify-content: space-between;
-    padding: 10px;
+    padding: 50px;
     background: white;
     display: flex;
+    // color:$tlh-avatar-purple;
 
     &__title {
       font-size: 30px;
-      color: black;
       text-align: center;
     }
 
     &__paragraph {
       text-align: justify;
       padding-top: 20px;
+      color:$tlh-avatar-purple;
+    }
+
+    &__hr {
+      margin-bottom: 5px;
+      border-color: #5A0076;
+      border-width: 1px;
+      width: 90%;
+      margin-top: 0;
+      border-radius: 3px;
     }
   }
 
@@ -27,7 +37,14 @@
   }
 
   .tlh-banner__textbox {
-    @extend .col-md-6, .col-xl-8;
+    @extend .col-md-12, .col-xl-12;
     display: flex;
     align-items: center;
+  }
+
+  .tlh-banner__texts {
+    box-sizing: border-box;
+    width: 83.33%;
+    margin-right: auto;
+    margin-left: auto;
   }

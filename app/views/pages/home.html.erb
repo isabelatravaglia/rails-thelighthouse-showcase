@@ -6,12 +6,12 @@
 </div>
 <div class="tlh-banner">
   <div class="row">
-    <div class="tlh-banner__picbox">
-      <%= image_tag "company.jpg", class:"tlh-banner__pic" %>
-    </div>
+    <%# <div class="tlh-banner__picbox"> %>
+      <%#= image_tag "company.jpg", class:"tlh-banner__pic" %>
+    <%# </div> %>
     <div class="tlh-banner__textbox">
-      <div>
-        <h2 class="tlh-banner__title">Lorem Ipsum</h2>
+      <div class="tlh-banner__texts">
+        <%# <h2 class="tlh-banner__title">Lorem Ipsum</h2> %>
         <p class="tlh-banner__paragraph">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum accusantium hic et enim! Ea, iure! Nisi facilis enim nulla, eaque error beatae ab delectus ad ea repudiandae neque debitis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, molestias! Possimus cumque neque ducimus, recusandae a odio labore eaque nihil odit doloribus iure mollitia exercitationem, impedit maiores delectus rerum earum?
         </p>
@@ -19,10 +19,11 @@
     </div>
   </div>
 </div>
-<div class="subbanner--fading-purple">
-  <div class="subbanner--fading-purple__title-box">
-    <h2 class="subbanner--fading-purple__title">Nossos Serviços</h2>
-    <hr class="subbanner--fading-purple__hr">
+<hr class="tlh-banner__hr">
+<div class="subbanner--white">
+  <div class="subbanner--white__title-box">
+    <h2 class="subbanner--white__title">Nossos Serviços</h2>
+    <hr class="subbanner--white__hr">
   </div>
   
     <div class="splide" data-splide='{"type":"loop","perPage":2, "perMove":1, "breakpoints": {"900": {"perPage":1}},"arrows":"splide"}'>
