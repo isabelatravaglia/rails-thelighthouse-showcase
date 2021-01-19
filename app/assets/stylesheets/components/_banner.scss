@@ -138,6 +138,13 @@
         text-align: center;
         margin-top: 60px;
       }
+      &__subtitle {
+        color: black;
+        text-align: center;
+        // margin-top: 60px;
+        font-size: 1.3rem;
+        font-weight: lighter;
+      }
       &__hr {
         margin-left: 0;
         margin-bottom: 30px;
@@ -148,7 +155,7 @@
         border-radius: 3px;
     }
     &__title-box {
-      width: max-content;
+      // width: max-content;
       text-align: center;
       margin: 0 auto;
     }

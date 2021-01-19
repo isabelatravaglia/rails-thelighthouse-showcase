@@ -32,6 +32,9 @@ leadership_image_file = URI.open('https://images.unsplash.com/photo-147463124521
 ')
 leadership.photo.attach(io: leadership_image_file, filename: 'leadership.jpg', content_type: 'image/jpg')
 
+proposito = Service.create(name: "Orientação de Propósito", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi." , tagline: "Maximize seus resultados")
+proposito_image_file = URI.open('https://images.unsplash.com/photo-1610123668028-25f5cd2a1460?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1956&q=80')
+proposito.photo.attach(io: proposito_image_file, filename: 'proposito.jpg', content_type: 'image/jpg')
 
 puts "Creating Partners"
 
@@ -47,6 +50,7 @@ puts "Creating Partner Services"
 PartnerService.create(partner: grazi, service: mentoring)
 PartnerService.create(partner: grazi, service: leadership)
 PartnerService.create(partner: grazi, service: coaching)
+PartnerService.create(partner: grazi, service: proposito)
 PartnerService.create(partner: joao, service: coaching)
 
 puts "Creating Audience Services"
