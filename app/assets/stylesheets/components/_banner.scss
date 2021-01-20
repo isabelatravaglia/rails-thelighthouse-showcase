@@ -128,3 +128,35 @@
         border-radius: 3px;
     }
   }
+
+  .subbanner--white {
+    background: white;
+    justify-content: center;
+    padding: 10px;
+      &__title {
+        color: black;
+        text-align: center;
+        margin-top: 60px;
+      }
+      &__subtitle {
+        color: black;
+        text-align: center;
+        // margin-top: 60px;
+        font-size: 1.3rem;
+        font-weight: lighter;
+      }
+      &__hr {
+        margin-left: 0;
+        margin-bottom: 30px;
+        border-color: $tlh-purple;
+        border-width: 3px;
+        width: 48px;
+        margin-top: 0;
+        border-radius: 3px;
+    }
+    &__title-box {
+      // width: max-content;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }

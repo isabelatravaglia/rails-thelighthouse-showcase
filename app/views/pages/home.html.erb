@@ -1,17 +1,17 @@
 <div class="banner">
   <div>
-    <h1 class="banner__title">Descubra seu Propósito</h1>
-    <h2 class="banner__subtitle">Conheça a The Lighthouse</h2>
+    <h1 class="banner__title">Oriente-se para o que te traz sentido</h1>
+    <h2 class="banner__subtitle">Descubra a The Lighthouse</h2>
   </div>
 </div>
 <div class="tlh-banner">
   <div class="row">
-    <div class="tlh-banner__picbox">
-      <%= image_tag "company.jpg", class:"tlh-banner__pic" %>
-    </div>
+    <%# <div class="tlh-banner__picbox"> %>
+      <%#= image_tag "company.jpg", class:"tlh-banner__pic" %>
+    <%# </div> %>
     <div class="tlh-banner__textbox">
-      <div>
-        <h2 class="tlh-banner__title">Lorem Ipsum</h2>
+      <div class="tlh-banner__texts">
+        <%# <h2 class="tlh-banner__title">Lorem Ipsum</h2> %>
         <p class="tlh-banner__paragraph">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum accusantium hic et enim! Ea, iure! Nisi facilis enim nulla, eaque error beatae ab delectus ad ea repudiandae neque debitis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, molestias! Possimus cumque neque ducimus, recusandae a odio labore eaque nihil odit doloribus iure mollitia exercitationem, impedit maiores delectus rerum earum?
         </p>
@@ -19,62 +19,52 @@
     </div>
   </div>
 </div>
-<div class="subbanner--fading-purple">
-  <div class="subbanner--fading-purple__title-box">
-    <h2 class="subbanner--fading-purple__title">Nossos Serviços</h2>
-    <hr class="subbanner--fading-purple__hr">
+<hr class="tlh-banner__hr">
+<div class="subbanner--white">
+  <div class="subbanner--white__title-box" style="width: max-content">
+    <h2 class="subbanner--white__title">Nossos Serviços</h2>
+    <hr class="subbanner--white__hr">
+    <%# <h3 class="subbanner--white__title">Para Você e para sua Empresa</h3> %>
   </div>
-  
-    <div class="splide" data-splide='{"type":"loop","perPage":2, "perMove":1, "breakpoints": {"900": {"perPage":1}},"arrows":"splide"}'>
-      <div class="splide__slider"> <!-- relative -->
-        <div class="splide__track padding">
-          <div class="splide__list">
-            <% @services.order(:id).each do |service| %>
-              <div class="splide__slide">
-                <div class="service-card">
-                  <div class="meta">
-                    <div class="photo" style="background-image: url(<%= cl_image_path service.photo.key%>)"></div>
-                    <%# <ul class="details">
-                      <li class="author"><a href="#">John Doe</a></li>
-                      <li class="date">Aug. 24, 2015</li>
-                    </ul> %>
-                  </div>
-                  <div class="description">
-                    <h1><%= service.name %></h1>
-                    <h2><%= service.tagline %></h2>
-                    <p> <%= truncate(service.description, length: 150) %></p>
-                    <br>
-                    <p class="read-more">
-                      <%= link_to "Saiba Mais", "services" %>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+  <div class="subbanner--white__title-box">
+    <h2 class="subbanner--white__subtitle">Para Você e Para Sua Empresa</h2>
+    <%# <hr class="subbanner--white__hr"> %>
+    <%# <h3 class="subbanner--white__title">Para Você e para sua Empresa</h3> %>
+  </div>
+  <div class="service-card-grid">
+    <% @services.order(:id).each do |service| %>
+      <%= link_to "services" do %>
+        <div class="grid-service-card" style="background-image: url(<%= cl_image_path service.photo.key%>)">
+          <div class="grid-service-card__text-box">
+            <div class="grid-service-card__text-box__h1"><%= service.name %></div>
+            <div class="grid-service-card__text-box__h2"><%= service.tagline %></div>
           </div>
         </div>
-      </div>
-    </div>
-  
-  <p style="text-align: center; padding-bottom: 20px; margin-bottom: 0px">
-    <%= link_to "services", class: "btn btn-info purple" do %>
-      Saiba Mais
+      <% end %>
     <% end %>
-  </p>
+  </div>
+
+ 
+  
+  <%# <p style="text-align: center; padding-bottom: 20px; margin-bottom: 0px"> %>
+    <%#= link_to "services", class: "btn btn-info purple" do %>
+      <%# Saiba Mais %>
+    <%# end %>
+  <%# </p> %>
 
 </div>
-<div class="text-pic-subban">
+<%# <div class="text-pic-subban">
   <div class="row">
     <div class="text-pic-subban__text-box">
       <h2 class="text-pic-subban__title">Para Você</h2>
       <hr class="text-pic-subban__hr">
       <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis?</p>
       <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.</p>
-      <p>
-        <%= link_to "leaders", class: "btn btn-info purple" do %>
-          Saiba Mais
-        <% end %>
-      </p>
+      <p> %>
+        <%#= link_to "leaders", class: "btn btn-info purple" do %>
+          <%# Saiba Mais %>
+        <%# end %>
+      <%# </p>
     </div>
     <div class="text-pic-subban__pic-box">
 			<div class="text-pic-subban__pic-box-img text-pic-subban__pic-box-img--people"></div>
@@ -91,14 +81,14 @@
       <hr class="text-pic-subban__hr">
       <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis?</p>
       <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.</p>
-      <p>
-        <%= link_to "companies", class: "btn btn-info purple" do %>
-          Saiba Mais
-        <% end %>
-      </p>
+      <p> %>
+        <%#= link_to "companies", class: "btn btn-info purple" do %>
+          <%# Saiba Mais %>
+        <%# end %>
+      <%# </p>
     </div>
   </div>
-</div>
+</div> %>
 
 
 
