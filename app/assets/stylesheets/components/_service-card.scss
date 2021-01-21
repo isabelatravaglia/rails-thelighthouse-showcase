@@ -14,7 +14,7 @@
     flex-direction: column;
     margin: 1rem 1rem;
     margin-top: 20px;
-    // box-shadow: 0 3px 7px -1px rgba(#000, .1);
+    box-shadow: 0 3px 7px -1px rgba(#000, .1);
     margin-bottom: 4%;
     background: $color_white;
     line-height: 1.4;
@@ -47,7 +47,7 @@
       background-size: cover;
       background-position: center;
       transition: transform .2s;
-      border-radius: 5px;
+      // border-radius: 5px;
     }
     .details,
     .details ul {
@@ -189,7 +189,7 @@
           top: 0;
           bottom: 0;
           z-index: -1;
-          border-bottom: solid 1px gray;
+          // border-bottom: solid 1px gray;
           left: 3%;
         }
       }

@@ -2,7 +2,7 @@
     border-top: 1px solid white;
     border-bottom: 3px solid $tlh-purple;
     background-image: image-url("landing-2.jpg");
-    min-height: calc(100vh - 74px);
+    min-height: calc(100vh - 99px);
     background-size: cover;
     background-position: center;
     // padding: 40px 0;
@@ -129,14 +129,48 @@
     }
   }
 
-  .subbanner--white {
-    background: white;
+  .subbanner--gray {
+    background: $tlh-bg-gray;
     justify-content: center;
     padding: 10px;
+    padding-top: 40px;
       &__title {
         color: black;
         text-align: center;
         margin-top: 60px;
+      }
+      &__subtitle {
+        color: black;
+        text-align: center;
+        // margin-top: 60px;
+        font-size: 1.3rem;
+        font-weight: lighter;
+      }
+      &__hr {
+        margin-left: 0;
+        margin-bottom: 30px;
+        border-color: $tlh-purple;
+        border-width: 3px;
+        width: 48px;
+        margin-top: 0;
+        border-radius: 3px;
+    }
+    &__title-box {
+      // width: max-content;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  .subbanner--white {
+    background: white;
+    justify-content: center;
+    padding: 10px;
+    padding-top: 40px;
+      &__title {
+        color: black;
+        text-align: center;
+        margin-top: 30px;
       }
       &__subtitle {
         color: black;
