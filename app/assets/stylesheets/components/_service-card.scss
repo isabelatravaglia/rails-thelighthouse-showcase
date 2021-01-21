@@ -121,6 +121,9 @@
         color: $color_grey_dark;
         margin-top: 5px;
       }
+      p {
+        text-align: justify;
+      }
       .read-more {
         text-align: right;
         a {
@@ -180,12 +183,14 @@
           // transform: skewX(-3deg);
           content: "";
           background: #fff;
-          width: 30px;
+          width: 93%;
           position: absolute;
           // left: -10px;
           top: 0;
           bottom: 0;
           z-index: -1;
+          border-bottom: solid 1px gray;
+          left: 3%;
         }
       }
       &.alt {
