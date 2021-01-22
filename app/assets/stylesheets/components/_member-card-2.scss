@@ -1,0 +1,13 @@
+.member-square-pic-box {
+  // min-height: 480px;
+  // background: image-url("team-member-1.jpg");
+  display: flex;
+  justify-content: center;
+  &__h1 {
+    text-align: center;
+  }
+}
+
+.member-pic {
+  height: 400px;
+}
