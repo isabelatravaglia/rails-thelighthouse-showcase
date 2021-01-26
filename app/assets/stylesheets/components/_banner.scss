@@ -1,16 +1,83 @@
+// Bootstrap Caroulsel Override
+
+.carousel .carousel-item {
+  height: calc(100vh - 102px);
+}
+.carousel-item img {
+  object-fit: cover;
+  // top: 0;
+  // left: 0;
+  min-height: calc(100vh - 102px);
+}
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: calc((100vh - 102px)/3);
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  &__h1 {
+    font-size: 42px;
+    color: white;
+    font-weight: bold;
+  }
+  &__h2 {
+    font-size: 30px;
+    color: white;
+    // font-weight: bold;
+  }
+}
+
+// @media (min-width: 480px) {
+//   .carousel-item img { min-height: calc(100vh - 102px); }
+// }
+
+// @media (min-width: 768px) {
+//   .carousel-item img { min-height: calc(100vh - 102px); }
+// }
+
+// @media (min-width: 992px) {
+//   .carousel-item img { min-height: calc(100vh - 102px); }
+// }
+
+// Banners
+
 .banner {
+  border-top: 1px solid white;
+  border-bottom: 3px solid $tlh-purple;
+  background-image: image-url("landing-2.jpg");
+  min-height: calc(100vh - 99px);
+  background-size: cover;
+  background-position: center;
+  padding: 40px 0;
+  margin-top: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__pic {
     border-top: 1px solid white;
     border-bottom: 3px solid $tlh-purple;
-    background-image: image-url("landing-2.jpg");
-    min-height: calc(100vh - 99px);
-    background-size: cover;
-    background-position: center;
+    // background-image: image-url("landing-2.jpg");
+    // min-height: calc(100vh - 99px);
+    // background-size: cover;
+    // background-position: center;
     // padding: 40px 0;
     // margin-top: 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // position: relative;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
 
     &__title {
       font-size: 42px;
@@ -25,8 +92,19 @@
       // font-weight: bold;
       text-align: center;
     }
+}
 
-  }
+.banner__pic--1 {
+  // @extend .banner__pic;
+  background-image: image-url("landing-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner__pic--2 {
+  @extend .banner__pic;
+  background-image: image-url("leader-banner.jpg");
+}
 
   .banner--leader {
     @extend .banner;
