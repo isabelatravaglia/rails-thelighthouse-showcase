@@ -1,13 +1,16 @@
 .tlh-banner {
     justify-content: space-between;
-    padding: 90px;
+    padding: 70px 0px;
     background: $tlh-bg-gray;
     display: flex;
     // color:$tlh-avatar-purple;
 
     &__title {
       font-size: 30px;
+      margin-bottom: 30px;
       text-align: center;
+      color:$tlh-avatar-purple;
+      // text-shadow: 0 1px 2px grey;
     }
 
     &__paragraph {
@@ -19,7 +22,7 @@
 
     &__hr {
       margin-bottom: 5px;
-      border-color: #5A0076;
+      border-color: $tlh-purple;
       border-width: 1.5px;
       width: 80%;
       margin-top: 0;
