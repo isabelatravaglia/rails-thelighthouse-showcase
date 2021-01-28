@@ -9,7 +9,7 @@
   justify-content: center;
   &__h1 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   &__h2 {
     font-size: 1.5rem;
@@ -18,9 +18,15 @@
   }
 }
 
+.member-certificates {
+  max-width: 100%;
+  // max-height: 100%;
+  padding-top: 20px;
+}
+
 .member-pic {
   max-width: 100%;
-  max-height: 100%;
+  // max-height: 100%;
   border-radius: 5px;
 }
 

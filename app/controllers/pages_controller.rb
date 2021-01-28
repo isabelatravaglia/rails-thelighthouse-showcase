@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :about, :companies, :leaders ]
 
   def home
-    @services = Service.all
+    @services = Service.where(hp_show: true)
   end
 
   def about

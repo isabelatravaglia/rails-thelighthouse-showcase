@@ -4,6 +4,7 @@
 
 .text-pic-subban {
     background-color: white;
+    padding: 60px 80px;
     &__text-box {
         @extend .col-md-5;
         padding-left: 40px;
@@ -42,7 +43,8 @@
         margin-top: 60px;
     }
     &__paragraph {
-        font-size: 18px;
-        text-align: justify;
+        font-size: 20px;
+        text-align: center;
+        color: $tlh-purple;
     }
 }

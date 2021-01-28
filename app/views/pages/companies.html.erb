@@ -5,8 +5,8 @@
     </div>
 </div>
 <div class="container text-pic-subban">
-    <h1 class="text-pic-subban__title">Para sua Empresa</h1>
-    <hr class="text-pic-subban__hr">
+    <%# <h1 class="text-pic-subban__title">Para sua Empresa</h1> %>
+    <%# <hr class="text-pic-subban__hr"> %>
     <div class="text-pic-subban__text-box-full">
         <p class="text-pic-subban__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, quam voluptas dolor doloremque minus tempore eveniet facilis repellat minima provident culpa quidem optio suscipit nobis modi perspiciatis sed quae corporis.
         </p>
@@ -30,13 +30,13 @@
         </div>
         <div class="description">
           <h1><%= service.name %></h1>
-          <h2><%= service.tagline %></h2>
+          <h2><%#= service.tagline %></h2>
           <p> <%= service.description %></p>
           <br>
-            <h2>Público alvo:</h2>
-            <% service.audiences.each do |audience| %>
-              <p><%= audience.name %></p>
-            <% end %>
+            <h2>Formato:</h2>
+            <%# service.audiences.each do |audience| %>
+              <p><%= service.structure %></p>
+            <%# end %>
           <%# <p class="read-more">
             <a href="#">Saiba Mais</a>
           </p> %>

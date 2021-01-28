@@ -1,7 +1,17 @@
 <div class="banner--services">
     <div>
-        <h1 class="banner__title">Nossos Serviços</h1>
-        <h2 class="banner__subtitle">Escolha o melhor para você ou para sua empresa</h2>
+        <h1 class="banner__title">Serviços</h1>
+        <h2 class="banner__subtitle">Serviços inspiradores para você ou para sua empresa</h2>
+    </div>
+</div>
+<div class="container text-pic-subban">
+    <%# <h1 class="text-pic-subban__title">Nossos Serviços</h1> %>
+    <%# <hr class="text-pic-subban__hr"> %>
+    <div class="text-pic-subban__text-box-full">
+        <p class="text-pic-subban__paragraph">Acreditamos verdadeiramente que todos podem viver com mais <strong>Significância</strong> e <strong>Felicidade</strong>.
+        </p>
+        <p class="text-pic-subban__paragraph">Nossos serviços foram desenhados para serem instrumentos de autoconhecimento, orientação e alinhamento entre <strong>Talento</strong>, <strong>Carreira</strong> e <strong>Propósito</strong>.
+        </p>
     </div>
 </div>
 <div class="subbanner--gray">
@@ -20,13 +30,13 @@
         </div>
         <div class="description">
           <h1><%= service.name %></h1>
-          <h2><%= service.tagline %></h2>
+          <h2><%#= service.tagline %></h2>
           <p> <%= service.description %></p>
           <br>
-            <h2>Público alvo:</h2>
-            <% service.audiences.each do |audience| %>
-              <p><%= audience.name %></p>
-            <% end %>
+            <h2>Formato:</h2>
+            <%# service.audiences.each do |audience| %>
+              <p><%= service.structure %></p>
+            <%# end %>
           <%# <p class="read-more">
             <a href="#">Saiba Mais</a>
           </p> %>
