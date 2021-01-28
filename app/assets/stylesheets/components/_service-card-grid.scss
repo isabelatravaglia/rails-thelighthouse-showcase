@@ -65,6 +65,7 @@
   color: white;
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  // padding: 80px;
   &:hover {
     transform: scale(1.05);
     &:before {
@@ -86,6 +87,7 @@
     opacity: 0;
   }
   &__text-box {
+    // padding: 80px;
     &__h1 {
       line-height: 1;
       margin: 0;
@@ -93,9 +95,9 @@
       text-align: center;
     }
     &__h2 {
-      font-size: 0.8rem;
+      font-size: 1rem;
       // font-weight: 300;
-      text-transform: uppercase;
+      // text-transform: uppercase;
       color: white;
       margin-top: 5px;
       text-align: center;
