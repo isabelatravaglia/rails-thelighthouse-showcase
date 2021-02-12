@@ -19,7 +19,7 @@ FROM ruby:$RUBY_VERSION-slim-buster
 ARG PG_MAJOR
 ARG NODE_MAJOR
 ARG BUNDLER_VERSION
-# ARG YARN_VERSION
+ARG YARN_VERSION
 
 ARG UID
 ENV UID $UID
@@ -72,7 +72,7 @@ RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrad
     libpq-dev \
     postgresql-client-$PG_MAJOR \
     nodejs \
-    yarn \
+    yarn=$YARN_VERSION-1 \
     $(cat /tmp/Aptfile | xargs) && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
