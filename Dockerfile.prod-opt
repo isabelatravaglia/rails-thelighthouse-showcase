@@ -1,0 +1,203 @@
+#################### Beginning Build Stage #############################
+
+ARG RUBY_VERSION=2.6.6
+FROM ruby:$RUBY_VERSION-slim-buster AS build
+
+ARG BUNDLER_VERSION
+ENV BUNDLER_VERSION=${BUNDLER_VERSION:-2.1.4}
+
+ARG PG_MAJOR
+ENV PG_MAJOR=${PG_MAJOR:-13}
+
+ARG NODE_MAJOR
+ENV NODE_MAJOR=${NODE_MAJOR:-12}
+
+ARG YARN_VERSION=1.22.5
+
+
+ARG UID
+ENV UID 1000
+ARG GID
+ENV GID 999
+ARG USER=ruby
+ENV USER $USER
+
+RUN gem install bundler -v $BUNDLER_VERSION
+
+
+# Common dependencies
+RUN apt-get update -qq \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
+    build-essential \
+    gnupg2 \
+    curl \
+    less \
+    git \
+    sudo \
+    iproute2 \
+    openssh-server \
+    openssh-client \
+  && apt-get clean \
+  && rm -rf /var/cache/apt/archives/* \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && truncate -s 0 /var/log/*log
+
+# Add PostgreSQL to sources list
+RUN curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' $PG_MAJOR > /etc/apt/sources.list.d/pgdg.list
+
+# Add NodeJS to sources list
+RUN curl -sL https://deb.nodesource.com/setup_$NODE_MAJOR.x | bash -
+
+# Add Yarn to the sources list
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
+
+# Install dependencies
+COPY Aptfile /tmp/Aptfile
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrade && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
+    libpq-dev \
+    postgresql-client-$PG_MAJOR \
+    nodejs \
+    yarn=$YARN_VERSION-1 \
+    $(cat /tmp/Aptfile | xargs) && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    truncate -s 0 /var/log/*log
+
+# Configure bundler
+ENV LANG=C.UTF-8 \
+  BUNDLE_JOBS=4 \
+  BUNDLE_RETRY=3
+
+# Configure non-root user based on https://hint.io/blog/rails-development-with-docker
+RUN echo "Group ID is $GID and User ID is $UID"
+RUN groupadd -g $GID $USER && \
+useradd -u $UID -g $USER -m $USER && \
+usermod -p "*" $USER && \
+usermod -aG sudo $USER && \
+echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/50-$USER
+
+RUN mkdir -p /app && chown $USER:$USER /app
+WORKDIR /app
+
+COPY --chown=$USER:$USER Gemfile /app/Gemfile
+COPY --chown=$USER:$USER Gemfile.lock /app/Gemfile.lock
+COPY --chown=$USER:$USER package.json /app/package.json
+COPY --chown=$USER:$USER yarn.lock /app/yarn.lock
+
+#ensure the default shell is Bash so that you can connect to the container on Heroku using heroku run bash
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+USER $USER
+
+RUN bundle config set deployment 'true' 
+RUN bundle config set without 'development test'
+RUN bundle install --jobs 4
+COPY --chown=$USER:$USER . .
+RUN bundle exec rake assets:precompile
+
+###############  End of Build Stage #############################
+
+ARG RUBY_VERSION=2.6.6
+FROM ruby:$RUBY_VERSION-slim-buster
+
+ARG PG_MAJOR
+ENV PG_MAJOR=${PG_MAJOR:-13}
+
+ARG NODE_MAJOR
+ENV NODE_MAJOR=${NODE_MAJOR:-12}
+
+ARG BASIC_PACKAGES="tzdata curl bash gnupg2 sudo"
+ARG ADDITIONAL_PACKAGES="postgresql-client-$PG_MAJOR nodejs"
+
+ARG UID
+ENV UID 1000
+ARG GID
+ENV GID 999
+ARG USER=ruby
+ENV USER $USER
+
+ARG BUNDLER_VERSION
+ENV BUNDLER_VERSION=${BUNDLER_VERSION:-2.1.4}
+
+# Configure bundler
+ENV LANG=C.UTF-8 \
+  BUNDLE_JOBS=4 \
+  BUNDLE_RETRY=3
+
+# Common dependencies
+RUN apt-get update -qq \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
+    $BASIC_PACKAGES \
+  && apt-get clean \
+  && rm -rf /var/cache/apt/archives/* \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && truncate -s 0 /var/log/*log
+
+# Add PostgreSQL to sources list
+RUN curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main' $PG_MAJOR > /etc/apt/sources.list.d/pgdg.list
+
+# Add NodeJS to sources list
+RUN curl -sL https://deb.nodesource.com/setup_$NODE_MAJOR.x | bash -
+
+# install additional packages
+RUN apt-get update -qq \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
+    $ADDITIONAL_PACKAGES \
+  && apt-get clean \
+  && rm -rf /var/cache/apt/archives/* \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && truncate -s 0 /var/log/*log
+
+RUN gem install bundler -v $BUNDLER_VERSION
+
+# Configure non-root user based on https://hint.io/blog/rails-development-with-docker
+RUN echo "Group ID is $GID and User ID is $UID"
+RUN groupadd -g $GID $USER && \
+useradd -u $UID -g $USER -m $USER && \
+usermod -p "*" $USER && \
+usermod -aG sudo $USER && \
+echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/50-$USER
+
+# Add a script to be executed every time the container starts. 
+COPY entrypoint-prod.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint-prod.sh
+
+ENV PATH /app/bin:$PATH
+
+RUN mkdir -p /app && chown $USER:$USER /app
+WORKDIR /app
+
+
+COPY --from=build --chown=$USER:$USER app/vendor /app/vendor
+COPY --from=build --chown=$USER:$USER app/Gemfile /app/Gemfile
+COPY --from=build --chown=$USER:$USER app/Gemfile.lock /app/Gemfile.lock
+COPY --from=build --chown=$USER:$USER app/package.json /app/package.json
+COPY --from=build --chown=$USER:$USER app/yarn.lock /app/yarn.lock
+COPY --from=build --chown=$USER:$USER app/app ./app
+COPY --from=build --chown=$USER:$USER app/bin/ ./bin
+COPY --from=build --chown=$USER:$USER app/config/ ./config
+COPY --from=build --chown=$USER:$USER app/lib/ ./lib
+COPY --from=build --chown=$USER:$USER app/db/ ./db
+COPY --from=build --chown=$USER:$USER app/public/ ./public
+COPY --from=build --chown=$USER:$USER app/config.ru app/Rakefile app/postcss.config.js app/babel.config.js ./
+# RUN mkdir log
+
+RUN bundle config --local path vendor/bundle
+
+RUN bundle config --local without development:test:assets
+
+ENTRYPOINT ["entrypoint-prod.sh"]
+EXPOSE 3000
+
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT=enabled
+
+# cleanup
+RUN rm -rf node_modules tmp/cache vendor/assets test
+
+# Start the main process.
+CMD ["rails", "server", "-b", "0.0.0.0"]
