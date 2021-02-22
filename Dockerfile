@@ -129,8 +129,8 @@ ENV LANG=C.UTF-8 \
 WORKDIR /app
 
 # Upgrade RubyGems and install required Bundler version
-RUN gem update --system && \
-  gem install bundler -v $BUNDLER_VERSION
+# RUN gem update --system && \
+RUN gem install bundler -v $BUNDLER_VERSION
 
 COPY --chown=$USER:$USER Gemfile /app/Gemfile
 COPY --chown=$USER:$USER Gemfile.lock /app/Gemfile.lock
