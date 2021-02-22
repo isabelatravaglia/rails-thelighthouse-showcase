@@ -101,7 +101,7 @@
   <div class="service-card-grid">
     <% @services.order(:id).each do |service| %>
       <%= link_to "services" do %>
-        <div class="grid-service-card" style="background-image: url(<%= cl_image_path service.photo.key%>)">
+        <div class="grid-service-card" style="background-image: url(<%= asset_path service.photo.filename %>)">
           <div class="grid-service-card__text-box">
             <div class="grid-service-card__text-box__h1"><%= service.nickname %></div>
             <div class="grid-service-card__text-box__h2"><%= service.tagline %></div>

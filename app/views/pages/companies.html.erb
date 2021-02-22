@@ -21,7 +21,7 @@
       <div class="service-card alt full">
     <% end %>
         <div class="meta">
-          <div class="photo" style="background-image: url(<%= cl_image_path service.photo.key%>)"></div>
+          <div class="photo" style="background-image: url(<%= asset_path service.photo.filename %>)"></div>
           <%# <ul class="details">
             <li class="author"><a href="#">John Doe</a></li>
             <li class="date">Aug. 24, 2015</li>
