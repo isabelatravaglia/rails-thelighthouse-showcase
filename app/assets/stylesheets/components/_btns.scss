@@ -18,3 +18,14 @@
     // border: 2px solid white;
     width: auto;
 }
+
+.btn-info.green {
+  @extend .btn-info.purple;
+  background: $tlh-bolder-green;
+  color: white;
+  margin-top: 10px;
+  border: none;
+  &:hover {
+    background: $tlh-green;
+  }
+}

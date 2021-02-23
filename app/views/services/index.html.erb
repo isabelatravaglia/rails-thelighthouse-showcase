@@ -40,6 +40,11 @@
           <%# <p class="read-more">
             <a href="#">Saiba Mais</a>
           </p> %>
+          <% if service.course %>
+            <%= link_to "services", class: "btn btn-info green" do %>
+              Quero!
+            <% end %>
+          <% end %>
         </div>
     </div>
   <% end %>
