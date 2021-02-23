@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+  activemodel:
+    models:
+      message: Mensagem
+    attributes:
+      message:
+        name: "Nome"
+        body: "Mensagem"
+        email: "E-mail"
+        privacy_policy: "Política de Privacidade"
+      # will translate Model attribute "Name" as "Nome"
+      # To test: Message.model_name.human will return "Mensagem" and Message.human_attribute_name("name") will return "Nome".

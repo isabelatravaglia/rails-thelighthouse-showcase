@@ -1,0 +1,9 @@
+<%# Hide the modal %>
+document.querySelector('.modal').style.display = 'none';
+document.querySelector('.modal-backdrop').style.display = 'none';
+document.querySelector('body').classList.remove('modal-open');
+document.querySelector('body').style.paddingRight = "0px";
+
+<%# Reset the form %>
+document.getElementById('new_message').reset(); <%# Doesn't work %>
+

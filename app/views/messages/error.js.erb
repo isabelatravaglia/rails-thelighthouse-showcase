@@ -1,0 +1,7 @@
+
+<%= escape_javascript (content_for(:the_links) do %>
+  Eu concordo com a <%= link_to "Política de Privacidade", "https://www.iubenda.com/privacy-policy/62265523", target: :_blank %>.
+<% end) %>
+
+document.getElementById('new_message').innerHTML = "<%= escape_javascript(render "messages/form", message: @message) %>"
+
