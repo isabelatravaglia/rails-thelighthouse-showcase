@@ -1,3 +1,7 @@
+<%= content_for(:the_links) do %>
+  Eu concordo com a <%= link_to "Política de Privacidade", "https://www.iubenda.com/privacy-policy/62265523", target: :_blank %>.
+<% end %>
+
 <div class="modal fade" id="contactUsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -14,23 +18,79 @@
       <div class="contact-modal__callout-box">
         <p>Junte-se à nós! Adoraríamos tê-lo(a) à bordo. Para saber mais, por favor preencha as informações abaixo.</p>
       </div>
+      <div class="modal-body contact-modal__body">
+        <%= render "/messages/form", message: message %>
+      </div>
+    </div>
+  </div>
+</div>
 
-      <%= content_for(:the_links) do %>
-        Eu concordo com a <%= link_to "Política de Privacidade", "https://www.iubenda.com/privacy-policy/62265523", target: :_blank %>.
-      <% end %>
-
+<div class="modal fade" id="workshopContactUsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header contact-modal__modal-header">
+        <%# <div class="contact-modal__title-box">
+          <h5 class="modal-title" id="exampleModalLabel">Contate-nos!</h5>
+          <hr class="contact-modal__hr">
+        </div> %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <br>
+      <div class="contact-modal__callout-box">
+        <p>Ficamos felizes pelo seu interesse no "THE" Workshop. Para saber mais, por favor preencha as informações abaixo.</p>
+      </div>
       <div class="modal-body contact-modal__body">
         <%= simple_form_for message, remote: true do |f| %>
-          <%= f.invisible_captcha :nickname %>
-          <%= f.input :nickname, as: :hidden %>
-          <%= f.input :name, placeholder:"Nome", label: false, error: 'Username is mandatory, please specify one', input_html: { class: "contact-modal__text-box" } %>
-          <%= f.input :email, placeholder:"Email", label: false, input_html: { class: "contact-modal__text-box" } %>
-          <%= f.input :company, placeholder:"Empresa (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
-          <%= f.input :phone, placeholder:"Telefone (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
-          <%= f.input :body, placeholder:"Mensagem", label: false,  as: :text, input_html: { class: "contact-modal__text-box" } %>
-          <%=f.input :privacy_policy, as: :boolean, label: content_for(:the_links), value: 0 %>
-          <br>
-          <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted", disabled: true, name: "mensagem contato" %>
+        <%= f.invisible_captcha :nickname %>
+        <%= f.input :nickname, as: :hidden %>
+        <%= f.input :course, as: :hidden, input_html: {value: "Workshop"} %>
+        <%= f.input :name, placeholder:"Nome", label: false, input_html: { class: "contact-modal__text-box" } %>
+        <%= f.input :email, placeholder:"Email", label: false, input_html: { class: "contact-modal__text-box" } %>
+        <%= f.input :company, placeholder:"Empresa (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
+        <%= f.input :phone, placeholder:"Telefone (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
+        <%= f.input :body, placeholder:"Mensagem", label: false,  as: :text, input_html: { class: "contact-modal__text-box" } %>
+        <%=f.input :privacy_policy, as: :boolean, label: content_for(:the_links), value: 0 %>
+        <br>
+        <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted", disabled: true, name: "mensagem contato" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="liderancaContactUsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header contact-modal__modal-header">
+        <%# <div class="contact-modal__title-box">
+          <h5 class="modal-title" id="exampleModalLabel">Contate-nos!</h5>
+          <hr class="contact-modal__hr">
+        </div> %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <br>
+      <div class="contact-modal__callout-box">
+        <p>Ficamos felizes pelo seu interesse em nosso Curso de Formação de Liderança Inspiradora. Para saber mais, por favor preencha as informações abaixo.</p>
+      </div>
+
+      <div class="modal-body contact-modal__body">
+        <div class="modal-body contact-modal__body">
+          <%= simple_form_for message, remote: true do |f| %>
+            <%= f.invisible_captcha :nickname %>
+            <%= f.input :nickname, as: :hidden %>
+            <%= f.input :course, as: :hidden, input_html: {value: "Liderança Inspiradora"} %>
+            <%= f.input :name, placeholder:"Nome", label: false, input_html: { class: "contact-modal__text-box" } %>
+            <%= f.input :email, placeholder:"Email", label: false, input_html: { class: "contact-modal__text-box" } %>
+            <%= f.input :company, placeholder:"Empresa (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
+            <%= f.input :phone, placeholder:"Telefone (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
+            <%= f.input :body, placeholder:"Mensagem", label: false,  as: :text, input_html: { class: "contact-modal__text-box" } %>
+            <%=f.input :privacy_policy, as: :boolean, label: content_for(:the_links), value: 0 %>
+            <br>
+            <%= f.button :submit, "Enviar", class: "btn btn-info purple inverted", disabled: true, name: "mensagem contato" %>
           <% end %>
       </div>
     </div>

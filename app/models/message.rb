@@ -1,6 +1,6 @@
 class Message
   include ActiveModel::Model
-  attr_accessor :name, :email, :body, :nickname, :company, :phone, :privacy_policy
+  attr_accessor :name, :email, :body, :nickname, :company, :phone, :privacy_policy, :course
 
   validates :name, presence: { message: "deve ser preenchido." }
   validates :body, presence: { message: "deve ser preenchida." }

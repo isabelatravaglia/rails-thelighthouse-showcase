@@ -41,14 +41,21 @@
             <a href="#">Saiba Mais</a>
           </p> %>
           <% if service.course %>
-            <%= link_to "services", class: "btn btn-info green" do %>
-              Quero!
+            <% if service.name == "\"THE\" Workshop - Orientação de Propósito" %>
+              <%= link_to "services", class: "btn btn-info green", data: { toggle: 'modal', target: '#workshopContactUsModal'} do %>
+                Quero!
+              <% end %>
+            <% elsif service.name == "Formação Liderança Inspiradora" %>
+              <%= link_to "services", class: "btn btn-info green", data: { toggle: 'modal', target: '#liderancaContactUsModal'} do %>
+                Quero!
+              <% end %>
             <% end %>
           <% end %>
         </div>
     </div>
   <% end %>
 </div>
+              
 
 
 

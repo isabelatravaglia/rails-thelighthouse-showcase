@@ -1,6 +1,7 @@
 <%= simple_form_for message, remote: true do |f| %>
   <%= f.invisible_captcha :nickname %>
   <%= f.input :nickname, as: :hidden %>
+  <%= f.input :course, as: :hidden %>
   <%= f.input :name, placeholder:"Nome", label: false, input_html: { class: "contact-modal__text-box" } %>
   <%= f.input :email, placeholder:"Email", label: false, input_html: { class: "contact-modal__text-box" } %>
   <%= f.input :company, placeholder:"Empresa (Opcional)", label: false, input_html: { class: "contact-modal__text-box" } %>
