@@ -3,13 +3,13 @@
     <%= image_tag "avatar-logo.jpg" %>
 
     <%# THE LIGHTHOUSE %>
-    <% end %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
+  <div><%= render "messages/new", message: Message.new %></div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -49,7 +49,7 @@
           <%= link_to "Contato", new_message_path, class: current_class?(new_message_path), data: { toggle: 'modal', target: '#contactUsModal'}%>
         <hr></li>
 
-        <%= render "/messages/new", message: Message.new %>
+        
         
         <li class="nav-item dropdown">
           <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -58,7 +58,6 @@
             <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-        </li>
         </li>
       <% end %>
     </ul>

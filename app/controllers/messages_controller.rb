@@ -3,26 +3,36 @@ class MessagesController < ApplicationController
   invisible_captcha only: [:create], honeypot: :nickname
 
   def new
-		@message = Message.new
-	end
+    @message = Message.new
+  end
 
   def create
     @message = Message.new(message_params)
-    if @message.valid?
-			ContactMailer.contact(@message).deliver_now
-			redirect_back(fallback_location: root_path)
-			flash[:notice] = "Recebemos sua mensagem! Entraremos em contato brevemente!"
-		else
-			flash[:notice] = "Ops! Não conseguimos receber sua mensagem. Por favor, preencha todos os campos obrigatórios e tente novamente."
-      # render "/messages/_new", locals: {message: @message}
-      redirect_back(fallback_location: root_path)
+    if @message.course.empty?
+      respond_to do |format|
+        if @message.valid?
+          ContactMailer.contact(@message).deliver_now
+          format.js { render 'create.js.erb' }
+        else
+          format.js { render 'error.js.erb' }
+        end
+      end
+    else
+      respond_to do |format|
+        if @message.valid?
+          ContactMailer.course_contact(@message).deliver_now
+          format.js { render 'create.js.erb' }
+        else
+          format.js { render 'error.js.erb' }
+        end
+      end
     end
-	end
+  end
 
-	private
+  private
 
 	def message_params
-    params.require(:message).permit(:name, :email, :body, :nickname, :company, :phone)
+    params.require(:message).permit(:name, :email, :body, :nickname, :company, :phone, :privacy_policy,:course)
 	end
 
 end
