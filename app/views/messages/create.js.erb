@@ -3,12 +3,15 @@ document.querySelectorAll('.modal').forEach((modal) => {
   modal.style.display = 'none'; <%# Hides modals%>
 });
 
-document.querySelector('.modal-backdrop').style.display = 'none'; <%# Hides modal dark backdrop%>
+document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
+  backdrop.style.display = 'none'; <%# Hides modal dark backdrop%>
+})
+
 document.querySelector('body').classList.remove('modal-open'); <%# Removes class from body that prevents page scroll down%>
 document.querySelector('body').style.paddingRight = "0px"; <%# Sets body padding-right from 17px to 0px to prevent blank margin on page's body%>
 
-<%# Render Alert %>
-document.querySelector("body").insertAdjacentHTML("afterbegin", "<%= escape_javascript(render "messages/alert") %>")
+<%# Render Success Alert %>
+document.querySelector("body").insertAdjacentHTML("afterbegin", "<%= escape_javascript(render "messages/success_alert") %>")
 
 <%# Reset the form %>
 document.getElementById('new_message').reset(); <%# Doesn't clear validation errors. %>

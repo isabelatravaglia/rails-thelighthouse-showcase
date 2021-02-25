@@ -5,3 +5,5 @@
 
 document.getElementById('new_message').innerHTML = "<%= escape_javascript(render "messages/form", message: @message) %>"
 
+<%# Render Fail Alert %>
+document.querySelector("body").insertAdjacentHTML("afterbegin", "<%= escape_javascript(render "messages/success_alert") %>")
