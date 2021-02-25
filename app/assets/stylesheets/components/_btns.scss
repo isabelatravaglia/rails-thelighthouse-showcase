@@ -21,11 +21,11 @@
 
 .btn-info.green {
   @extend .btn-info.purple;
-  background: $tlh-bolder-green;
+  background: $tlh-light-purple;
   color: white;
   margin-top: 10px;
   border: none;
   &:hover {
-    background: $tlh-green;
+    background: $tlh-fading-purple;
   }
 }
