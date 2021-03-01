@@ -101,7 +101,7 @@ $color_grey_dark: #a2a2a2;
     }
   }
   .description {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     background: $color_white;
     position: relative;
     z-index: 1;
@@ -122,7 +122,10 @@ $color_grey_dark: #a2a2a2;
       margin-top: 5px;
     }
     p {
-      text-align: justify;
+      text-align: center;
+      &:nth-of-type(2) {
+        color: $tlh-purple;
+      }
     }
     .read-more {
       text-align: right;
