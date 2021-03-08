@@ -110,52 +110,83 @@
       <% end %>
     <% end %>
   </div>
-
- 
-  
-  <%# <p style="text-align: center; padding-bottom: 20px; margin-bottom: 0px"> %>
-    <%#= link_to "services", class: "btn btn-info purple" do %>
-      <%# Saiba Mais %>
-    <%# end %>
-  <%# </p> %>
-
 </div>
-<%# <div class="text-pic-subban">
-  <div class="row">
-    <div class="text-pic-subban__text-box">
-      <h2 class="text-pic-subban__title">Para Você</h2>
-      <hr class="text-pic-subban__hr">
-      <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis?</p>
-      <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.</p>
-      <p> %>
-        <%#= link_to "leaders", class: "btn btn-info purple" do %>
-          <%# Saiba Mais %>
-        <%# end %>
-      <%# </p>
+<div class="subbanner--gray">
+  <div class="subbanner--white__title-box">
+    <h2 class="subbanner--white__title">Depoimentos</h2>
+    <hr class="subbanner--white__hr">
+    <%# <h3 class="subbanner--white__title">Para Você e para sua Empresa</h3> %>
+  </div>
+  <div id="carouselTestimonials" class="carousel slide" data-interval="false" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselTestimonials" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselTestimonials" data-slide-to="1"></li>
+      <li data-target="#carouselTestimonials" data-slide-to="2"></li>
+      <li data-target="#carouselTestimonials" data-slide-to="3"></li>
+      <li data-target="#carouselTestimonials" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="testimonial-card full">
+          <div class="description">
+            <span><img class="quote-img" src="<%= asset_path( 'quotation.png' ) %>"></span>
+            <p>Nós começamos nossa mentoria para nossa empresa familiar num momento em que estávamos bastante perdidos em quais rumos tomar. Já na primeira sessão, conseguimos organizar muitos dos pensamentos, ideias e planos para a @Passeatta. A cada conversa surgem muitos novos insights e temos cada vez mais clareza de onde queremos chegar e como alcançar os resultados. Empreender é muito solitário e são muitos caminhos possíveis. Sentíamos que não estávamos saindo do lugar porque não conseguíamos focar nos caminhos certos para nós. Ter uma pessoa tão experiente que nos pegue pela mão e nos ajude a criar cada vez mais o trabalho dos nossos sonhos tem feito toda a diferença em nossas vidas. Sem contar o bate papo delicioso, leve e que nos enche de potência. A cada sessão saímos mais leves e cheios de energia pra seguir as orientações, fazer os exercícios propostos e encarar com mais coragem e preparo novos desafios. Conseguimos mais e mais visualizar nosso norte e recebemos todo suporte profissional e ferramentas para alçar esse voo com firmeza e propósito.</p>
+            <br>
+            <p>Brendan e Nathalia Clark - @Passeatta </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="testimonial-card full">
+          <div class="description">
+            <span><img class="quote-img" src="<%= asset_path( 'quotation.png' ) %>"></span>
+            <p>Pude experimentar o serviço de consultoria e foi incrível. Gra me trouxe um amadurecimento e uma clareza, não só no aspecto da carreira pura e simplesmente, mas muito além disso: me ajudou a compreender minha vocação, a relação dos meus valores essências com o universo corporativo, me ajudou a clarear meu propósito e desenhar, a partir disso, um plano de carreira mais conectado com quem sou realmente, com minhas vocações e talentos e com aquilo que me move verdadeiramente... Hoje me sinto mais pleno, maduro e mais no controle da minha trajetória profissional e até mesmo, pessoal.</p>
+            <br>
+            <p>Marcelo Mittestainer</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">      
+        <div class="testimonial-card full">
+          <div class="description">
+            <span><img class="quote-img" src="<%= asset_path( 'quotation.png' ) %>"></span>
+            <p>Através da The Lighthouse e do trabalho da Grazi, obtive um dos mergulhos mais profundos e intensos para meu interior, o que me trouxe muito esclarecimento e autoconhecimento. A experiência da Grazi no mundo corporativo, seu extenso currículo e talento nato na gestão e liderança de pessoas e seu preparo para aplicar ferramentas de Coach tornam o processo muito intenso. Com muita maestria fui guiado por uma jornada de tarefas que revelaram muito sobre meu comportamento no mundo profissional e pessoal, revelando onde era necessário realizar ajustes, o que era da minha essência e indicando caminhos futuros.</p>
+            <br>
+            <p>Sidnei Baroni Jr.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">      
+        <div class="testimonial-card full">
+          <div class="description">
+            <span><img class="quote-img" src="<%= asset_path( 'quotation.png' ) %>"></span>
+            <p>Muito obrigada Graziele Neves pela The Lighthouse Consultoria estar me orientando para o que de fato me faz feliz! Redescobri meu potencial e hoje me sinto preparada para para exercer meu lado empresarial.</p>
+            <br>
+            <p>Carol Ricciardi</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="testimonial-card full">
+          <div class="description">
+            <span><img class="quote-img" src="<%= asset_path( 'quotation.png' ) %>"></span>
+            <p>The Lighthouse me ajudou a acreditar em mim próprio. Com a The Lighthouse reconheci as minhas qualidades e pude desenvolver as minhas competências e habilidades para atingir os meus objectivos. Hoje, criei a minha empresa e tornei-me realizado a nível profissional. Obrigado The Lighthouse pela sua dedicação e competência!</p>
+            <br>
+            <p>Franck Ferreira</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="text-pic-subban__pic-box">
-			<div class="text-pic-subban__pic-box-img text-pic-subban__pic-box-img--people"></div>
-		</div>
+    <a class="carousel-control-prev" href="#carouselTestimonials" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselTestimonials" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </div>
-<div class="text-pic-subban">
-  <div class="row">
-    <div class="text-pic-subban__pic-box">
-			<div class="text-pic-subban__pic-box-img text-pic-subban__pic-box-img--company"></div>
-		</div>
-    <div class=text-pic-subban__text-box>
-      <h2 class="text-pic-subban__title">Para Empresas</h2>
-      <hr class="text-pic-subban__hr">
-      <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum id delectus sed placeat? Nisi modi tempora delectus veritatis?</p>
-      <p class="text-pic-subban__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab recusandae debitis velit tempore voluptates repellat nemo iste libero temporibus quo expedita, veritatis. Modi.</p>
-      <p> %>
-        <%#= link_to "companies", class: "btn btn-info purple" do %>
-          <%# Saiba Mais %>
-        <%# end %>
-      <%# </p>
-    </div>
-  </div>
-</div> %>
 
 
 
