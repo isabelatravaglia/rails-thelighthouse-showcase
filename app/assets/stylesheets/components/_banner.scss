@@ -94,6 +94,12 @@
     background-size: cover;
   }
 
+  .banner--article {
+    @extend .banner;
+    background: image-url("about-banner.jpg") no-repeat top center;
+    background-size: cover;
+  }
+
   .subbanner--fading-purple {
     background: $tlh-fading-purple;
     justify-content: center;

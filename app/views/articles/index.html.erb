@@ -1,3 +1,72 @@
+<div class="banner--article">
+    <div>
+        <h1 class="banner__title">Inspire-se</h1>
+        <%# <h2 class="banner__subtitle">Escolha</h2> %>
+    </div>
+</div>
+<div class="container text-pic-subban">
+    <%# <h1 class="text-pic-subban__title">Para sua Empresa</h1> %>
+    <%# <hr class="text-pic-subban__hr"> %>
+    <div class="text-pic-subban__text-box-full">
+        <p class="text-pic-subban__paragraph">“É com a clareza do propósito que a visão se torna realidade.”
+        </p>
+        <p class="text-pic-subban__paragraph">James Doty</p>
+    </div>
+</div>
+<div class="subbanner--gray">
+  <div class="row">
+    <% @articles.order(created_at: :desc).each do |article| %>
+    <div class="col-md-6 col-sm-12">
+      <article class="blog-card">
+        <div class="blog-card__background">
+          <div class="card__background--wrapper">
+            <div class="card__background--main" style="background-image: url('http://demo.yolotheme.com/html/motor/images/demo/demo_131.jpg');">
+              <div class="card__background--layer"></div>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card__head">
+          <span class="date__box">
+            <span class="date__day"> <%= article.created_at.day %> </span>
+            <span class="date__month"> <%= @months[article.created_at.month - 1] %></span>
+          </span>
+        </div>
+        <div class="blog-card__info">
+          <h5> <%= link_to article.title, article_path(article.title.parameterize) %> </h5>
+          
+          <p>
+            <a href="<%= "../about.html##{article.partner.first_name.downcase}#{article.partner.last_name.downcase}" %>" class="icon-link mr-3"><i class="fa fa-pencil-square-o"></i> <%= "#{article.partner.first_name} #{article.partner.last_name}" %></a>
+            <%# <a href="#" class="icon-link"><i class="fa fa-comments-o"></i> 150</a> %>
+          </p>
+          <p> <%= article.body.truncate_words(15) %></p>
+          <%# <a href="#" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>Leia Mais</a> %>
+        </div>
+      </article>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<section class="detail-page">
+  <div class="container mt-5">
+    
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>Artigos</h1>
 <% @articles.each do |article| %>
 <h3> <%= article.title  %> </h3>
