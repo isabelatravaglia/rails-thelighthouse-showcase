@@ -16,11 +16,11 @@
 <div class="subbanner--gray">
   <div class="row">
     <% @articles.order(created_at: :desc).each do |article| %>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-4 col-sm-12">
       <article class="blog-card">
         <div class="blog-card__background">
           <div class="card__background--wrapper">
-            <div class="card__background--main" style="background-image: url('http://demo.yolotheme.com/html/motor/images/demo/demo_131.jpg');">
+            <div class="card__background--main" style="background-image: url('<%= cl_image_path article.photo.key %>');">
               <div class="card__background--layer"></div>
             </div>
           </div>
@@ -32,7 +32,7 @@
           </span>
         </div>
         <div class="blog-card__info">
-          <h5> <%= link_to article.title, article_path(article.title.parameterize) %> </h5>
+          <h5> <%= link_to article.title, article_path(article.title_param) %> </h5>
           
           <p>
             <a href="<%= "../about.html##{article.partner.first_name.downcase}#{article.partner.last_name.downcase}" %>" class="icon-link mr-3"><i class="fa fa-pencil-square-o"></i> <%= "#{article.partner.first_name} #{article.partner.last_name}" %></a>
@@ -46,12 +46,6 @@
     <% end %>
   </div>
 </div>
-
-<section class="detail-page">
-  <div class="container mt-5">
-    
-  </div>
-</section>
 
 
 
@@ -71,6 +65,6 @@
 <% @articles.each do |article| %>
 <h3> <%= article.title  %> </h3>
 <p> <%= article.body  %> </p>
-<%= link_to 'Ler Artigo', article_path(article.title.parameterize) %>
+<%= link_to 'Ler Artigo', article_path(article.title_param) %>
 <%# /articles/como-encontrar-um-trabalho-com-proposito %>
 <% end %>

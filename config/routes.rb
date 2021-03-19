@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :audience_services, only: [:index]
   resources :messages, only: [:new, :create]
   resources :articles, only: [:index]
-  get '/articles/:title', to: 'articles#show', as: 'article'
+  get '/articles/:title_param', to: 'articles#show', as: 'article'
   get 'about', to: 'pages#about'
   get 'leaders', to: 'pages#leaders'
   get 'companies', to: 'pages#companies'

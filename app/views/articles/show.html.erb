@@ -1,2 +1,10 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="banner--empty" style="background-image: url('<%= cl_image_path @article.photo.key %>')">
+    <div>
+      <h1 class="banner__title"> <%= @article.title %></h1>
+      <%# <h2 class="banner__subtitle">Escolha</h2> %>
+    </div>
+</div>
+<div class="subbanner--gray">
+
+<p> <%= @article.body %></p>
+</div>
