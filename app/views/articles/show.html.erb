@@ -1,10 +1,26 @@
 <div class="banner--empty" style="background-image: url('<%= cl_image_path @article.photo.key %>')">
     <div>
-      <h1 class="banner__title"> <%= @article.title %></h1>
+      <h1 class="banner--empty__title"> <%= @article.title %></h1>
       <%# <h2 class="banner__subtitle">Escolha</h2> %>
     </div>
 </div>
-<div class="subbanner--gray">
-
-<p> <%= @article.body %></p>
+<div class="article">
+  <div class="article__side-block">
+    <div class="article__authors">
+      <div class="article__author">
+        <img class="article__avatar" alt= <%= "#{@article.partner.first_name} #{@article.partner.last_name}" %> src= <%= asset_path @article.partner.photo.filename %> width="200" height="200">
+        <div class="article__author-text">
+          <div class="article__author-name"> <%= "#{@article.partner.first_name} #{@article.partner.last_name}"%>
+          </div>
+          <div class="article__author-about"> <%= "#{@article.partner.about}"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="article__textbox">
+    <div class="article__p">
+      <%= @article.body %>
+    </div>
+  </div>
 </div>

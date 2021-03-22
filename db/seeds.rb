@@ -57,8 +57,12 @@ firob.photo.attach(io: firob_image_file, filename: 'firob.jpg', content_type: 'i
 
 puts "Creating Partners"
 
-grazi = Partner.create(first_name: "Graziele", last_name: "Neves", email: "grazi@discoverthelighthouse.com")
-ricardo = Partner.create(first_name: "Ricardo", last_name: "Penna", email: "ricardo@discoverthelighthouse.com")
+grazi = Partner.create(first_name: "Graziele", last_name: "Neves", email: "grazi@discoverthelighthouse.com", about: "Founder e CEO - The Lighthouse")
+grazi_image_file = File.open(File.join(Rails.root,'app/assets/images/team-member-1.jpg'))
+grazi.photo.attach(io: grazi_image_file, filename: 'team-member-1.jpg', content_type: 'image/jpg')
+ricardo = Partner.create(first_name: "Ricardo", last_name: "Penna", email: "ricardo@discoverthelighthouse.com", about: "Partner - The Lighthouse")
+ricardo_image_file = File.open(File.join(Rails.root,'app/assets/images/team-member-2.jpg'))
+ricardo.photo.attach(io: ricardo_image_file, filename: 'team-member-2.jpg', content_type: 'image/jpg')
 
 puts "Creating Audiences"
 # recoloc = Audience.create(name: "Executivos em busca de recolocação profissional", description: "Executivos que buscam recolocação profissional", audience_type: "pessoa")

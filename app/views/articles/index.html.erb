@@ -46,25 +46,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1>Artigos</h1>
-<% @articles.each do |article| %>
-<h3> <%= article.title  %> </h3>
-<p> <%= article.body  %> </p>
-<%= link_to 'Ler Artigo', article_path(article.title_param) %>
-<%# /articles/como-encontrar-um-trabalho-com-proposito %>
-<% end %>
