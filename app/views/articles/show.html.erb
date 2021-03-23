@@ -5,14 +5,17 @@
     </div>
 </div>
 <div class="article">
+  <div class="article__date"> <%= "#{@article.created_at.day}/#{@article.created_at.month}/#{@article.created_at.year}" %></div>
   <div class="article__side-block">
     <div class="article__authors">
       <div class="article__author">
-        <img class="article__avatar" alt= <%= "#{@article.partner.first_name} #{@article.partner.last_name}" %> src= <%= asset_path @article.partner.photo.filename %> width="200" height="200">
+        <img class="article__avatar" alt= "<%= "#{@article.partner.first_name} #{@article.partner.last_name}" %>" src= <%= asset_path @article.partner.photo.filename %> width="200" height="200">
         <div class="article__author-text">
-          <div class="article__author-name"> <%= "#{@article.partner.first_name} #{@article.partner.last_name}"%>
+          <div class="article__author-name"> 
+            <%= "#{@article.partner.first_name} #{@article.partner.last_name}"%>
           </div>
-          <div class="article__author-about"> <%= "#{@article.partner.about}"%>
+          <div class="article__author-about"> 
+            <%= "#{@article.partner.about}"%>
           </div>
         </div>
       </div>
