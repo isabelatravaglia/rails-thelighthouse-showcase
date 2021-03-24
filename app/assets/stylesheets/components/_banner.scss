@@ -270,6 +270,14 @@
     &__p {
       font-size: 20px;
       line-height: 34px;
+      &__a {
+        color: $tlh-purple;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          color: $tlh-purple;
+        }
+      }
     }
     &__authors {
       max-width: 100%;
@@ -297,6 +305,10 @@
       margin-bottom: 9px;
       font-size: 20px;
       font-weight: 700;
+      a {
+        color: #0E0000;
+        text-decoration: none;
+      }
     }
     &__author-about {
       margin-bottom: 10px;
@@ -379,6 +391,10 @@
       margin-bottom: 9px;
       font-size: 20px;
       font-weight: 700;
+      a {
+        color: #0E0000;
+        text-decoration: none;
+      }
     }
     &__author-about {
       margin-bottom: 10px;

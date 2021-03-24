@@ -9,10 +9,10 @@
   <div class="article__side-block">
     <div class="article__authors">
       <div class="article__author">
-        <img class="article__avatar" alt= "<%= "#{@article.partner.first_name} #{@article.partner.last_name}" %>" src= <%= asset_path @article.partner.photo.filename %> width="200" height="200">
+        <%= link_to image_tag("#{@article.partner.photo.filename}", width: 200, height: 200, class: "article__avatar"), about_path(anchor: "#{@article.partner.first_name.downcase}#{@article.partner.last_name.downcase}"), class: "article__avatar", alt:"#{@article.partner.first_name} #{@article.partner.last_name}" %>
         <div class="article__author-text">
           <div class="article__author-name"> 
-            <%= "#{@article.partner.first_name} #{@article.partner.last_name}"%>
+            <%= link_to "#{@article.partner.first_name} #{@article.partner.last_name}", about_path(anchor: "#{@article.partner.first_name.downcase}#{@article.partner.last_name.downcase}") %>
           </div>
           <div class="article__author-about"> 
             <%= "#{@article.partner.about}"%>
