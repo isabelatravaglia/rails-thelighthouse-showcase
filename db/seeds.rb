@@ -132,13 +132,26 @@ article_3_photo = URI.open('https://source.unsplash.com/random')
 article_3.photo.attach(io: article_3_photo, filename: 'nes.png', content_type: 'image/png')
 article_3.save
 
+article_4 = Article.new(title: "Transição de Carreira", body: "Trabalhar com algo que acreditamos ser significativo para nós e que gera impacto positivo nos outros faz com que nos tornemos mais engajados e dedicados, aumentando a satisfação e o sentido de realização. A pandemia nos  fez encarar o fato de que não temos controle sobre muitos aspectos das nossas vidas. Logo, trabalhar em empresas e negócios em que acreditamos e vemos relevância faz com que nos sintamos valorizados e nos faz perceber que o nosso trabalho tem importância. Tudo isso aumenta o sentido de pertencimento e visão de que podemos fazer a diferença mesmo em menor escala. Todos ganham com isso: o funcionário, o negócio, a empresa e o meio.", partner: Partner.last)
+article_4_photo = URI.open('https://source.unsplash.com/random')
+article_4.photo.attach(io: article_4_photo, filename: 'nes.png', content_type: 'image/png')
+article_4.save
+
+article_5 = Article.new(title: "Comunicação Não Violenta", body: "Trabalhar com algo que acreditamos ser significativo para nós e que gera impacto positivo nos outros faz com que nos tornemos mais engajados e dedicados, aumentando a satisfação e o sentido de realização. A pandemia nos  fez encarar o fato de que não temos controle sobre muitos aspectos das nossas vidas. Logo, trabalhar em empresas e negócios em que acreditamos e vemos relevância faz com que nos sintamos valorizados e nos faz perceber que o nosso trabalho tem importância. Tudo isso aumenta o sentido de pertencimento e visão de que podemos fazer a diferença mesmo em menor escala. Todos ganham com isso: o funcionário, o negócio, a empresa e o meio.", partner: Partner.last)
+article_5_photo = URI.open('https://source.unsplash.com/random')
+article_5.photo.attach(io: article_5_photo, filename: 'nes.png', content_type: 'image/png')
+article_5.save
+
 article_category_1 = ArticleCategory.create(name: "Carreira")
 article_category_2 = ArticleCategory.create(name: "Propósito")
 article_category_3 = ArticleCategory.create(name: "Mudança")
+article_category_4 = ArticleCategory.create(name: "Comunicação")
 
 ArticleCategorization.create(article: article_1, article_category: article_category_1)
 ArticleCategorization.create(article: article_1, article_category: article_category_2)
 ArticleCategorization.create(article: article_2, article_category: article_category_3)
 ArticleCategorization.create(article: article_2, article_category: article_category_1)
 ArticleCategorization.create(article: article_3, article_category: article_category_1)
+ArticleCategorization.create(article: article_4, article_category: article_category_1)
+ArticleCategorization.create(article: article_5, article_category: article_category_4)
 

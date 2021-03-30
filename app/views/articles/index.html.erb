@@ -14,9 +14,9 @@
     </div>
 </div>
 <div class="subbanner--gray">
-  <div class="row">
+  <div class="article-wrapper">
     <% @articles.order(created_at: :desc).each do |article| %>
-    <div class="col-md-4 col-sm-12">
+    <div class="flex-article">
       <article class="blog-card">
         <div class="blog-card__background">
           <div class="card__background--wrapper">
