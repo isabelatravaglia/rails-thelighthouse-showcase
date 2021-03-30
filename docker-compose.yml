@@ -78,7 +78,7 @@ services:
     # changed a file.
     volumes:
       - .:/app:cached
-      - bundle:/usr/local/bundle
+      - bundle_2:/usr/local/bundle
       - node_modules:/app/node_modules
       - packs:/app/public/packs
       - rails_cache:/app/tmp/cache
@@ -122,7 +122,7 @@ services:
 # Declare the volumes that our application uses.
 volumes:
   db_data:
-  bundle:
+  bundle_2:
   node_modules:
   packs:
   rails_cache:
