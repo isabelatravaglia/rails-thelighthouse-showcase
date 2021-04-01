@@ -19,6 +19,22 @@
     width: auto;
 }
 
+.btn-info.purple.inverted.fixwidth {
+  background: $tlh-purple;
+  color: white;
+  // border: 2px solid white;
+  width: 120px;
+}
+
+.btn-info.gray.soft {
+  @extend .btn-info, .purple;
+  background: #ECECEC;
+  color: $tlh-purple;
+  border: none;
+  width: 125px;
+  box-shadow: none;
+}
+
 .btn-info.green {
   @extend .btn-info.purple;
   background: $tlh-light-purple;

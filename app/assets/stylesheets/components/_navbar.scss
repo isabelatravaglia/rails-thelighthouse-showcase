@@ -12,6 +12,10 @@
   flex-grow: 0;
 }
 
+#navbarDropdown {
+  cursor: pointer;
+}
+
 .navbar-tlh .navbar-brand img {
   width: 240px;
   padding: 10px;
@@ -65,4 +69,9 @@
 .navbar-light .navbar-toggler {
   border-color: transparent;
   color: transparent;
+}
+
+.dropdown-item {
+  font-size: 0.9rem;
+  color: $tlh-purple;
 }
