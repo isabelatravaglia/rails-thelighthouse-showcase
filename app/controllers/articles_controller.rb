@@ -8,4 +8,27 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find_by(title_param: params[:title_param])
   end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+    if @article.save
+      flash[:success] = "Article successfully created"
+      redirect_to article_path(@article, title_param: @article.title_param)
+      # redirect_to controller: 'article', action: 'show', title_param: @article.title_param
+    else
+      flash[:error] = "Something went wrong"
+      render 'new'
+    end
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :partner_id, :rich_body, :photo)
+	end
+  
 end
