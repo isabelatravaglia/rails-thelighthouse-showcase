@@ -7,6 +7,7 @@ class Article < ApplicationRecord
   has_one_attached :photo, service: :cloudinary
   before_create :set_title_param
   before_update :set_title_param
+  has_rich_text :rich_body
 
   protected
 
