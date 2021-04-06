@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @articles = Article.all
     @months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       flash[:success] = "Article successfully created"
-      redirect_to article_path(@article, title_param: @article.title_param)
+      redirect_to article_path(title_param: @article.title_param)
       # redirect_to controller: 'article', action: 'show', title_param: @article.title_param
     else
       flash[:error] = "Something went wrong"
@@ -29,6 +29,5 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :partner_id, :rich_body, :photo)
-	end
-  
+  end
 end
