@@ -3,12 +3,13 @@
   <!-- [...] -->
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :photo, as: :file, input_html: { multiple: false } %>
+    <%= f.input :title, label: "Título" %>
+    <%= f.input :photo, as: :file, label: "Imagem", input_html: { multiple: false } %>
   </div>
 
   <div class="form-inputs">
     <%= f.association :partner, label: "Autor(a)", collection: Partner.order(:first_name), label_method: :full_name, value_method: :id %>
+    <%= f.association :article_categories,  as: :check_boxes, label: "Categorias", collection: ArticleCategory.order(:name), label_method: :name, value_method: :id %>
   </div>
 
   <!-- insert these three line of code below -->
@@ -16,7 +17,7 @@
     <%= f.rich_text_area :rich_body %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions pt-3">
+    <%= f.button :submit, "Criar Artigo", class: "btn btn-info purple inverted fixwidth" %>
   </div>
 <% end %>

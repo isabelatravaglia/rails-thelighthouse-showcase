@@ -366,6 +366,14 @@
     &__p {
       font-size: 17px;
       line-height: 26px;
+      &__a {
+        color: $tlh-purple;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          color: $tlh-purple;
+        }
+      }
     }
     &__authors {
       max-width: 100%;

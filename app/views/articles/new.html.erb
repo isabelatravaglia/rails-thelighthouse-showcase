@@ -1,4 +1,10 @@
-<h1>New Article</h1>
+<div class="container pt-3">
 
-<%= render 'form', article: @article %>
-<%= link_to 'Voltar', root_path %>
+  <h2>Novo Artigo</h2>
+
+  <%= render 'form', article: @article %>
+  <div class="auth-links">
+    <%= link_to "Voltar", :back, class: "btn btn-info gray soft" %>
+    <br>
+  </div>
+</div>

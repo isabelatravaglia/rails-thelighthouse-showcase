@@ -14,16 +14,16 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
        <li class="nav-item">
-          <%= link_to "Serviços", "services", class: current_class?(services_path) %>
+          <%= link_to "Serviços", services_path, class: current_class?(services_path) %>
         <hr></li>
         <li class="nav-item">
-          <%= link_to "Para Você", "leaders", class: current_class?(leaders_path) %>
+          <%= link_to "Para Você", leaders_path, class: current_class?(leaders_path) %>
         <hr></li>
         <li class="nav-item">
-          <%= link_to "Para Empresas", "companies", class: current_class?(companies_path) %>
+          <%= link_to "Para Empresas", companies_path, class: current_class?(companies_path) %>
         <hr></li>
         <li class="nav-item">
-          <%= link_to "Sobre Nós", "about", class: current_class?(about_path) %>
+          <%= link_to "Sobre Nós", about_path, class: current_class?(about_path) %>
         <hr></li>
         <li class="nav-item">
           <%#= link_to '#contactUsModal', 'data-toggle' => "modal" do %>
@@ -43,16 +43,16 @@
       <% else %>
           <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
         <li class="nav-item">
-          <%= link_to "Serviços", "services", class: current_class?(services_path) %>
+          <%= link_to "Serviços", services_path, class: current_class?(services_path) %>
         <hr></li>
         <li class="nav-item">
-          <%= link_to "Para Você", "leaders", class: current_class?(leaders_path) %>
+          <%= link_to "Para Você", leaders_path, class: current_class?(leaders_path) %>
         <hr></li>
         <li class="nav-item">
-          <%= link_to "Para Empresas", "companies", class: current_class?(companies_path) %>
+          <%= link_to "Para Empresas", companies_path, class: current_class?(companies_path) %>
         <hr></li>
         <li class="nav-item">
-          <%= link_to "Sobre Nós", "about", class: current_class?(about_path) %>
+          <%= link_to "Sobre Nós", about_path, class: current_class?(about_path) %>
         <hr></li>
         <li class="nav-item">
           <%#= link_to '#contactUsModal', 'data-toggle' => "modal" do %>
