@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:new, :create]
   resources :articles, only: [:index, :new, :create]
   get '/articles/:title_param', to: 'articles#show', as: 'article'
+  get '/articles/:title_param/edit', to: 'articles#edit', as: :edit_article
   get 'about', to: 'pages#about'
   get 'leaders', to: 'pages#leaders'
   get 'companies', to: 'pages#companies'

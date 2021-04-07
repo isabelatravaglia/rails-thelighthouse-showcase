@@ -25,6 +25,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find_by(title_param: params[:title_param])
+  end
+
   private
 
   def article_params
