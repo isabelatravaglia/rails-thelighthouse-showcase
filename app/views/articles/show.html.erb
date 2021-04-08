@@ -30,7 +30,12 @@
     <%= link_to "Voltar", :back, class: "btn btn-info gray soft" %>
     <% if user_signed_in? %>
       <%= link_to "Editar", edit_article_path(title_param: @article.title_param), class: "btn btn-info gray soft" %>
-      <%= link_to "Deletar", :back, class: "btn btn-info gray soft" %>
+      <%= link_to "Deletar",
+        article_path(@article),
+        method: :delete,
+        class: "btn btn-info gray soft",
+        data: { confirm: "Tem certeza de que quer deletar esse artigo?" } 
+      %>
     <% end %>
     <br>
   </div>

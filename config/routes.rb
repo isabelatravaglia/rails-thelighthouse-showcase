@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/articles/:title_param', to: 'articles#show', as: 'article'
   get '/articles/:title_param/edit', to: 'articles#edit', as: :edit_article
   patch '/articles/:id', to: "articles#update"
+  delete '/articles/:id', to: "articles#destroy"
   get 'about', to: 'pages#about'
   get 'leaders', to: 'pages#leaders'
   get 'companies', to: 'pages#companies'
