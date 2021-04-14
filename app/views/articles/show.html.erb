@@ -28,8 +28,10 @@
   </div>
   <div class="auth-links">
     <%= link_to "Artigos", articles_path, class: "btn btn-info gray soft" %>
-    <% if user_signed_in? %>
+    <% if policy(@article).edit? %>
       <%= link_to "Editar", edit_article_path(title_param: @article.title_param), class: "btn btn-info gray soft" %>
+    <% end %>
+    <% if policy(@article).destroy? %>
       <%= link_to "Deletar",
         article_path(@article),
         method: :delete,

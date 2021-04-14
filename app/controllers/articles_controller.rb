@@ -1,21 +1,25 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @articles = Article.all
+    @articles = policy_scope(Article)
     @months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
   end
 
   def show
     @article = Article.find_by(title_param: params[:title_param])
+    authorize @article
   end
 
   def new
     @article = Article.new
+    authorize @article
   end
 
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    authorize @article
+
     if @article.save
       flash[:success] = "Article successfully created"
       redirect_to article_path(title_param: @article.title_param)
@@ -28,10 +32,12 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find_by(title_param: params[:title_param])
+    authorize @article
   end
 
   def update
     @article = Article.find(params[:id])
+    authorize @article
     if @article.update(article_params)
       flash[:success] = "Article was successfully updated"
       redirect_to article_path(title_param: @article.title_param)
@@ -43,6 +49,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    authorize @article
     if @article.destroy
       flash[:success] = 'Article was successfully deleted.'
       redirect_to articles_path

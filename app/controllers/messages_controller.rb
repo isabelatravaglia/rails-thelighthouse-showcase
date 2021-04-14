@@ -4,10 +4,12 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    authorize @message
   end
 
   def create
     @message = Message.new(message_params)
+    authorize @message
     if @message.course.empty?
       respond_to do |format|
         if @message.valid?
