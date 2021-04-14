@@ -8,7 +8,7 @@
   </div>
 
   <div class="form-inputs">
-    <%= f.association :partner, label: "Autor(a)", collection: Partner.order(:first_name), label_method: :full_name, value_method: :id %>
+    
     <%= f.association :article_categories,  as: :check_boxes, label: "Categorias", collection: ArticleCategory.order(:name), label_method: :name, value_method: :id %>
   </div>
 
