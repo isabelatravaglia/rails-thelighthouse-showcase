@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   resources :partner_services, only: [:index]
   resources :audience_services, only: [:index]
   resources :messages, only: [:new, :create]
-  resources :articles, only: [:index]
+  resources :articles, only: [:index, :new, :create]
   get '/articles/:title_param', to: 'articles#show', as: 'article'
+  get '/articles/:title_param/edit', to: 'articles#edit', as: :edit_article
+  patch '/articles/:id', to: "articles#update"
+  delete '/articles/:id', to: "articles#destroy"
   get 'about', to: 'pages#about'
   get 'leaders', to: 'pages#leaders'
   get 'companies', to: 'pages#companies'

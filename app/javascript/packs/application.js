@@ -36,3 +36,6 @@ document.addEventListener('turbolinks:load', () => {
   initBtnDisable();
   new Splide( '.splide' ).mount();
 });
+
+require("trix")
+require("@rails/actiontext")

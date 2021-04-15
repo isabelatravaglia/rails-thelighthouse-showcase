@@ -9,13 +9,13 @@
   <div class="article__side-block">
     <div class="article__authors">
       <div class="article__author">
-        <%= link_to image_tag("#{@article.partner.photo.filename}", width: 200, height: 200, class: "article__avatar"), about_path(anchor: "#{@article.partner.first_name.downcase}#{@article.partner.last_name.downcase}"), class: "article__avatar", alt:"#{@article.partner.first_name} #{@article.partner.last_name}" %>
+        <%= link_to image_tag("#{@article.user.photo.filename}", width: 200, height: 200, class: "article__avatar"), about_path(anchor: "#{@article.user.first_name.downcase}#{@article.user.last_name.downcase}"), class: "article__avatar", alt:"#{@article.user.full_name}" %>
         <div class="article__author-text">
           <div class="article__author-name"> 
-            <%= link_to "#{@article.partner.first_name} #{@article.partner.last_name}", about_path(anchor: "#{@article.partner.first_name.downcase}#{@article.partner.last_name.downcase}") %>
+            <%= link_to "#{@article.user.first_name} #{@article.user.last_name}", about_path(anchor: "#{@article.user.first_name.downcase}#{@article.user.last_name.downcase}") %>
           </div>
           <div class="article__author-about"> 
-            <%= "#{@article.partner.about}"%>
+            <%= "#{@article.user.about}"%>
           </div>
         </div>
       </div>
@@ -23,7 +23,22 @@
   </div>
   <div class="article__textbox">
     <div class="article__p">
-      <%= @article.body %>
+      <%= @article.rich_body %>
     </div>
+  </div>
+  <div class="auth-links">
+    <%= link_to "Artigos", articles_path, class: "btn btn-info gray soft" %>
+    <% if policy(@article).edit? %>
+      <%= link_to "Editar", edit_article_path(title_param: @article.title_param), class: "btn btn-info gray soft" %>
+    <% end %>
+    <% if policy(@article).destroy? %>
+      <%= link_to "Deletar",
+        article_path(@article),
+        method: :delete,
+        class: "btn btn-info gray soft",
+        data: { confirm: "Tem certeza de que quer deletar esse artigo?" } 
+      %>
+    <% end %>
+    <br>
   </div>
 </div>

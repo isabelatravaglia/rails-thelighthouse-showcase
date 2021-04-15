@@ -37,6 +37,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'invisible_captcha'
 gem 'listen', '~> 3.2'
+gem 'pundit'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
