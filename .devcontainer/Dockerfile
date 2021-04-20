@@ -109,7 +109,7 @@ RUN sudo apt install -y zsh imagemagick jq \
 # WORKDIR /app
 ARG BUNDLER_VERSION=2.1.4
 
-RUN gem install bundler:$BUNDLER_VERSION rubocop
+RUN gem install bundler:$BUNDLER_VERSION
 
 # COPY --chown=$USER:$USER Gemfile /app/Gemfile
 # COPY --chown=$USER:$USER Gemfile.lock /app/Gemfile.lock
