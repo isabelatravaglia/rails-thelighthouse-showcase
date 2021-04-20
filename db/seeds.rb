@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Destroying records"
+# puts "Destroying records"
 
 # Service.destroy_all
 # Partner.destroy_all
@@ -20,7 +20,7 @@ puts "Destroying records"
 
 
 # puts "Creating Users"
-# grazi_user = User.create(first_name: "Graziele", last_name: "Neves", email: "grazi@discoverthelighthouse.com", password: "70Ltgrsf@", about: "Founder e CEO - The Lighthouse")
+# grazi_user = User.create(first_name: "Graziele", last_name: "Neves", email: "grazi@discoverthelighthouse.com", password: "70Ltgrsf@", about: "Founder e CEO - The Lighthouse", admin: true)
 # grazi_user_image_file = File.open(File.join(Rails.root,'app/assets/images/team-member-1.jpg'))
 # grazi_user.photo.attach(io: grazi_user_image_file, filename: 'team-member-1.jpg', content_type: 'image/jpg')
 # ricardo_user = User.create(first_name: "Ricardo", last_name: "Penna", email: "ricardo@discoverthelighthouse.com")
