@@ -20,7 +20,13 @@
       <article class="blog-card">
         <div class="blog-card__background">
           <div class="card__background--wrapper">
-            <div class="card__background--main" style="background-image: url('<%= cl_image_path article.photo.key %>');">
+            <div class="card__background--main" style="background-image: url(
+            <% if article.photo.key.nil?%>
+              <%= asset_path( 'article-placeholder.jpg' )%>
+            <% else %>
+              <%= cl_image_path article.photo.key %>
+            <% end %>
+            );">
               <div class="card__background--layer"></div>
             </div>
           </div>

@@ -1,0 +1,8 @@
+georges_picture:
+  name: photo
+  record: george (User)
+  blob: georges_picture_blob
+marias_picture:
+  name: photo
+  record: maria (User)
+  blob: marias_picture_blob
