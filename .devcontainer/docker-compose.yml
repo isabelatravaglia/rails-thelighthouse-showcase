@@ -23,12 +23,14 @@ services:
       - packs:/app/public/packs
       - rails_cache:/app/tmp/cache
       - .psqlrc:/root/.psqlrc:ro
-
+    environment:
+      HUB_URL: http://chrome:4444/wd/hub
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
     depends_on: 
       - database
+      - chrome
 
   database:
     image: postgres
@@ -39,3 +41,11 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: postgres
+
+  chrome:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+      - 5900:5900
+    volumes:
+      - /dev/shm:/dev/shm
