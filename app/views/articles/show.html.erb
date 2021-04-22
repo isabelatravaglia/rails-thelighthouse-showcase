@@ -1,6 +1,6 @@
 <div class="banner--empty" style="background-image: url(
             <% if @article.photo.key.nil?%>
-              <%= asset_path( 'article-placeholder.jpg' )%>
+              <%= asset_path( 'article-placeholder-s.jpg' )%>
             <% else %>
               <%= cl_image_path @article.photo.key %>
             <% end %>
