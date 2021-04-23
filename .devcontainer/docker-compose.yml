@@ -25,6 +25,7 @@ services:
       - .psqlrc:/root/.psqlrc:ro
     environment:
       HUB_URL: http://chrome:4444/wd/hub
+      PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
