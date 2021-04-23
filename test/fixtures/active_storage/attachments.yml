@@ -6,3 +6,7 @@ marias_picture:
   name: photo
   record: maria (User)
   blob: marias_picture_blob
+liderancas_picture:
+  name: photo
+  record: lideranca (Service)
+  blob: liderancas_picture_blob

@@ -20,7 +20,7 @@ class ArticlesTest < ApplicationSystemTestCase
     # save_and_open_screenshot
   end
 
-  test "doesnt let signed in users without admin priviledges to create an article" do
+  test "doesnt let signed in users without admin privileges to create an article" do
     login_as users(:maria)
     visit "/articles/new"
     assert_text "Pundit::NotAuthorizedError"

@@ -1,0 +1,8 @@
+empresa:
+  name: "Empresa em busca de treinamento"
+  description: "Empresas que querem treinar seus profissionais"
+  audience_type: "empresa"
+pessoa:
+  name: "Pessoa em busca de serviços de mentoring, coaching, etc."
+  description: "Pessoa em busca de serviços de mentoring, coaching, etc."
+  audience_type: "pessoa"
