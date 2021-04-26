@@ -1,17 +1,9 @@
-  # service: executive_coaching, audience: empresa)
-# AudienceService.create(service: executive_coaching, audience: pessoa)
-# AudienceService.create(service: life_coaching, audience: pessoa)
 as1: 
   service: lideranca
   audience: empresa
 as2:
   service: lideranca
   audience: pessoa
-# AudienceService.create(service: proposito, audience: pessoa)
-# AudienceService.create(service: carreira, audience: pessoa)
-# AudienceService.create(service: carreira, audience: empresa)
-# AudienceService.create(service: mentoring, audience: pessoa)
-# AudienceService.create(service: mentoring, audience: empresa)
-# AudienceService.create(service: mbti, audience: empresa)
-# AudienceService.create(service: mbti, audience: pessoa)
-# AudienceService.create(service: firob, audience: empresa)
+as3: 
+  service: proposito
+  audience: pessoa

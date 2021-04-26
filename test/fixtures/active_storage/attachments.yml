@@ -10,3 +10,7 @@ liderancas_picture:
   name: photo
   record: lideranca (Service)
   blob: liderancas_picture_blob
+propositos_picture:
+  name: photo
+  record: proposito (Service)
+  blob: propositos_picture_blob

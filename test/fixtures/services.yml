@@ -6,3 +6,11 @@ lideranca:
   hp_show: "true"
   nickname: "Liderança"
   course: "true"
+proposito:
+  name: "\"THE\" Workshop - Orientação de Propósito"
+  nickname: "Propósito"
+  description: "Através de uma linda e rica jornada de 12 horas, distribuidas em 3 dias, você terá a oportunidade de se conhecer mais profundamente, fazer descobertas, reflexões e se conectar ao que faz sentido pra sua vida. Descubra o que faz seu coração cantar! O \"THE\" Workshop é para aqueles que buscam autoconhecimento, conexão com a sua verdade e alinhamento entre talento e propósito."
+  structure: "Workshop online com atividades práticas e utilização de ferramentas, além de aplicação de técnicas de Coaching e PNL."
+  tagline: "Autoconhecimento, conexão e alinhamento entre talento e propósito."
+  hp_show: "true"
+  course: "true"
