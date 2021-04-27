@@ -14,3 +14,7 @@ propositos_picture:
   name: photo
   record: proposito (Service)
   blob: propositos_picture_blob
+article_1_picture:
+  name: photo
+  record: article_1 (Article)
+  blob: article_1_picture_blob
