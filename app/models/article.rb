@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
   validates :title, uniqueness: true, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
   validates :article_categories, presence: true
   validates :rich_body, presence: true
   # belongs_to :partner

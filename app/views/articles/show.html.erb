@@ -1,4 +1,10 @@
-<div class="banner--empty" style="background-image: url('<%= cl_image_path @article.photo.key %>')">
+<div class="banner--empty" style="background-image: url(
+            <% if @article.photo.key.nil?%>
+              <%= asset_path( 'article-placeholder-s.jpg' )%>
+            <% else %>
+              <%= cl_image_path @article.photo.key %>
+            <% end %>
+            );">
     <div>
       <h1 class="banner--empty__title"> <%= @article.title %></h1>
       <%# <h2 class="banner__subtitle">Escolha</h2> %>

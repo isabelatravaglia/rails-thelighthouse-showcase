@@ -2,3 +2,7 @@
 #   record: name_of_fixture (ClassOfFixture)
 #   name: content
 #   body: <p>In a <i>million</i> stars!</p>
+one:
+  record: article_1 (Article)
+  name: rich_body
+  body: <p>In a <i>million</i> stars!</p>

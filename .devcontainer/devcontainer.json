@@ -8,7 +8,7 @@
 	
   // Set *default* container specific settings.json values on container create.
   "settings": { 
-    "workbench.colorTheme": "Night Owl",
+    "workbench.colorTheme": "Cobalt2",
     "terminal.integrated.shell.linux": "/bin/zsh",
     "dotfiles.repository": "isabelatravaglia/dotfiles",
     "dotfiles.targetPath": "~/dotfiles",
@@ -22,7 +22,7 @@
     "dbaeumer.vscode-eslint",
     "rayhanw.erb-helpers",
     "misogi.ruby-rubocop",
-    "sdras.night-owl",
+    "wesbos.theme-cobalt2",
     "CoenraadS.bracket-pair-colorizer"
   ],
 	

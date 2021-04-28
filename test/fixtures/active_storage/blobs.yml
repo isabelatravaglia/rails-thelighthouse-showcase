@@ -1,0 +1,40 @@
+georges_picture_blob:
+  key: aabbWNGW1VrxZ8Eu4zmyw13A
+  filename: team-member-1.jpg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: 1000
+  checksum: fdUivZUf74Y6pjAiemuvlg==
+  service_name: local
+marias_picture_blob:
+  key: d5b9vqogycgh6s3enwi8qpvghisz
+  filename: team-member-1.jpg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: 1000
+  checksum: fdUivZUf74Y6pjAiemuvlg==
+  service_name: local
+liderancas_picture_blob:
+  key: d5b9vqogycgh6s2enwi8qpvghisz
+  filename: lideranca.jpg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: 1000
+  checksum: fdUivZUf74Y6pjAiemuvlg==
+  service_name: local
+propositos_picture_blob:
+  key: d5b9vqogycgh6s2enwi8zpvghisz
+  filename: proposito.jpg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: 1000
+  checksum: fdUivZUf74Y6pjAiemuvlg==
+  service_name: local
+article_1_picture_blob:
+  key: d5b9vqogycgh8s2enwi8zpvghisz
+  filename: article-placeholder-s.jpg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: 1000
+  checksum: fdUivZUf74Y6pjAiemuvlg==
+  service_name: local

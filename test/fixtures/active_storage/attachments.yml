@@ -1,0 +1,20 @@
+georges_picture:
+  name: photo
+  record: george (User)
+  blob: georges_picture_blob
+marias_picture:
+  name: photo
+  record: maria (User)
+  blob: marias_picture_blob
+liderancas_picture:
+  name: photo
+  record: lideranca (Service)
+  blob: liderancas_picture_blob
+propositos_picture:
+  name: photo
+  record: proposito (Service)
+  blob: propositos_picture_blob
+article_1_picture:
+  name: photo
+  record: article_1 (Article)
+  blob: article_1_picture_blob
