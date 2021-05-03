@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app:
+  test:
     # See https://aka.ms/vscode-remote/containers/non-root for details.
     user: ruby
 
@@ -13,7 +13,11 @@ services:
       HUB_URL: http://chrome:4444/wd/hub
       PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
     # Overrides default command so things don't shut down after the process ends.
-    command: sleep infinity
+    command: 
+      [
+        "rails test",
+        "rails test:system"
+      ]
 
     depends_on: 
       - database
@@ -22,8 +26,8 @@ services:
   database:
     image: postgres
     restart: unless-stopped
-    volumes: 
-      - postgres_data:/var/lib/postgresql/data
+    # volumes: 
+    #   - postgres_data:/var/lib/postgresql/data
     ports: 
       - 5432:5432
     environment:
@@ -34,12 +38,5 @@ services:
     ports:
       - 4444:4444
       - 5900:5900
-    volumes:
-      - /dev/shm:/dev/shm
-  
-  test:
-    command: 
-      [
-        "rails test",
-        "rails test:system"
-      ]
+    # volumes:
+    #   - /dev/shm:/dev/shm
