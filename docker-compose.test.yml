@@ -15,8 +15,8 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     command: 
       [
-        "rails test",
-        "rails test:system"
+        "bundle exec rails test",
+        "bundle exec rails test:system"
       ]
 
     depends_on: 
