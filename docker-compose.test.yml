@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  test:
+  app:
     # See https://aka.ms/vscode-remote/containers/non-root for details.
     user: ruby
 
@@ -13,18 +13,26 @@ services:
       HUB_URL: http://chrome:4444/wd/hub
       PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
     # Overrides default command so things don't shut down after the process ends.
-    command: 
-      [
-        "bundle install",
-        "yarn install",
-        "rails db:prepare",
-        "rails test",
-        "rails test:system"
-      ]
-
     depends_on: 
       - database
       - chrome
+
+  test:
+    image: rails-thelighthouse_test:latest
+    depends_on: 
+      - database
+      - chrome
+    environment:
+      HUB_URL: http://chrome:4444/wd/hub
+      PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
+    command: 
+    [
+      "bundle install",
+      "yarn install",
+      "rails db:prepare",
+      "rails test",
+      "rails test:system"
+    ]
 
   database:
     image: postgres
