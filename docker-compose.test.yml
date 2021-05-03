@@ -8,6 +8,7 @@ services:
     build: 
       context: .
       dockerfile: .devcontainer/Dockerfile
+    image: isabtra/rails-thelighthouse_test
   
     environment:
       HUB_URL: http://chrome:4444/wd/hub
@@ -18,7 +19,7 @@ services:
       - chrome
 
   test:
-    image: rails-thelighthouse_test:latest
+    image: isabtra/rails-thelighthouse_test
     depends_on: 
       - database
       - chrome
