@@ -7,7 +7,7 @@ services:
 
     build: 
       context: .
-      dockerfile: .devcontainer/Dockerfile
+      dockerfile: Dockerfile
     image: isabtra/rails-thelighthouse_test
   
     environment:
@@ -28,9 +28,9 @@ services:
       PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
     command: 
       [
-        "bundle install",
-        "yarn install",
-        "rails db:prepare",
+        # "bundle install",
+        # "yarn install",
+        # "rails db:prepare",
         "rails test",
         "rails test:system"
       ]
