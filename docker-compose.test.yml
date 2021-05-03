@@ -26,13 +26,13 @@ services:
       HUB_URL: http://chrome:4444/wd/hub
       PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
     command: 
-    [
-      "bundle install",
-      "yarn install",
-      "rails db:prepare",
-      "rails test",
-      "rails test:system"
-    ]
+      [
+        "bundle install",
+        "yarn install",
+        "rails db:prepare",
+        "rails test",
+        "rails test:system"
+      ]
 
   database:
     image: postgres
