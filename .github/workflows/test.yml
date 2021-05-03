@@ -24,5 +24,8 @@ jobs:
     - name: Build docker images
       run: docker-compose build
 
+    - name: Start Container
+      run: docker-compose up
+
     - name: Run tests
       run: docker-compose run test
