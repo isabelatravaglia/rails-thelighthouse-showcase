@@ -8,6 +8,14 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: '2.6.6'
+        PG_MAJOR: '13'
+        NODE_MAJOR: '12'
+        YARN_VERSION: '1.22.5'
+        BUNDLER_VERSION: '2.1.4'
+        UID: 1000
+        GID: 1000
     image: isabtra/rails-thelighthouse_test
   
     environment:
