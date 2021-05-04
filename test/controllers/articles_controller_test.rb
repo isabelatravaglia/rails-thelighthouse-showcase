@@ -1,11 +1,6 @@
 require "test_helper"
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get articles_index_url
-    assert_response :success
-  end
-
   # called before every single test
   setup do
     @article = articles(:article_1)
@@ -17,6 +12,11 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     Rails.cache.clear
   end
 
+  test "should get index" do
+    get articles_index_url
+    assert_response :success
+  end
+  
   test "should show article" do
     # Reuse the @article instance variable from setup
     get article_url(title_param: "this-is-a-test-article")
