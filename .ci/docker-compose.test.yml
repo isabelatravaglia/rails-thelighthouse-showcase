@@ -7,7 +7,7 @@ services:
 
     build: 
       context: ..
-      dockerfile: Dockerfile
+      dockerfile: .ci/Dockerfile
       args:
         RUBY_VERSION: '2.6.6'
         PG_MAJOR: '13'

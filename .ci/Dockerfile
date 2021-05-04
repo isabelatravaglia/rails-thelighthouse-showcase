@@ -134,6 +134,8 @@ RUN gem install bundler -v $BUNDLER_VERSION
 
 COPY --chown=$USER:$USER Gemfile /app/Gemfile
 COPY --chown=$USER:$USER Gemfile.lock /app/Gemfile.lock
+COPY --chown=$USER:$USER package.json /app/package.json
+COPY --chown=$USER:$USER yarn.lock /app/yarn.lock
 
 USER $USER
 
