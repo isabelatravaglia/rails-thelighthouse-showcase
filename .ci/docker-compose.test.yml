@@ -6,8 +6,8 @@ services:
     user: ruby
 
     build: 
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: ./Dockerfile
       args:
         RUBY_VERSION: '2.6.6'
         PG_MAJOR: '13'

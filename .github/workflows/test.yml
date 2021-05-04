@@ -8,7 +8,6 @@ jobs:
     env:
       RAILS_ENV: test
       NODE_ENV: test
-      COMPOSE_FILE: docker-compose.test.yml
     runs-on: ubuntu-latest # runner
     
     steps:
@@ -22,8 +21,8 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
 
     - name: Build docker images
-      run: docker-compose build
-
+      run: docker-compose -f.ci/docker-compose.test.yml build
+      
     - name: Start Container
       run: docker-compose up
 
