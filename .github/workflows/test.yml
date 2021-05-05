@@ -8,6 +8,11 @@ jobs:
     env:
       RAILS_ENV: test
       NODE_ENV: test
+      CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+      MAILGUN_ADDRESS: ${{ secrets.MAILGUN_ADDRESS }}
+      MAILGUN_PORT: ${{ secrets.MAILGUN_PORT }}
+      MAILGUN_USER: ${{ secrets.MAILGUN_USER }}
+      MAIL_DOMAIN: ${{ secrets.MAIL_DOMAIN }}
     runs-on: ubuntu-latest # runner
     
     steps:
