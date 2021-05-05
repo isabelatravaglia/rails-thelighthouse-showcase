@@ -35,6 +35,7 @@ services:
     environment:
       HUB_URL: http://chrome:4444/wd/hub
       PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
+      CONTACT_EMAIL: testmail@testmail.com
     command: >
       bash -c "rails test && rails test:system"
 
