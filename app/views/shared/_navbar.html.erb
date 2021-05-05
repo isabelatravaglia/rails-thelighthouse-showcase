@@ -33,7 +33,11 @@
           <%= link_to "Contato", new_message_path, class: current_class?(new_message_path), data: { toggle: 'modal', target: '#contactUsModal'}%>
         <hr></li>
         <li class="nav-item dropdown">
-          <%= cl_image_tag(current_user.photo.key, secure: true, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <% begin %>
+            <%= cl_image_tag(current_user.photo.key, secure: true, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <% rescue CloudinaryException %>
+            <%= image_tag "empty-profile.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if policy(Article).create? %>
             <%= link_to "Criar Artigo", new_article_path, class: "dropdown-item" %>

@@ -2,7 +2,11 @@
             <% if @article.photo.key.nil?%>
               <%= asset_path( 'article-placeholder-s.jpg' )%>
             <% else %>
-              <%= cl_image_path @article.photo.key %>
+              <% begin %>
+                <%= cl_image_path @article.photo.key %>
+              <% rescue  CloudinaryException %>
+                <%= asset_path( 'article-placeholder-s.jpg' )%>
+              <% end %>
             <% end %>
             );">
     <div>
