@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   app:
-    # See https://aka.ms/vscode-remote/containers/non-root for details.
     user: ruby
 
     build: 
@@ -16,18 +15,12 @@ services:
         BUNDLER_VERSION: '2.1.4'
         UID: 1000
         GID: 1000
-    image: isabtra/rails-thelighthouse_test
   
-    environment:
-      HUB_URL: http://chrome:4444/wd/hub
-      PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
-    # Overrides default command so things don't shut down after the process ends.
     depends_on: 
       - database
       - chrome
 
   test:
-    image: isabtra/rails-thelighthouse_test
     shm_size: '256mb'
     depends_on: 
       - database
@@ -42,8 +35,6 @@ services:
   database:
     image: postgres
     restart: unless-stopped
-    # volumes: 
-    #   - postgres_data:/var/lib/postgresql/data
     ports: 
       - 5432:5432
     environment:
