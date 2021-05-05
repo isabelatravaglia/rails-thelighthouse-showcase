@@ -14,13 +14,13 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get articles_index_url
-    assert_response :success
+    assert_response :success, @response.body
   end
   
   test "should show article" do
     # Reuse the @article instance variable from setup
     get article_url(title_param: "this-is-a-test-article")
-    assert_response :success
+    assert_response :success, @response.body
   end
 
   test "article owner should destroy article" do
