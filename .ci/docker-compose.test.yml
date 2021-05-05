@@ -28,6 +28,7 @@ services:
 
   test:
     image: isabtra/rails-thelighthouse_test
+    shm_size: '256mb'
     depends_on: 
       - database
       - chrome
