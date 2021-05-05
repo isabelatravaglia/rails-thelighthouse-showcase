@@ -15,12 +15,13 @@ services:
         BUNDLER_VERSION: '2.1.4'
         UID: 1000
         GID: 1000
-  
+    image: isabtra/rails-thelighthouse_test
     depends_on: 
       - database
       - chrome
 
   test:
+    image: isabtra/rails-thelighthouse_test
     shm_size: '256mb'
     depends_on: 
       - database
