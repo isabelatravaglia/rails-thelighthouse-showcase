@@ -32,7 +32,7 @@ jobs:
       uses: docker/bake-action@master
       with:
         files: |
-          ../.ci/docker-compose.test.yml
+          ./docker-compose.test.yml
 
     - name: Run tests
       run: docker-compose -f .ci/docker-compose.test.yml run test

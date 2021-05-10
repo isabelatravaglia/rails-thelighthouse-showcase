@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  app:
+    user: ruby
+
+    build: 
+      context: ..
+      dockerfile: .ci/Dockerfile
+      args:
+        RUBY_VERSION: '2.6.6'
+        PG_MAJOR: '13'
+        NODE_MAJOR: '12'
+        YARN_VERSION: '1.22.5'
+        BUNDLER_VERSION: '2.1.4'
+        UID: 1000
+        GID: 1000
+    image: isabtra/rails-thelighthouse_test
+    depends_on: 
+      - database
+      - chrome
+
+  test:
+    image: isabtra/rails-thelighthouse_test
+    shm_size: '256mb'
+    depends_on: 
+      - database
+      - chrome
+    environment:
+      HUB_URL: http://chrome:4444/wd/hub
+      PARALLEL_WORKERS: 1 # makes tests run sequentially instead of parallelizing them
+      CONTACT_EMAIL: testmail@testmail.com
+    command: >
+      bash -c "rails test && rails test:system"
+
+  database:
+    image: postgres
+    restart: unless-stopped
+    ports: 
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  chrome:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+      - 5900:5900
+    volumes:
+      - /dev/shm:/dev/shm
