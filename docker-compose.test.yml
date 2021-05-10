@@ -5,7 +5,7 @@ services:
     user: ruby
 
     build: 
-      context: ..
+      context: .
       dockerfile: .ci/Dockerfile
       args:
         RUBY_VERSION: '2.6.6'
