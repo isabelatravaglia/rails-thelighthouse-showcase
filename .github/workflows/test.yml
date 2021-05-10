@@ -35,4 +35,4 @@ jobs:
           ./docker-compose.test.yml
 
     - name: Run tests
-      run: docker-compose -f .ci/docker-compose.test.yml run test
+      run: docker-compose -f ./docker-compose.test.yml run test
