@@ -21,18 +21,18 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
 
     - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-        with:
-          version: latest
+      uses: docker/setup-buildx-action@v1
+      with:
+        version: latest
          
     # - name: Build docker images
     #   run: docker-compose -f.ci/docker-compose.test.yml build
       
-      - name: Build and cache docker image
-        uses: docker/bake-action@master
-        with:
-          files: |
-            .ci/docker-compose.test.yml
+    - name: Build and cache docker image
+      uses: docker/bake-action@master
+      with:
+        files: |
+          .ci/docker-compose.test.yml
 
     - name: Run tests
       run: docker-compose -f .ci/docker-compose.test.yml run test
