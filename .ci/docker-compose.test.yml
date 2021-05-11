@@ -21,7 +21,7 @@ services:
       - chrome
 
   test:
-    image: isabtra/rails-thelighthouse_test:setup-gha
+    image: isabtra/rails-thelighthouse_test
     shm_size: '256mb'
     depends_on: 
       - database
