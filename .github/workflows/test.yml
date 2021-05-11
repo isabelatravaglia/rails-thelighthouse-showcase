@@ -30,6 +30,7 @@ jobs:
       with:
         images: |
           isabtra/rails-thelighthouse_test
+
     # - name: Build docker images
     #   run: docker-compose -f.ci/docker-compose.test.yml build
       
@@ -39,6 +40,7 @@ jobs:
         files: |
           .ci/docker-compose.test.yml
           ${{ steps.docker_meta.outputs.bake-file }}
+        load: true
 
     - name: Run tests
       run: docker-compose -f .ci/docker-compose.test.yml run test
