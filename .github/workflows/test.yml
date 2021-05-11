@@ -25,11 +25,11 @@ jobs:
       with:
         version: latest
          
-    - name: Docker meta
-      uses: docker/metadata-action@v3
-      with:
-        images: |
-          isabtra/rails-thelighthouse_test
+    # - name: Docker meta
+    #   uses: docker/metadata-action@v3
+    #   with:
+    #     images: |
+    #       isabtra/rails-thelighthouse_test
 
     # - name: Build docker images
     #   run: docker-compose -f.ci/docker-compose.test.yml build
@@ -39,7 +39,6 @@ jobs:
       with:
         files: |
           .ci/docker-compose.test.yml
-          ${{ steps.docker_meta.outputs.bake-file }}
         load: true
 
     - name: Run tests
