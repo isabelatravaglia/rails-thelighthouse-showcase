@@ -66,7 +66,7 @@ jobs:
         file: .ci/Dockerfile.ci
         load: true
         cache-from: type=local,src=/tmp/.buildx-main-cache
-        cache-to: type=local,mode=max,dest=/tmp/.buildx-main-cache
+        cache-to: type=local,mode=max,dest=/tmp/.buildx-main-cache-new
         tags: ${{ steps.tags.outputs.tagged_image }}
     
     - name: Build DB
@@ -77,7 +77,7 @@ jobs:
         file: .ci/Dockerfile.postgres
         load: true
         cache-from: type=local,src=/tmp/.buildx-postgres-cache
-        cache-to: type=local,mode=max,dest=/tmp/.buildx-postgres-cache
+        cache-to: type=local,mode=max,dest=/tmp/.buildx-postgres-cache-new
         tags: db-${{ steps.tags.outputs.tagged_image }}
 
     - name: Build Chrome
@@ -88,19 +88,22 @@ jobs:
         file: .ci/Dockerfile.chrome
         load: true
         cache-from: type=local,src=/tmp/.buildx-chrome-cache
-        cache-to: type=local,mode=max,dest=/tmp/.buildx-chrome-cache
+        cache-to: type=local,mode=max,dest=/tmp/.buildx-chrome-cache-new
         tags: chrome-${{ steps.tags.outputs.tagged_image }}
 
     - name: Run Tests
       run: |
         TEST_IMAGE_TAG=${{ steps.tags.outputs.tagged_image }} DB_IMAGE_TAG=db-${{ steps.tags.outputs.tagged_image }} CHROME_IMAGE_TAG=chrome-${{ steps.tags.outputs.tagged_image }} docker-compose -f .ci/docker-compose.test.yml run test
       
-    # - name: Build and cache docker image
-    #   uses: docker/bake-action@master
-    #   with:
-    #     files: |
-    #       .ci/docker-compose.test.yml
-    #     load: true
-
-    # - name: Run tests
-    #   run: docker-compose -f .ci/docker-compose.test.yml run test
+    # Temp fix
+    # https://github.com/docker/build-push-action/issues/252
+    # https://github.com/moby/buildkit/issues/1896
+    - name: Move cache
+      run: |
+        rm -rf /tmp/.buildx-main-cache
+        mv /tmp/.buildx-main-cache-new /tmp/.buildx-main-cache
+        rm -rf /tmp/.buildx-postgres-cache
+        mv /tmp/.buildx-postgres-cache-new /tmp/.buildx-postgres-cache
+        rm -rf /tmp/.buildx-chrome-cache
+        mv /tmp/.buildx-chrome-cache-new /tmp/.buildx-chrome-cache
+   
