@@ -93,7 +93,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        TEST_IMAGE_TAG=${{ steps.tags.outputs.tagged_image }} DB_IMAGE_TAG=db-${{ steps.tags.outputs.tagged_image }} CHROME_IMAGE_TAG=chrome-${{ steps.tags.outputs.tagged_image }} docker-compose -f docker-compose.yml run test
+        TEST_IMAGE_TAG=${{ steps.tags.outputs.tagged_image }} DB_IMAGE_TAG=db-${{ steps.tags.outputs.tagged_image }} CHROME_IMAGE_TAG=chrome-${{ steps.tags.outputs.tagged_image }} docker-compose -f .ci/docker-compose.test.yml run test
       
     # - name: Build and cache docker image
     #   uses: docker/bake-action@master
