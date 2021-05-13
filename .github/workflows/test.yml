@@ -25,22 +25,82 @@ jobs:
       with:
         version: latest
         install: true
+
+    - name: Prepare Tags
+      id: tags
+      run: |
+        TAG=$(echo $GITHUB_SHA | head -c7)
+        IMAGE="isabtra/rails-thelighthouse_test"
+        echo ::set-output name=tagged_image::${IMAGE}:${TAG}
+        echo ::set-output name=tag::${TAG}
          
-    # - name: Docker meta
-    #   uses: docker/metadata-action@v3
-    #   with:
-    #     images: |
-    #       isabtra/rails-thelighthouse_test
-
-    # - name: Build docker images
-    #   run: docker-compose -f.ci/docker-compose.test.yml build
-      
-    - name: Build and cache docker image
-      uses: docker/bake-action@master
+    - name: Cache main image layers
+      uses: actions/cache@v2
       with:
-        files: |
-          .ci/docker-compose.test.yml
-        load: true
+        path: /tmp/.buildx-main-cache
+        key: ${{ runner.os }}-buildx-main-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-main-
 
-    - name: Run tests
-      run: docker-compose -f .ci/docker-compose.test.yml run test
+    - name: Cache postgres image layers
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-postgres-cache
+        key: ${{ runner.os }}-buildx-postgres-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-postgres-
+
+    - name: Cache chrome image layers
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-chrome-cache
+        key: ${{ runner.os }}-buildx-chrome-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-chrome-
+
+    - name: Build code
+      uses: docker/build-push-action@v2
+      with:
+        builder: ${{ steps.buildx.outputs.name }}
+        push: false
+        file: .ci/Dockerfile
+        load: true
+        cache-from: type=local,src=/tmp/.buildx-main-cache
+        cache-to: type=local,mode=max,dest=/tmp/.buildx-main-cache
+        tags: ${{ steps.tags.outputs.tagged_image }}
+    
+    - name: Build DB
+      uses: docker/build-push-action@v2
+      with:
+        builder: ${{ steps.buildx.outputs.name }}
+        push: false
+        file: .ci/Dockerfile.postgres
+        load: true
+        cache-from: type=local,src=/tmp/.buildx-postgres-cache
+        cache-to: type=local,mode=max,dest=/tmp/.buildx-postgres-cache
+        tags: db-${{ steps.tags.outputs.tagged_image }}
+
+    - name: Build Chrome
+      uses: docker/build-push-action@v2
+      with:
+        builder: ${{ steps.buildx.outputs.name }}
+        push: false
+        file: .ci/Dockerfile.chrome
+        load: true
+        cache-from: type=local,src=/tmp/.buildx-chrome-cache
+        cache-to: type=local,mode=max,dest=/tmp/.buildx-chrome-cache
+        tags: chrome-${{ steps.tags.outputs.tagged_image }}
+
+    - name: Run Tests
+      run: |
+        TEST_IMAGE_TAG=${{ steps.tags.outputs.tagged_image }} DB_IMAGE_TAG=db-${{ steps.tags.outputs.tagged_image }} CHROME_IMAGE_TAG=chrome-${{ steps.tags.outputs.tagged_image }} docker-compose -f docker-compose.yml run test
+      
+    # - name: Build and cache docker image
+    #   uses: docker/bake-action@master
+    #   with:
+    #     files: |
+    #       .ci/docker-compose.test.yml
+    #     load: true
+
+    # - name: Run tests
+    #   run: docker-compose -f .ci/docker-compose.test.yml run test

@@ -1,27 +1,27 @@
 version: '3.8'
 
 services:
-  app:
-    user: ruby
+  # app:
+  #   user: ruby
 
-    build: 
-      context: .
-      dockerfile: .ci/Dockerfile.ci
-      args:
-        RUBY_VERSION: '2.6.6'
-        PG_MAJOR: '13'
-        NODE_MAJOR: '12'
-        YARN_VERSION: '1.22.5'
-        BUNDLER_VERSION: '2.1.4'
-        UID: 1000
-        GID: 1000
-    image: isabtra/rails-thelighthouse_test
-    depends_on: 
-      - database
+  #   build: 
+  #     context: .
+  #     dockerfile: .ci/Dockerfile.ci
+  #     # args:
+  #     #   RUBY_VERSION: '2.6.6'
+  #     #   PG_MAJOR: '13'
+  #     #   NODE_MAJOR: '12'
+  #     #   YARN_VERSION: '1.22.5'
+  #     #   BUNDLER_VERSION: '2.1.4'
+  #     #   UID: 1000
+  #     #   GID: 1000
+  #   image: isabtra/rails-thelighthouse_test
+  #   depends_on: 
+  #     - database
       - chrome
 
   test:
-    image: isabtra/rails-thelighthouse_test
+    image: ${TEST_IMAGE_TAG:-test}
     shm_size: '256mb'
     depends_on: 
       - database
@@ -34,7 +34,7 @@ services:
       bash -c "rails test && rails test:system"
 
   database:
-    image: postgres
+    image: ${DB_IMAGE_TAG:-db}
     restart: unless-stopped
     ports: 
       - 5432:5432
@@ -42,7 +42,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   chrome:
-    image: selenium/standalone-chrome-debug
+    image: ${CHROME_IMAGE_TAG:-chrome}
     ports:
       - 4444:4444
       - 5900:5900
