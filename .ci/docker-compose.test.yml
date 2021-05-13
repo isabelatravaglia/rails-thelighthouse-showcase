@@ -18,7 +18,7 @@ services:
   #   image: isabtra/rails-thelighthouse_test
   #   depends_on: 
   #     - database
-      - chrome
+      # - chrome
 
   test:
     image: ${TEST_IMAGE_TAG:-test}
