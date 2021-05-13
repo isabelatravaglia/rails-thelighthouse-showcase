@@ -1,5 +1,6 @@
 # https://github.com/isabelatravaglia/rails-base-image/Dockerfile.ruby266
 FROM isabtra/rails-tlh-repo-dev:2.0
+ARG BUNDLER_VERSION=2.1.4
 
 # RUN mkdir /app \
 # && chown $APP_USER:$APP_GROUP /app
