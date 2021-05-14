@@ -8,6 +8,7 @@ for file in $PWD/*; do
   echo "${file##*/}"
 done
 
+cp config/database.github.yml config/database.yml
 bundle exec rails db:prepare
 
 exec "$@"
