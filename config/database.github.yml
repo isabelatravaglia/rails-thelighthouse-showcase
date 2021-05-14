@@ -1,8 +1,8 @@
 test:
   adapter: postgresql
   encoding: unicode
-  host: localhost
+  host: database
   port: 5432
   username: postgres
   password: postgres
-  database: product_hunt_clone_test
+  database: rails_thelighthouse_test
