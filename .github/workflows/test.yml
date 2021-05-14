@@ -61,7 +61,7 @@ jobs:
     - name: Build code
       uses: docker/build-push-action@v2
       with:
-        builder: ${{ steps.buildx.outputs.name }}
+        # builder: ${{ steps.buildx.outputs.name }}
         push: false
         file: .ci/Dockerfile.ci
         load: true
@@ -72,7 +72,7 @@ jobs:
     - name: Build DB
       uses: docker/build-push-action@v2
       with:
-        builder: ${{ steps.buildx.outputs.name }}
+        # builder: ${{ steps.buildx.outputs.name }}
         push: false
         file: .ci/Dockerfile.postgres
         load: true
@@ -83,7 +83,7 @@ jobs:
     - name: Build Chrome
       uses: docker/build-push-action@v2
       with:
-        builder: ${{ steps.buildx.outputs.name }}
+        # builder: ${{ steps.buildx.outputs.name }}
         push: false
         file: .ci/Dockerfile.chrome
         load: true
