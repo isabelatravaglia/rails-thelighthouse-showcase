@@ -27,7 +27,7 @@ jobs:
           --health-retries 5
 
       chrome:
-        image: ${CHROME_IMAGE_TAG:-chrome}
+        image: selenium/standalone-chrome-debug
         ports:
           - 4444:4444
           - 5900:5900
