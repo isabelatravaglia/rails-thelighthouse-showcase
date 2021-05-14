@@ -63,7 +63,7 @@ jobs:
       with:
         push: false
         file: .ci/Dockerfile.ci
-        load: true
+        # load: true
         cache-from: type=local,src=/tmp/.buildx-main-cache
         cache-to: type=local,mode=max,dest=/tmp/.buildx-main-cache-new
         tags: ${{ steps.tags.outputs.tagged_image }}
@@ -73,7 +73,7 @@ jobs:
       with:
         push: false
         file: .ci/Dockerfile.postgres
-        load: true
+        # load: true
         cache-from: type=local,src=/tmp/.buildx-postgres-cache
         cache-to: type=local,mode=max,dest=/tmp/.buildx-postgres-cache-new
         tags: db-${{ steps.tags.outputs.tagged_image }}
@@ -83,7 +83,7 @@ jobs:
       with:
         push: false
         file: .ci/Dockerfile.chrome
-        load: true
+        # load: true
         cache-from: type=local,src=/tmp/.buildx-chrome-cache
         cache-to: type=local,mode=max,dest=/tmp/.buildx-chrome-cache-new
         tags: chrome-${{ steps.tags.outputs.tagged_image }}
