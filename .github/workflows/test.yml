@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest # runner
     services:
     # Label used to access the service container
-      database:
+      postgres:
       # Docker Hub image
         image: postgres
         # Provide the password for postgres
