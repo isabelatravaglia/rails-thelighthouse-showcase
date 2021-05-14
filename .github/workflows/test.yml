@@ -111,7 +111,9 @@ jobs:
     #     cache-from: type=local,src=/tmp/.buildx-chrome-cache
     #     cache-to: type=local,mode=max,dest=/tmp/.buildx-chrome-cache-new
     #     tags: chrome-${{ steps.tags.outputs.tagged_image }}
-
+    - name: Replace database config
+      run: |
+          cp config/database.github.yml config/database.yml
     - name: Run Tests
       run: |
         TEST_IMAGE_TAG=${{ steps.tags.outputs.tagged_image }} docker-compose -f .ci/docker-compose.test.yml run test
