@@ -42,7 +42,7 @@
           </span>
         </div>
         <div class="blog-card__info">
-          <h5> <%= link_to article.title, article_path(article.title_param) %> </h5>
+          <h5> <%= link_to article.title.truncate_words(10), article_path(article.title_param) %> </h5>
           
           <p>
             <%= link_to "#{article.user.full_name}", about_path(anchor: "#{article.user.first_name.downcase}#{article.user.last_name.downcase}" ), class: "article__p__a" %>
