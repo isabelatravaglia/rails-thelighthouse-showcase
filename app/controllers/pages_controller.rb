@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def privacy_policy
+  end
+
   def companies
     @services = Service.joins(:audiences).where(audiences: {audience_type: "empresa"})
   end

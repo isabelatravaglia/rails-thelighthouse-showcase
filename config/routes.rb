@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'leaders', to: 'pages#leaders'
   get 'companies', to: 'pages#companies'
+  get 'privacy-policy', to: 'pages#privacy_policy'
 end
