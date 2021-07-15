@@ -1,11 +1,14 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :about, :companies, :leaders ]
+  skip_before_action :authenticate_user!, only: [ :home, :about, :companies, :leaders, :privacy_policy ]
 
   def home
     @services = Service.where(hp_show: true)
   end
 
   def about
+  end
+
+  def privacy_policy
   end
 
   def companies
