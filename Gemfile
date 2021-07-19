@@ -38,6 +38,7 @@ gem 'simple_form'
 gem 'invisible_captcha'
 gem 'listen', '~> 3.2'
 gem 'pundit'
+gem 'ahoy_matey'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
