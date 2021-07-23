@@ -40,6 +40,7 @@ gem 'listen', '~> 3.2'
 gem 'pundit'
 gem 'ahoy_matey'
 gem 'rails_admin', '~> 2.0'
+gem 'blazer'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
