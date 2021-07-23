@@ -40,4 +40,21 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get "/companies"
     assert_select "h1", "Cuide dos que cuidam dos seus clientes"
   end
+
+  test "should show admin dashboards to admin users" do
+    login_as users(:george)
+    get "/admin"
+    assert_select "h1", "Site Administration"
+  end
+
+  test "should NOT show admin dashboards to NON-admin users" do
+    login_as users(:maria)
+    get "/admin"
+    assert_redirected_to "/"
+  end 
+
+  test "should NOT show admin dashboards to NON-users" do
+    get "/admin"
+    assert_redirected_to new_user_session_url
+  end
 end
