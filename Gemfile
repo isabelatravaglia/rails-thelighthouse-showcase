@@ -38,6 +38,10 @@ gem 'simple_form'
 gem 'invisible_captcha'
 gem 'listen', '~> 3.2'
 gem 'pundit'
+gem 'ahoy_matey'
+gem 'rails_admin', '~> 2.0'
+gem 'blazer'
+gem 'sprockets', '3.7.2' #downgraded from 4.0.2 due to segfault bug. https://github.com/lewagon/seatrain/issues/2
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

@@ -40,4 +40,40 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get "/companies"
     assert_select "h1", "Cuide dos que cuidam dos seus clientes"
   end
+
+  #  ADMIN Dashboard Access
+  test "should show admin dashboards to admin users" do
+    login_as users(:george)
+    get "/admin"
+    assert_select "h1", "Site Administration"
+  end
+
+  test "should NOT show admin dashboards to NON-admin users" do
+    login_as users(:maria)
+    get "/admin"
+    assert_redirected_to "/"
+  end 
+
+  test "should NOT show admin dashboards to NON-users" do
+    get "/admin"
+    assert_redirected_to new_user_session_url
+  end
+
+# BLAZER Dashboard Access
+  test "should show blazer dashboards to admin users" do
+    login_as users(:george)
+    get "/blazer"
+    assert_response :success, @response.body
+  end
+
+  test "should NOT show blazer dashboards to NON-admin users" do
+    login_as users(:maria)
+    get "/blazer"
+    assert_equal @response.status, 404
+  end 
+
+  test "should NOT show blazer dashboards to NON-users" do
+    get "/blazer"
+    assert_redirected_to "/users/sign_in"
+  end
 end

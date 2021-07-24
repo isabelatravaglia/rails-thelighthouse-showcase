@@ -37,7 +37,11 @@
         <hr></li>
         <li class="nav-item dropdown">
           <% begin %>
-            <%= cl_image_tag(current_user.photo.key, secure: true, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+            <% if !current_user.photo.key.nil?  %>
+              <%= cl_image_tag(current_user.photo.key, secure: true, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+            <% else %>
+              <%= image_tag "empty-profile.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
           <% rescue CloudinaryException %>
             <%= image_tag "empty-profile.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
