@@ -16,7 +16,7 @@ marias_picture_blob:
   service_name: local
 liderancas_picture_blob:
   key: d5b9vqogycgh6s2enwi8qpvghisz
-  filename: lideranca.jpg
+  filename: lideranca.svg
   content_type: image/jpeg
   metadata: '{"identified":true,"analyzed":true}'
   byte_size: 1000
@@ -24,7 +24,7 @@ liderancas_picture_blob:
   service_name: local
 propositos_picture_blob:
   key: d5b9vqogycgh6s2enwi8zpvghisz
-  filename: proposito.jpg
+  filename: proposito.svg
   content_type: image/jpeg
   metadata: '{"identified":true,"analyzed":true}'
   byte_size: 1000
