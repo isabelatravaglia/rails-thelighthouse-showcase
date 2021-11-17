@@ -9,7 +9,7 @@
   // Set *default* container specific settings.json values on container create.
   "settings": { 
     "workbench.colorTheme": "Cobalt2",
-    "terminal.integrated.shell.linux": "/bin/zsh",
+    // "terminal.integrated.shell.linux": "/bin/zsh",
     "dotfiles.repository": "isabelatravaglia/dotfiles",
     "dotfiles.targetPath": "~/dotfiles",
     "dotfiles.installCommand": "~/dotfiles/install.sh"
