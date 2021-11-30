@@ -56,21 +56,21 @@ test "anyone can click on the 'Inscreva-se já' button and be redirected to the 
   visit services_path
   click_link "Inscreva-se já!"
   page.driver.browser.switch_to.window (page.driver.browser.window_handles.last)
-  assert_current_path('https://pay.hotmart.com/Y62278856R?checkoutMode=10&bid=1637021147415')
+  assert_current_path('https://docs.google.com/forms/d/e/1FAIpQLSfkHTa1SsLZ1hUMD7jTLxzUCfi68hmQ73-oqFd5i6SiPhC1gQ/viewform')
 end
 
 test "anyone can click on the 'Inscreva-se já' button and be redirected to the product page at Leaders Page" do
   visit leaders_path
   click_link "Inscreva-se já!"
   page.driver.browser.switch_to.window (page.driver.browser.window_handles.last)
-  assert_current_path('https://pay.hotmart.com/Y62278856R?checkoutMode=10&bid=1637021147415')
+  assert_current_path('https://docs.google.com/forms/d/e/1FAIpQLSfkHTa1SsLZ1hUMD7jTLxzUCfi68hmQ73-oqFd5i6SiPhC1gQ/viewform')
 end
 
 test "anyone can click on the 'Inscreva-se já' button and be redirected to the product page at Companies Page" do
   visit companies_path
   click_link "Inscreva-se já!"
   page.driver.browser.switch_to.window (page.driver.browser.window_handles.last)
-  assert_current_path('https://pay.hotmart.com/Y62278856R?checkoutMode=10&bid=1637021147415')
+  assert_current_path('https://docs.google.com/forms/d/e/1FAIpQLSfkHTa1SsLZ1hUMD7jTLxzUCfi68hmQ73-oqFd5i6SiPhC1gQ/viewform')
 end
 ############################ Proposito #######################################
   test "anyone can send an interest message regarding the course Proposito at Services Page" do
