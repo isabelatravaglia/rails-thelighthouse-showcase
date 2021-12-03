@@ -14,45 +14,64 @@ class MessagesTest < ApplicationSystemTestCase
     assert_text "Recebemos sua mensagem! Entraremos em contato brevemente!"
     # save_and_open_screenshot
   end
-  ############################ Lideranca #######################################
-  test "anyone can send an interest message regarding the course Lideranca Inspiradora at Services Page" do
-    visit services_path
-    find('a[data-target="#liderancaContactUsModal"]').click
-    sleep 1.5
-    fill_in "message_name", with: "Testing interest message - Lideranca Inspiradora"
-    fill_in "message_email", with: "testing-lideranca-inspiradora@hotmail.com"
-    fill_in "message_body", with: "Testing interest message - Lideranca Inspiradora"
-    check "message_privacy_policy"
-    click_button "Enviar"
-    assert_text "Recebemos sua mensagem! Entraremos em contato brevemente!"
-    # save_and_open_screenshot
-  end
+  ############################ Lideranca Inspiradora #############################
+  # test "anyone can send an interest message regarding the course Lideranca Inspiradora at Services Page" do
+  #   visit services_path
+  #   find('a[data-target="#liderancaContactUsModal"]').click
+  #   sleep 1.5
+  #   fill_in "message_name", with: "Testing interest message - Lideranca Inspiradora"
+  #   fill_in "message_email", with: "testing-lideranca-inspiradora@hotmail.com"
+  #   fill_in "message_body", with: "Testing interest message - Lideranca Inspiradora"
+  #   check "message_privacy_policy"
+  #   click_button "Enviar"
+  #   assert_text "Recebemos sua mensagem! Entraremos em contato brevemente!"
+  # end
 
-  test "anyone can send an interest message regarding the course Lideranca Inspiradora at Leaders Page" do
-    visit leaders_path
-    find('a[data-target="#liderancaContactUsModal"]').click
-    sleep 1.5
-    fill_in "message_name", with: "Testing interest message - Lideranca Inspiradora"
-    fill_in "message_email", with: "testing-lideranca-inspiradora@hotmail.com"
-    fill_in "message_body", with: "Testing interest message - Lideranca Inspiradora"
-    check "message_privacy_policy"
-    click_button "Enviar"
-    assert_text "Recebemos sua mensagem! Entraremos em contato brevemente!"
-    # save_and_open_screenshot
-  end
+  # test "anyone can send an interest message regarding the course Lideranca Inspiradora at Leaders Page" do
+  #   visit leaders_path
+  #   find('a[data-target="#liderancaContactUsModal"]').click
+  #   sleep 1.5
+  #   fill_in "message_name", with: "Testing interest message - Lideranca Inspiradora"
+  #   fill_in "message_email", with: "testing-lideranca-inspiradora@hotmail.com"
+  #   fill_in "message_body", with: "Testing interest message - Lideranca Inspiradora"
+  #   check "message_privacy_policy"
+  #   click_button "Enviar"
+  #   assert_text "Recebemos sua mensagem! Entraremos em contato brevemente!"
+  # end
 
-  test "anyone can send an interest message regarding the course Lideranca Inspiradora at Companies Page" do
-    visit companies_path
-    find('a[data-target="#liderancaContactUsModal"]').click
-    sleep 1.5
-    fill_in "message_name", with: "Testing interest message - Lideranca Inspiradora"
-    fill_in "message_email", with: "testing-lideranca-inspiradora@hotmail.com"
-    fill_in "message_body", with: "Testing interest message - Lideranca Inspiradora"
-    check "message_privacy_policy"
-    click_button "Enviar"
-    assert_text "Recebemos sua mensagem! Entraremos em contato brevemente!"
-    # save_and_open_screenshot
-  end
+  # test "anyone can send an interest message regarding the course Lideranca Inspiradora at Companies Page" do
+  #   visit companies_path
+  #   find('a[data-target="#liderancaContactUsModal"]').click
+  #   sleep 1.5
+  #   fill_in "message_name", with: "Testing interest message - Lideranca Inspiradora"
+  #   fill_in "message_email", with: "testing-lideranca-inspiradora@hotmail.com"
+  #   fill_in "message_body", with: "Testing interest message - Lideranca Inspiradora"
+  #   check "message_privacy_policy"
+  #   click_button "Enviar"
+  #   assert_text "Recebemos sua mensagem! Entraremos em contato brevemente!"
+  # end
+
+############################ Academia de Liderança #############################
+test "anyone can click on the 'Inscreva-se já' button and be redirected to the product page at Services Page" do
+  visit services_path
+  click_link "Inscreva-se já!"
+  page.driver.browser.switch_to.window (page.driver.browser.window_handles.last)
+  assert_current_path('https://docs.google.com/forms/d/e/1FAIpQLSfkHTa1SsLZ1hUMD7jTLxzUCfi68hmQ73-oqFd5i6SiPhC1gQ/viewform')
+end
+
+test "anyone can click on the 'Inscreva-se já' button and be redirected to the product page at Leaders Page" do
+  visit leaders_path
+  click_link "Inscreva-se já!"
+  page.driver.browser.switch_to.window (page.driver.browser.window_handles.last)
+  assert_current_path('https://docs.google.com/forms/d/e/1FAIpQLSfkHTa1SsLZ1hUMD7jTLxzUCfi68hmQ73-oqFd5i6SiPhC1gQ/viewform')
+end
+
+test "anyone can click on the 'Inscreva-se já' button and be redirected to the product page at Companies Page" do
+  visit companies_path
+  click_link "Inscreva-se já!"
+  page.driver.browser.switch_to.window (page.driver.browser.window_handles.last)
+  assert_current_path('https://docs.google.com/forms/d/e/1FAIpQLSfkHTa1SsLZ1hUMD7jTLxzUCfi68hmQ73-oqFd5i6SiPhC1gQ/viewform')
+end
 ############################ Proposito #######################################
   test "anyone can send an interest message regarding the course Proposito at Services Page" do
     visit services_path
